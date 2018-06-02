@@ -6,6 +6,7 @@ int S_len;
 char S[(int)1e5 + 5];
 long long max_pos;
 vector<int> leftPos, rightPos;
+char header[20];
 
 void precomp() {
 	N = (long long)S_len * K + 1;
@@ -46,6 +47,7 @@ long long solve(long long L, long long R) {
 }
 
 int main(int argc, char** argv) {
+	scanf("%s", header);
 	scanf("%s", S + 1);
 	S_len = strlen(S + 1);
 	int Q;
