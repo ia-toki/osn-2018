@@ -26,13 +26,11 @@ int solve_ways(int left, int pos, int type) {
   // not taking this one
   ret = solve_ways(left, pos-1, 0);
 
-  // start of new k-partition
-  if(type == 0) {
-    ret += solve_ways(left-1, pos-1, 1);
-  }
-  // continue k-partition
-  else {
-    ret += solve_ways(left, pos-1, 1);
+  // start new
+  ret = (ret + solve_ways(left-1, pos-1, 1)) % MOD;
+  // continue from prev
+  if(type == 1) {
+    ret = (ret + solve_ways(left, pos-1, 1)) % MOD;
   }
 
   ret %= MOD;
