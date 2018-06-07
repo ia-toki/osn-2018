@@ -28,7 +28,7 @@ bool buildString(long long A, long long B) {
 }
 
 string getSubstring(long long L, long long R) {
-	if (R >= len) return "OUT OF BOUND";
+	if (R >= len) return "DI LUAR BATAS";
 	
 	string res = "";
 	for (long long i = L; i <= R; i++) {
