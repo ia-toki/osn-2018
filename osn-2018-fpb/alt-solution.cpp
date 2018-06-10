@@ -116,7 +116,7 @@ int solve(int n, int k, const vi &a, const VV<pair<int, pii>> &compressedGcdTabl
     }
   }
   auto query = [&](int l, int r, int k) {
-    return partitionSum[r][k] - (l > 0 ? partitionSum[l - 1][k] : 0);
+    return add(partitionSum[r][k], MOD - (l > 0 ? partitionSum[l - 1][k] : 0));
   };
   int ret = 0;
   for (int i = 0; i < n; i++) {
