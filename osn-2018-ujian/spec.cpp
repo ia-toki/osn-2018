@@ -180,51 +180,70 @@ protected:
 			P={2,3,5,8},
 			A={2,2,1,3,3,2,3,4,4},
 			B={2,1,3,2,3,3,2,4,4}
-		);
+		);	
 	}
 	void TestGroup3() {	//K=N=1
 		Subtasks({3,4,5,7}); string h="...345.7";
 		CASE(HEADER=h,N=K=1,P={1},A={1},B={1});
 	}
 	
-	void TestGroup4() {	//K=N, N<=10
+	void TestGroup4() {	//K=N, N<=10, gak ada garis lurus
+		Subtasks({3,4,6,7}); string h="...34.67";
+		CASE(HEADER=h,N=K=2,P={1,2},A={2,1},B={2,1});
+		
+		for (int i=0;i<2;i++) {
+			CASE(HEADER=h, N=K=rnd.nextInt(8,10),randomP(P,K,N),randomAB(A,B,P,N,K,false));
+			CASE(HEADER=h, N=K=10,randomP(P,K,N),randomAB(A,B,P,N,K,false));
+		}
+	}
+	
+	void TestGroup5() {	//K=N, N<=200k, gak ada garis lurus
+		Subtasks({3,6,7}); string h="...3..67";
+		
+		for (int i=0;i<2;i++) {
+			CASE(HEADER=h, N=K=rnd.nextInt(11,200000),randomP(P,K,N),randomAB(A,B,P,N,K,false));
+			CASE(HEADER=h, N=K=rnd.nextInt(100000,200000),randomP(P,K,N),randomAB(A,B,P,N,K,false));
+			CASE(HEADER=h, N=K=200000,randomP(P,K,N),randomAB(A,B,P,N,K,false));
+		}
+	}
+	
+	void TestGroup6() {	//K=N, N<=10
 		Subtasks({3,4,7}); string h="...34..7";
 		
 		CASE(HEADER=h,N=K=2,P={1,2},A={1,2},B={1,2});
 		CASE(HEADER=h,N=K=2,P={1,2},A={1,2},B={2,1});
 		CASE(HEADER=h,N=K=2,P={1,2},A={2,1},B={1,2});
-		CASE(HEADER=h,N=K=2,P={1,2},A={2,1},B={2,1});
 		
 		CASE(HEADER=h,N=K=rnd.nextInt(3,10),blocksAB(A,B,P,N,K));
 		CASE(HEADER=h,N=K=10,blocksAB(A,B,P,N,K));
 		
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=K=rnd.nextInt(3,10),randomP(P,K,N),randomAB(A,B,N,K));
-			CASE(HEADER=h,N=K=10,randomP(P,K,N),randomAB(A,B,N,K));
+			CASE(HEADER=h,N=K=rnd.nextInt(8,10),randomP(P,K,N),randomAB(A,B,P,N,K));
+			CASE(HEADER=h,N=K=10,randomP(P,K,N),randomAB(A,B,P,N,K));
 		}
 	}
 	
-	void TestGroup5() {	//K=N, N<=200k
+	void TestGroup7() {	//K=N, N<=200k
 		Subtasks({3,7}); string h="...3...7";
 		
 		CASE(HEADER=h,N=K=rnd.nextInt(3,200000),blocksAB(A,B,P,N,K));
 		CASE(HEADER=h,N=K=200000,blocksAB(A,B,P,N,K));
 		
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=K=rnd.nextInt(3,200000),randomP(P,K,N),randomAB(A,B,N,K));
-			CASE(HEADER=h,N=K=200000,randomP(P,K,N),randomAB(A,B,N,K));
+			CASE(HEADER=h,N=K=rnd.nextInt(3,200000),randomP(P,K,N),randomAB(A,B,P,N,K));
+			CASE(HEADER=h,N=K=200000,randomP(P,K,N),randomAB(A,B,P,N,K));
 		}
 	}
 	
-	void TestGroup6() {	//K=1, N<=10
+	void TestGroup8() {	//K=1, N<=10
 		Subtasks({4,5,7}); string h="....45.7";
 		CASE(HEADER=h,N=2,K=1,P={1},A={1,1},B={1,1});
 		CASE(HEADER=h,N=2,K=1,P={2},A={1,1},B={1,1});
 		
 		for (int i=0;i<2;i++) {
 			int temp=rnd.nextInt(3,9);
-			CASE(HEADER=h,N=temp,K=1,randomP(P,K,N),randomAB(A,B,N,K));
-			CASE(HEADER=h,N=temp+1,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+			CASE(HEADER=h,N=temp,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
+			CASE(HEADER=h,N=temp+1,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		}
 		
 		for (int i=0;i<2;i++) {
@@ -233,19 +252,19 @@ protected:
 			CASE(HEADER=h,N=temp+1,K=1,blocksAB(A,B,P,N,K));
 		}
 		
-		CASE(HEADER=h,N=9,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=9,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		CASE(HEADER=h,N=9,K=1,blocksAB(A,B,P,N,K));
-		CASE(HEADER=h,N=10,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=10,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		CASE(HEADER=h,N=10,K=1,blocksAB(A,B,P,N,K));
 		
 	}
 	
-	void TestGroup7() {	//K=1, N<=200k
+	void TestGroup9() {	//K=1, N<=200k
 		Subtasks({5,7}); string h=".....5.7";
 		for (int i=0;i<2;i++) {
 			int temp=rnd.nextInt(3,199999);
-			CASE(HEADER=h,N=temp,K=1,randomP(P,K,N),randomAB(A,B,N,K));
-			CASE(HEADER=h,N=temp+1,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+			CASE(HEADER=h,N=temp,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
+			CASE(HEADER=h,N=temp+1,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		}
 		
 		for (int i=0;i<2;i++) {
@@ -254,13 +273,13 @@ protected:
 			CASE(HEADER=h,N=temp+1,K=1,blocksAB(A,B,P,N,K));
 		}
 		
-		CASE(HEADER=h,N=199999,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=199999,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		CASE(HEADER=h,N=199999,K=1,blocksAB(A,B,P,N,K));
-		CASE(HEADER=h,N=200000,K=1,randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=200000,K=1,randomP(P,K,N),randomAB(A,B,P,N,K));
 		CASE(HEADER=h,N=200000,K=1,blocksAB(A,B,P,N,K));
 	}
 	
-	void TestGroup8() {	//Tidak ada garis lurus, N<=10
+	void TestGroup10() {	//Tidak ada garis lurus, N<=10
 		Subtasks({4,6,7}); string h="....4.67";
 		CASE(HEADER=h,N=4,K=2,P={2,3},A={1,2,1,2},B={1,2,1,2});
 		CASE(HEADER=h,N=7,K=3,P={3,4,5},A={1,1,2,3,2,3,3},B={3,3,2,1,2,3,1});
@@ -270,9 +289,11 @@ protected:
 		for (int i=0;i<2;i++) {
 			CASE(HEADER=h,N=10,generateAll(A,B,P,K,N,false,false));
 		}
+		CASE(HEADER=h,N=10,K=rnd.nextInt(2,9),randomP(P,K,N),randomAB(A,B,P,N,K,false));
+		CASE(HEADER=h,N=10,K=rnd.nextInt(2,9),randomP(P,K,N),randomAB(A,B,P,N,K,false));
 	}
 	
-	void TestGroup9() {	//Tidak ada garis lurus, N<=200k
+	void TestGroup11() {	//Tidak ada garis lurus, N<=200k
 		Subtasks({6,7}); string h="......67";
 		for (int i=0;i<5;i++) {
 			CASE(HEADER=h,N=rnd.nextInt(10,200000),generateAll(A,B,P,K,N,false));
@@ -282,63 +303,65 @@ protected:
 			CASE(HEADER=h,N=rnd.nextInt(10,200000),generateAll(A,B,P,K,N,false,false));
 			CASE(HEADER=h,N=200000,generateAll(A,B,P,K,N,false,false));
 		}
+		CASE(HEADER=h,N=rnd.nextInt(100000,200000),K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K,false));
+		CASE(HEADER=h,N=200000,K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K,false));
 	}
 	
-	void TestGroup10() {	//N<=10
+	void TestGroup12() {	//N<=10
 		Subtasks({4,7}); string h="....4..7";
 		
 		for (int i=0;i<5;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,10),generateAll(A,B,P,K,N));
+			CASE(HEADER=h,N=rnd.nextInt(7,10),generateAll(A,B,P,K,N));
 			CASE(HEADER=h,N=10,generateAll(A,B,P,K,N));
 		}
 		
-		for (int i=0;i<3;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,10),K=rnd.nextInt(3,N),blocksAB(A,B,P,N,K));
-			CASE(HEADER=h,N=10,K=rnd.nextInt(3,N),blocksAB(A,B,P,N,K));
+		for (int i=0;i<5;i++) {
+			CASE(HEADER=h,N=rnd.nextInt(3,10),K=rnd.nextInt(2,N-1),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=10,K=rnd.nextInt(2,N-1),blocksAB(A,B,P,N,K));
 		}
 		
-		CASE(HEADER=h,N=rnd.nextInt(3,10),K=rnd.nextInt(2,N),randomP(P,K,N),randomAB(A,B,N,K));
-		CASE(HEADER=h,N=10,K=rnd.nextInt(2,N),randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=rnd.nextInt(5,10),K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K));
+		CASE(HEADER=h,N=10,K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K));
 	}
 	
-	void TestGroup11() {	//N<=200k
+	void TestGroup13() {	//N<=200k
 		Subtasks({7}); string h=".......7";
 		for (int i=0;i<10;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),generateAll(A,B,P,K,N));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),generateAll(A,B,P,K,N));
 			CASE(HEADER=h,N=200000,generateAll(A,B,P,K,N));
 		}
 		for (int i=0;i<10;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,N),blocksAB(A,B,P,N,K));
-			CASE(HEADER=h,N=200000,K=rnd.nextInt(2,N),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,N),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=200000,K=rnd.nextInt(2,N-1),blocksAB(A,B,P,N,K));
 		}
 		//K<=5
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,min(5,N)),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,min(5,N-1)),blocksAB(A,B,P,N,K));
 			CASE(HEADER=h,N=200000,K=5,blocksAB(A,B,P,N,K));
 		}
 		//K<=25
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,min(25,N)),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,min(25,N-1)),blocksAB(A,B,P,N,K));
 			CASE(HEADER=h,N=200000,K=25,blocksAB(A,B,P,N,K));
 		}
 		//K<=625
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,min(625,N)),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,min(625,N-1)),blocksAB(A,B,P,N,K));
 			CASE(HEADER=h,N=200000,K=625,blocksAB(A,B,P,N,K));
 		}
 		//K<=200k
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,N),blocksAB(A,B,P,N,K));
-			CASE(HEADER=h,N=200000,K=rnd.nextInt(100000,N),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,N-1),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=200000,K=rnd.nextInt(100000,N-1),blocksAB(A,B,P,N,K));
 			CASE(HEADER=h,N=200000,K=100000,blocksAB(A,B,P,N,K));
 		}
 		//N>=100k
 		for (int i=0;i<2;i++) {
-			CASE(HEADER=h,N=rnd.nextInt(100000,200000),K=rnd.nextInt(2,N),blocksAB(A,B,P,N,K));
+			CASE(HEADER=h,N=rnd.nextInt(100000,200000),K=rnd.nextInt(2,N-1),blocksAB(A,B,P,N,K));
 			CASE(HEADER=h,N=rnd.nextInt(100000,200000),generateAll(A,B,P,K,N));
 		}
-		CASE(HEADER=h,N=rnd.nextInt(3,200000),K=rnd.nextInt(2,N),randomP(P,K,N),randomAB(A,B,N,K));
-		CASE(HEADER=h,N=200000,K=rnd.nextInt(2,N),randomP(P,K,N),randomAB(A,B,N,K));
+		CASE(HEADER=h,N=rnd.nextInt(11,200000),K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K));
+		CASE(HEADER=h,N=200000,K=rnd.nextInt(2,N-1),randomP(P,K,N),randomAB(A,B,P,N,K));
 	}
 private:
 	void randomP(vector<int> &V,int k,int n) {
@@ -348,8 +371,7 @@ private:
 		rnd.shuffle(temp.begin(),temp.end());
 		for (int i=0;i<k;i++) V.push_back(temp[i]);
 	}
-	void randomAB(vector<int> &A,vector<int> &B,int n,int k) {	
-		//Totally random, dibuang gpp krn udah ada generateAll(solutionExists=false)
+	void randomAB(vector<int> &A,vector<int> &B,vector<int> &P,int n,int k,bool garisLurus=true) {	
 		A.clear(); B.clear();
 		vector<int> temp;
 		for (int i=1;i<=k;i++) temp.push_back(i);
@@ -361,7 +383,43 @@ private:
 			}
 		}
 		rnd.shuffle(A.begin(),A.end());
-		B=A; rnd.shuffle(B.begin(),B.end());
+		B=A;
+		if (garisLurus)  {
+			while (true) {
+				bool cek=false;
+				for (int i=0;i<n;i++) if (P[A[i]-1]-1==i) {
+					cek=true; break;
+				}
+				if (!cek) rnd.shuffle(A.begin(),A.end());
+				else break;
+			}
+			while (true) {
+				bool cek=false;
+				for (int i=0;i<n;i++) if (P[B[i]-1]-1==i) {
+					cek=true; break;
+				}
+				if (!cek) rnd.shuffle(B.begin(),B.end());
+				else break;
+			}
+		}
+		else {
+			while (true) {
+				bool cek=false;
+				for (int i=0;i<n;i++) if (P[A[i]-1]-1==i) {
+					cek=true; break;
+				}
+				if (cek) rnd.shuffle(A.begin(),A.end());
+				else break;
+			}
+			while (true) {
+				bool cek=false;
+				for (int i=0;i<n;i++) if (P[B[i]-1]-1==i) {
+					cek=true; break;
+				}
+				if (cek) rnd.shuffle(B.begin(),B.end());
+				else break;
+			}
+		}
 	}
 	void reindexing(vector<int> &P,vector<int> &A,vector<int> &B) {	//Zero based
 		vector<int> conv=P; rnd.shuffle(conv.begin(),conv.end());
@@ -437,6 +495,7 @@ private:
 				b=getRandomElementInSet(0,*it,tempB,false);
 				if (garisLurus) p=rnd.nextInt(0,n-1);
 				else p=rnd.nextInt(1,n-2);
+				if (tempP.size()==1 && tempP.count(p)) continue;
 				if (solutionExists && validAssign(i,p,b,garisLurus)) break;
 				if (!solutionExists && (garisLurus || (p!=i && p!=b))) break;
 			}
