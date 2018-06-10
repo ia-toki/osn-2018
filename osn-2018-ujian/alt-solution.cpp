@@ -25,16 +25,31 @@ void precomp() {
 }
 
 long long solve(int lt, int lb, int rt, int rb) {
+	long long ret;
 	if(lt == rb && lb == rt) {
-		return (fact[lt] * fact[lb]) % MOD;
+		ret = (fact[lt] * fact[lb]) % MOD;
 	}
-	return 0;
+	else {
+		ret = 0;
+	}
+	// cout << "->" << ret;
+	return ret;
+}
+
+long long inv(long long inp) {
+	return ((MOD + 1) / inp) % MOD;
 }
 
 long long solveBig(int la, int lb, int lc, int ra, int rb, int rc) {
-	return (solve(la, lb + lc, ra, rb + rc) + solve(la, lb + lc, ra + rb, rc) +
-			solve(la + lb, lc, ra, rb + rc) + solve(la + lb, lc, ra + rb, rc) -
-			solve(la, lc, ra, rc) + MOD) % MOD;
+	// cout << la << " " << lb << " " << lc << " " << ra << " " << rb << " " << rc << "\n";
+	long long dup = 1 << (2 - lb - rb);
+	// cout << " " << dup << "\n";
+	long long ret =  (((
+		solve(la, lb + lc, ra, rb + rc) + solve(la, lb + lc, ra + rb, rc) +
+		solve(la + lb, lc, ra, rb + rc) + solve(la + lb, lc, ra + rb, rc)) % MOD) * inv(dup)) % MOD;
+	ret = (ret - solve(la, lc, ra, rc) * (lb & rb) + MOD) % MOD;
+	// cout << " ==> " << ret << "\n";
+	return ret;
 }
 
 int main(int argc, char** argv) {
