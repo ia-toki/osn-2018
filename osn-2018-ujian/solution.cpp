@@ -51,7 +51,7 @@ ll hitung(int cur) {
 
 int main() {
 	prework();
-	//cin>>header;
+	cin>>header;
 	cin>>n>>k;
 	memset(lm,false,sizeof lm);
 	memset(rm,false,sizeof rm);
