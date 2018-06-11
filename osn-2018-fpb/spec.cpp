@@ -42,9 +42,9 @@ class ProblemSpec : public BaseProblemSpec {
     // Points(9);
 
     CONS(HEADER[2] == '2');
-    CONS(N == 8);
-    CONS(K == 2);
-    CONS(A == vector<int>({80, 48, 30, 45, 63, 21, 39, 16}));
+    CONS(N == 9);
+    CONS(K == 3);
+    CONS(A == vector<int>({1, 1, 1, 1, 1, 1, 1, 1, 1}));
   }
 
   void Subtask3() {
@@ -141,13 +141,13 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
   // open tc 2
   void TestGroup2() {
-    Subtasks({2, 3, 5, 6, 9});
+    Subtasks({2, 3, 6, 8, 9});
 
-    string header = "..23.56..9";
+    string header = "..23..6.89";
     CASE(HEADER = header,
-         N = 8,
-         K = 2,
-         A = {80, 48, 30, 45, 63, 21, 39, 16});
+         N = 9,
+         K = 3,
+         A = {1, 1, 1, 1, 1, 1, 1, 1, 1});
   }
 
   // N <= 10, K = 1, A_i same
