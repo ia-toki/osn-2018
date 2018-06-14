@@ -192,6 +192,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     string header = "...3..6.89";
 
+    CASE(N = 10, K = 5, A = randomSameArray(N, MAX_VAL));
     generateSameValuedCases(header, 3, 10, 3, 10);
   }
 
@@ -314,12 +315,17 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER = header,
          N = maxN,
          K = rnd.nextInt(minK, maxK),
-         A = funnyWorstRange(N, 2));
+         A = funnyWorstRange(N, 2, false));
+    
+    CASE(HEADER = header,
+         N = maxN,
+         K = rnd.nextInt(minK, maxK),
+         A = funnyWorstRange(N, 2, true));
 
     CASE(HEADER = header,
          N = maxN,
          K = rnd.nextInt(minK, maxK),
-         A = funnyWorstRange(N, rnd.nextInt(2, 20)));
+         A = funnyWorstRange(N, rnd.nextInt(2, 20), rnd.nextInt(2)));
     // end min max cases
 
     // pattern cases
@@ -464,7 +470,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
   // start of pattern array generators
 
-  vector<int> funnyWorstRange(int n, int factor) {
+  vector<int> funnyWorstRange(int n, int factor, int rev) {
     vector<int> ret;
     
     int cur = 1;
@@ -478,7 +484,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
       ret.push_back(cur);
     }
 
-    if(rnd.nextInt(2)) {
+    if(rev) {
       reverse(ret.begin(), ret.end());
     }
 
