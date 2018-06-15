@@ -16,7 +16,7 @@ class ProblemSpec : public BaseProblemSpec {
   vector<long long> L, R;
         
   void InputFormat() {
-    LINE(header)
+    LINE(header);
     LINE(A, B, Q);
     LINES(L, R) % SIZE(Q);
   }
@@ -31,6 +31,7 @@ class ProblemSpec : public BaseProblemSpec {
 
   void Constraints() {
     CONS(static_cast<int>(header.size()) == 9);
+    CONS(A + B > 0);
     CONS(0 <= A && A <= TEN<15>);
     CONS(0 <= B && B <= TEN<15>);
     CONS(0 <= Q && Q <= 20000);
@@ -42,14 +43,14 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask1() {
     CONS(header == ".1..456.8");
     CONS(A == 3 && B == 9 && Q == 1);
-    CONS(L == vi{1} && R == vi{4});
+    CONS(L == vector<long long>({1}) && R == vector<long long>({4}));
   }
 
   void Subtask2() {
     CONS(header == "..2..56.8");
     CONS(A == 25 && B == 3 && Q == 4);
-    CONS(L == vi{0, 0, 0, 0});
-    CONS(R == vi{7, 8, 9, 10});
+    CONS(L == vector<long long>({0, 0, 0, 0}));
+    CONS(R == vector<long long>({7, 8, 9, 10}));
   }
 
   void Subtask3() {
@@ -114,16 +115,16 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   long long stringLength_; 
 
   void SampleTestCase1() {
-    Subtasks({5, 6, 7});
+    Subtasks({5, 6, 8});
 
-    Input({".....567.", "5 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Input({"0....56.8", "5 2 4", "0 3", "1 2", "3 3", "0 4"});
     Output({"MUNGKIN", "1101", "10", "1", "DI LUAR BATAS"});
   }
 
   void SampleTestCase2() {
-    Subtasks({5, 6, 7});
+    Subtasks({5, 6, 8});
 
-    Input({".....567.", "3 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Input({"0....56.8", "3 2 4", "0 3", "1 2", "3 3", "0 4"});
     Output({"TIDAK MUNGKIN"});
   }
 
@@ -133,7 +134,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
   // 1 <= A + B <= 8, Q = 1
   void TestGroup1() {
-    Subtasks({3, 4, 5, 6, 7});
+    Subtasks({3, 4, 5, 6, 8});
     const string curHeader = "...34567.";
 
     CASE(header=curHeader, A = 1; B = 0; Q = 1; L = {0}; R = {0});
@@ -154,8 +155,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
   // 9 <= A + B <= 18, Q = 1
   void TestGroup2() {
-    Subtasks({4, 5, 6, 7});
-    const string curHeader = "....4567.";
+    Subtasks({4, 5, 6, 8});
+    const string curHeader = "....456.8";
 
     CASE(header=curHeader, convertSum("10011", A, B, 18); Q = 1; L = {0}; R = {4});
     CASE(header=curHeader, A = 1; B = 17; Q = 1; L = {0}; R = {17});
@@ -266,13 +267,19 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   }
 
   void TestGroup9() {
+    Subtasks({1, 4, 5, 6, 8});
+
     const string curHeader = ".1..456.8";
-    CONS(header=curHeader, A = 3; B = 9; Q = 1; L = {1}; R = {4});
+
+    CASE(header=curHeader, A = 3; B = 9; Q = 1; L = {1}; R = {4});
   }
 
   void TestGroup10() {
+    Subtasks({2, 5, 6, 8});
+
     const string curHeader = "..2..56.8";
-    CONS(header = curHeader, A = 25; B = 3; Q = 4;
+
+    CASE(header = curHeader, A = 25; B = 3; Q = 4;
          L = {0, 0, 0, 0}, R = {7, 8, 9, 10});
   }
 
