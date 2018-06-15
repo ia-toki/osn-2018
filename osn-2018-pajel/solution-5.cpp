@@ -52,7 +52,7 @@ void fill_0() {
 void fill_M() {
 	// UP
 	for(int j = 0; j < N; j++) {
-		if(UP[j] != "-") {
+		if(UP[j] != "-" && UP[j] != "0") {
 			int i = getIdx(UP[j]) - 1;
 			for(int i1 = 0; i1 < i; i1++) {
 				ar[i1][j] = '-';
@@ -63,7 +63,7 @@ void fill_M() {
 
 	// DOWN
 	for(int j = 0; j < N; j++) {
-		if(DOWN[j] != "-") {
+		if(DOWN[j] != "-" && DOWN[j] != "0") {
 			int i = N - getIdx(DOWN[j]);
 			for(int i1 = N - 1; i1 > i; i1--) {
 				ar[i1][j] = '-';
@@ -74,7 +74,7 @@ void fill_M() {
 
 	// LEFT
 	for(int i = 0; i < N; i++) {
-		if(LEFT[i] != "-") {
+		if(LEFT[i] != "-" && LEFT[i] != "0") {
 			int j = getIdx(LEFT[i]) - 1;
 			for(int j1 = 0; j1 < j; j1++) {
 				ar[i][j1] = '-';
@@ -85,7 +85,7 @@ void fill_M() {
 
 	// RIGHT
 	for(int i = 0; i < N; i++) {
-		if(RIGHT[i] != "-") {
+		if(RIGHT[i] != "-" && RIGHT[i] != "0") {
 			int j = N - getIdx(RIGHT[i]);
 			for(int j1 = N - 1; j1 > j; j1--) {
 				ar[i][j1] = '-';
