@@ -142,12 +142,12 @@ Consists of only the following test case:
 
 #### Subtask 3: 
 
-- 0 ≤ A + B ≤ 8
+- A + B ≤ 8
 - Q = 1
 
 #### Subtask 4:
 
-- 0 ≤ A + B ≤ 18
+- A + B ≤ 18
 - Q = 1
 
 #### Subtask 5:

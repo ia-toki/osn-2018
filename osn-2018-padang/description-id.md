@@ -138,12 +138,12 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 3: 
 
-- 0 ≤ A + B ≤ 8
+- A + B ≤ 8
 - Q = 1
 
 #### Subsoal 4:
 
-- 0 ≤ A + B ≤ 18
+- A + B ≤ 18
 - Q = 1
 
 #### Subsoal 5:
