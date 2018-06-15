@@ -116,13 +116,15 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void SampleTestCase1() {
     Subtasks({5, 6, 7});
 
-    Input({"5 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Input({".....567.", "5 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Output({"MUNGKIN", "1101", "10", "1", "DI LUAR BATAS"});
   }
 
   void SampleTestCase2() {
     Subtasks({5, 6, 7});
 
-    Input({"3 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Input({".....567.", "3 2 4", "0 3", "1 2", "3 3", "0 4"});
+    Output({"TIDAK MUNGKIN"});
   }
 
   void BeforeTestCase() {
@@ -132,36 +134,40 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   // 1 <= A + B <= 8, Q = 1
   void TestGroup1() {
     Subtasks({3, 4, 5, 6, 7});
-    CASE(A = 1; B = 0; Q = 1; L = {0}; R = {0});
-    CASE(A = 1; B = 0; Q = 1; L = {1}; R = {1});
-    CASE(A = 0; B = 1; Q = 1; L = {0}; R = {2});
-    CASE(A = 1; B = 1; Q = 1; L = {0}; R = {2});
-    CASE(A = 1; B = 7; Q = 1; L = {0}; R = {7});
-    CASE(A = 1; B = 7; Q = 1; L = {0}; R = {8});
-    CASE(A = 8; B = 0; Q = 1; L = {0}; R = {7});
-    CASE(A = 8; B = 0; Q = 1; L = {0}; R = {8});
-    CASE(convertSum("1001", A, B, 8); Q = 1; L = {0}; R = {3});
-    CASE(convertSum("10001", A, B, 8); Q = 1; L = {0}; R = {4});
+    const string curHeader = "...34567.";
+
+    CASE(header=curHeader, A = 1; B = 0; Q = 1; L = {0}; R = {0});
+    CASE(header=curHeader, A = 1; B = 0; Q = 1; L = {1}; R = {1});
+    CASE(header=curHeader, A = 0; B = 1; Q = 1; L = {0}; R = {2});
+    CASE(header=curHeader, A = 1; B = 1; Q = 1; L = {0}; R = {2});
+    CASE(header=curHeader, A = 1; B = 7; Q = 1; L = {0}; R = {7});
+    CASE(header=curHeader, A = 1; B = 7; Q = 1; L = {0}; R = {8});
+    CASE(header=curHeader, A = 8; B = 0; Q = 1; L = {0}; R = {7});
+    CASE(header=curHeader, A = 8; B = 0; Q = 1; L = {0}; R = {8});
+    CASE(header=curHeader, convertSum("1001", A, B, 8); Q = 1; L = {0}; R = {3});
+    CASE(header=curHeader, convertSum("10001", A, B, 8); Q = 1; L = {0}; R = {4});
 
     for (int i = 0; i < 3; i++) {
-      CASE(A = rnd.nextInt(0, 8); B = rnd.nextInt(0, 8 - A); Q = 1; L = {0}; R = {0});
+      CASE(header=curHeader, A = rnd.nextInt(0, 8); B = rnd.nextInt(0, 8 - A); Q = 1; L = {0}; R = {0});
     }
   }
 
   // 9 <= A + B <= 18, Q = 1
   void TestGroup2() {
     Subtasks({4, 5, 6, 7});
-    CASE(convertSum("10011", A, B, 18); Q = 1; L = {0}; R = {4});
-    CASE(A = 1; B = 17; Q = 1; L = {0}; R = {17});
-    CASE(A = 18; B = 0; Q = 1; L = {0}; R = {17});
-    CASE(A = 2; B = 16; Q = 1; L = {0}; R = {9});
-    CASE(A = 8; B = 8; Q = 1; L = {0}; R = {7});
+    const string curHeader = "....4567.";
+
+    CASE(header=curHeader, convertSum("10011", A, B, 18); Q = 1; L = {0}; R = {4});
+    CASE(header=curHeader, A = 1; B = 17; Q = 1; L = {0}; R = {17});
+    CASE(header=curHeader, A = 18; B = 0; Q = 1; L = {0}; R = {17});
+    CASE(header=curHeader, A = 2; B = 16; Q = 1; L = {0}; R = {9});
+    CASE(header=curHeader, A = 8; B = 8; Q = 1; L = {0}; R = {7});
 
     for (int i = 0; i < 3; i++) {
-      CASE(A = rnd.nextInt(0, 18); B = rnd.nextInt(0, 18 - A); Q = 1; L = {0}; R = {0});
+      CASE(header=curHeader, A = rnd.nextInt(0, 18); B = rnd.nextInt(0, 18 - A); Q = 1; L = {0}; R = {0});
     }
     for (int i = 0; i < 3; i++) {
-      CASE(A = rnd.nextInt(0, 17); B = rnd.nextInt(0, 17 - A); Q = 1; L = {0}; R = {0});
+      CASE(header=curHeader, A = rnd.nextInt(0, 17); B = rnd.nextInt(0, 17 - A); Q = 1; L = {0}; R = {0});
     }
   }
 
@@ -169,13 +175,15 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void TestGroup3() {
     Subtasks({5, 6, 7, 8});
 
-    CASE(A = 0; B = 2000; Q = 0);
-    CASE(A = 2000; B = 0; Q = 0);
+    const string curHeader = ".....5678";
+
+    CASE(header=curHeader, A = 0; B = 2000; Q = 0);
+    CASE(header=curHeader, A = 2000; B = 0; Q = 0);
     for (int i = 0; i < 10; i++) {
-      CASE(tryGenerateSmall(A, B, 2000); Q = 0);
+      CASE(header=curHeader, tryGenerateSmall(A, B, 2000); Q = 0);
     }
     for (int i = 0; i < 10; i++) {
-      CASE(A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); Q = 0);
+      CASE(header=curHeader, A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); Q = 0);
     }
   }
 
@@ -183,24 +191,29 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void TestGroup4() {
     Subtasks({6, 7, 8});
 
-    CASE(A = 0; B = 1000000; Q = 0);
-    CASE(A = 1000000; B = 0; Q = 0);
+    const string curHeader = "......678";
+
+    CASE(header=curHeader, A = 0; B = 1000000; Q = 0);
+    CASE(header=curHeader, A = 1000000; B = 0; Q = 0);
     for (int i = 0; i < 5; i++) {
-      CASE(tryGenerateSmall(A, B, 1000000); Q = 0);
+      CASE(header=curHeader, tryGenerateSmall(A, B, 1000000); Q = 0);
     }
     for (int i = 0; i < 10; i++) {
-      CASE(A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); Q = 0);
+      CASE(header=curHeader, A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); Q = 0);
     }
   }
 
   // 1e6 + 1 <= A, B <= 1e15, Q = 0
   void TestGroup5() {
     Subtasks({7, 8});
+
+    const string curHeader = ".......78";
+    
     for (int i = 0; i < 5; i++) {
-      CASE(tryGenerateLarge(A, B, TEN<15>); Q = 0);
+      CASE(header=curHeader, tryGenerateLarge(A, B, TEN<15>); Q = 0);
     }
     for (int i = 0; i < 5; i++) {
-      CASE(A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); Q = 0);
+      CASE(header=curHeader, A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); Q = 0);
     }
   }
 
@@ -208,42 +221,61 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void TestGroup6() {
     Subtasks({5, 6, 8});
 
+    const string curHeader = ".....56.8";
+
     for (int i = 0; i < 10; i++) {
-      CASE(stringLength_ = tryGenerateSmall(A, B, 2000); generateGT1Queries(stringLength_));
+      CASE(header=curHeader, stringLength_ = tryGenerateSmall(A, B, 2000); generateGT1Queries(stringLength_));
     }
-    CASE(stringLength_ = tryGenerateSmall(A, B, 2000); generateGT1Queries(stringLength_, false));
+    CASE(header=curHeader, stringLength_ = tryGenerateSmall(A, B, 2000); generateGT1Queries(stringLength_, false));
     for (int i = 0; i < 10; i++) {
-      CASE(A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); generateGT1Queries(rnd.nextLongLong(TEN<2>, TEN<3>)));
+      CASE(header=curHeader, A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); generateGT1Queries(rnd.nextLongLong(TEN<2>, TEN<3>)));
     }
-    CASE(A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); generateGT1Queries(rnd.nextLongLong(TEN<2>, TEN<3>), false));
+    CASE(header=curHeader, A = rnd.nextInt(0, 2000); B = rnd.nextInt(0, 2000); generateGT1Queries(rnd.nextLongLong(TEN<2>, TEN<3>), false));
   }
 
   // 2001 <= A, B <= 1e6, Q > 1
   void TestGroup7() {
     Subtasks({6, 8});
 
+    const string curHeader = "......6.8";
+
     for (int i = 0; i < 5; i++) {
-      CASE(stringLength_ = tryGenerateSmall(A, B, 1000000); generateGT1Queries(stringLength_));
+      CASE(header=curHeader, stringLength_ = tryGenerateSmall(A, B, 1000000); generateGT1Queries(stringLength_));
     }
-    CASE(stringLength_ = tryGenerateSmall(A, B, 1000000); generateGT1Queries(stringLength_, false));
+    CASE(header=curHeader, stringLength_ = tryGenerateSmall(A, B, 1000000); generateGT1Queries(stringLength_, false));
     for (int i = 0; i < 10; i++) {
-      CASE(A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); generateGT1Queries(rnd.nextLongLong(TEN<5>, TEN<6>)));
+      CASE(header=curHeader, A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); generateGT1Queries(rnd.nextLongLong(TEN<5>, TEN<6>)));
     }
-    CASE(A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); generateGT1Queries(rnd.nextLongLong(TEN<5>, TEN<6>), false));
+    CASE(header=curHeader, A = rnd.nextInt(0, 1000000); B = rnd.nextInt(0, 1000000); generateGT1Queries(rnd.nextLongLong(TEN<5>, TEN<6>), false));
   }
 
   // 1e6 + 1 <= A, B <= 1e15, Q > 1
   void TestGroup8() {
     Subtasks({8});
+
+    const string curHeader = "........8";
+
     for (int i = 0; i < 5; i++) {
-      CASE(stringLength_ = tryGenerateLarge(A, B, TEN<15>); generateGT1Queries(stringLength_));
+      CASE(header=curHeader, stringLength_ = tryGenerateLarge(A, B, TEN<15>); generateGT1Queries(stringLength_));
     }
-    CASE(stringLength_ = tryGenerateLarge(A, B, TEN<15>); generateGT1Queries(stringLength_, false));
+    CASE(header=curHeader, stringLength_ = tryGenerateLarge(A, B, TEN<15>); generateGT1Queries(stringLength_, false));
     for (int i = 0; i < 5; i++) {
-      CASE(A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); generateGT1Queries(rnd.nextLongLong(TEN<14>, TEN<16> - 1)));
+      CASE(header=curHeader, A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); generateGT1Queries(rnd.nextLongLong(TEN<14>, TEN<16> - 1)));
     }
-    CASE(A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); generateGT1Queries(rnd.nextLongLong(TEN<14>, TEN<16> - 1), false));
+    CASE(header=curHeader, A = rnd.nextLongLong(TEN<6> + 1, TEN<15>); B = rnd.nextLongLong(TEN<6> + 1, TEN<15>); generateGT1Queries(rnd.nextLongLong(TEN<14>, TEN<16> - 1), false));
   }
+
+  void TestGroup9() {
+    const string curHeader = ".1..456.8";
+    CONS(header=curHeader, A = 3; B = 9; Q = 1; L = {1}; R = {4});
+  }
+
+  void TestGroup10() {
+    const string curHeader = "..2..56.8";
+    CONS(header = curHeader, A = 25; B = 3; Q = 4;
+         L = {0, 0, 0, 0}, R = {7, 8, 9, 10});
+  }
+
  private:
 
   void convertSum(const string &s, long long &A, long long &B, int sumLimit) {
