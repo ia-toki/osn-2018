@@ -97,8 +97,9 @@ For all subtasks
 - 1 ≤ H[i] ≤ N
 - All values of H[i] are different.
 - 1 ≤ A[i], B[i] ≤ K
-- A[i] contains are numbers from 1 to K.
-- B[i] is a permutation of A[i].
+- A[i] contains all numbers from 1 to K.
+- B[i] contains all numbers from 1 to K.
+- For each skybridge, the number of connected levels in the old building, is equal to the number of connected levels in the new building.
 
 #### Subtask 1:
 

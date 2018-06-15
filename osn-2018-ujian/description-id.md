@@ -98,7 +98,8 @@ Untuk semua subsoal, berlaku:
 - Nilai-nilai H[i] berbeda-beda.
 - 1 ≤ A[i], B[i] ≤ K
 - A[i] mengandung setiap bilangan dari 1 hingga K.
-- B[i] merupakan permutasi dari A[i].
+- B[i] mengandung setiap bilangan dari 1 hingga K.
+- Untuk setiap jembatan layang, banyaknya lantai di gedung lama yang terhubung, sama dengan banyaknya lantai di gedung baru yang terhubung.
 
 #### Subsoal 1:
 
