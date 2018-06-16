@@ -159,7 +159,7 @@ void fill() {
 			else if(cnt[(int)'B'][rot] == 0 && cnt[(int)'M'][rot] == 0) {
 				ar[i][j] = '-';
 			}
-			else if(cnt[(int)'B'][rot] < cnt[(int)'M'][rot]) {
+			else if(cnt[(int)'B'][rot] > cnt[(int)'M'][rot]) {
 				ar[i][j] = 'B';
 			}
 			else {
