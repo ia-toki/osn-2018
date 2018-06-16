@@ -4,7 +4,7 @@ using namespace std;
 #define right is_right
 #define left is_left
 
-int n, p, regions;
+int n, p, q;
 char up[507][7], down[507][7], left[507][7], right[507][7];
 char ans[507][507];
 
@@ -13,9 +13,9 @@ void die() {
     exit(0);
 }
 
-void live(double points) {
+void live(int points) {
     printf("OK\n");
-    printf("%.2lf\n", points);
+    printf("%d\n", points);
     exit(0);
 }
 
@@ -134,13 +134,18 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (ans[i][j] != '-') {
-                regions++;
+                q++;
                 flood(i, j, ans[i][j]);
             }
         }
     }
 
-    // TODO: Compute points
-    double points = 10.0 * p / regions;
+    // Compute points
+    int points;
+
+    if (q < p) points = 11;
+    else if (q == p) points = 10;
+    else if (1 <= q - p && q - p <= 40) points = 10 - sqrt(2 * (q - p));
+    else if (q - p > 40) points = 0;
     live(points);
 }
