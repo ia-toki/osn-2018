@@ -62,6 +62,10 @@ Sebuah baris berisi banyaknya permutasi yang memenuhi syarat, modulo  1.000.000.
 
 Terdapat 6 lantai, dan 1 jembatan layang yang terletak pada ketinggian lantai 3. Setiap lantai di gedung lama maupun gedung baru, terhubung pada jembatan.
 
+Contoh ini diilustrasikan oleh gambar berikut. Gedung sebelah kiri adalah gedung lama, sedangkan yang sebelah kanan adalah gedung baru.
+
+[ujian_1.png]
+
 Menurut aturan yang diberikan, maka:
 
 - Lantai 1 di gedung lama hanya bisa direlokasi ke lantai 3, 4, 5, atau 6 di gedung baru.
@@ -86,6 +90,10 @@ Perhatikan bahwa lantai-lantai 4, 5, dan 6 di gedung lama pasti direlokasi ke la
     0
 
 ### Penjelasan Contoh 2
+
+Contoh ini diilustrasikan oleh gambar berikut.
+
+[ujian_2.png]
 
 Perhatikan bahwa lantai 2 di gedung lama terhubung pada jembatan yang berada pada ketinggian lantai 1 (lantai lebih tinggi daripada jembatan), namun hanya lantai 3 dan 5 di gedung baru yang terhubung pada jembatan tersebut (yang juga lebih tinggi daripada jembatan). Pada kasus ini, lantai 2 tidak dapat direlokasi ke manapun tanpa melanggar aturan yang diberikan, sehingga tidak ada permutasi yang mungkin.
 

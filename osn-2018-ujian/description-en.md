@@ -62,6 +62,10 @@ A single line consisting of the number of possible permutations, modulo 1.000.00
 
 There are 6 levels, and 1 skybridge located at the height of level 3. Each level in both old and new buildings is connected to the skybridge.
 
+This sample is illustrated by the following image. The left building represents the old building, while the right one represent the new building.
+
+[ujian_1.png]
+
 According to the restrictions:
 
 - Level 1 in the old building can only be relocated to levels 3, 4, 5, or 6 in the new building.
@@ -86,6 +90,10 @@ Notice that levels 4, 5, and 6 in the old buildings must be relocated to levels 
     0
 
 ### Explanation of Sample 2
+
+This sample is illustrated by the following image.
+
+[ujian_2.png]
 
 Notice that level 2 in the old building is connected to a skybridge at the height of level 1 (the level is higher than the skybridge), but only levels 3 and 5 in the new building are connected to the skybridge (which are also higher than the skybridge). In this case, level 2 cannot be relocated anywhere without violating the restrictions. Thus, there is no possible permutation.
 
