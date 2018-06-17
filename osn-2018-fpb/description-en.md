@@ -4,7 +4,12 @@
 
 At a small village in Padang, there are N houses lined up in a row. The i-th house consists of A[i] family members.
 
-To increase the village income, the mayor is organizing a program called "GCD Festival". Every day, the mayor will pick one or more houses, then split them into exactly K groups in such a way that two consecutive houses are considered to be in the same group. Then, each group will donate an amount that equals to the greatest common divisor (GCD) of the number of family members in every house in that group.
+To increase the village income, the mayor is organizing a program called "GCD Festival". Every day, the mayor will pick one or more houses, then split them into exactly K groups in such a way that:
+
+- Each house belongs to at most one group.
+- All houses in a group are consecutive, not interleaved by any house not in that group.
+
+Then, each group will donate an amount that equals to the greatest common divisor (GCD) of the number of family members in every house in that group.
 
 The mayor will always choose a different way of choosing K groups every day. The festival is over when all possible ways have occurred.
 

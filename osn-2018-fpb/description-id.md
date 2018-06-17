@@ -4,7 +4,12 @@
 
 Di sebuah desa kecil di Padang, terdapat N rumah yang berjajar bersebelahan membentuk sebuah garis lurus. Rumah ke-i memiliki A[i] anggota keluarga.
 
-Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festival FPB". Setiap harinya, kepala desa akan memilih satu atau lebih rumah, lalu membaginya ke dalam tepat K buah kelompok sedemikian sehingga dua rumah yang bersebelahan dianggap termasuk dalam kelompok yang sama. Kemudian, setiap kelompok memberikan sumbangan sebesar faktor persekutuan terbesar (FPB) dari banyaknya anggota keluarga di rumah-rumah pada kelompok tersebut.
+Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festival FPB". Setiap harinya, kepala desa akan memilih satu atau lebih rumah, lalu membaginya ke dalam tepat K buah kelompok sedemikian sehingga:
+
+- Setiap rumah termasuk ke dalam paling banyak satu kelompok.
+- Semua rumah dalam satu kelompok yang sama terletak saling bersebelahan, tidak diselingin oleh rumah lain yang bukan merupakan kelompok tersebut.
+
+Kemudian, setiap kelompok memberikan sumbangan sebesar faktor persekutuan terbesar (FPB) dari banyaknya anggota keluarga di rumah-rumah pada kelompok tersebut.
 
 Kepala desa akan selalu memilih pengelompokan yang berbeda setiap harinya. Festival ini berakhir ketika semua kemungkinan pemilihan K buah kelompok sudah terjadi.
 
