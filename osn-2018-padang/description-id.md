@@ -2,14 +2,18 @@
 
 ### Deskripsi
 
-Kota Padang terkenal dengan "sajak biner"-nya. Sebuah sajak biner adalah sebuah string yang hanya terdiri atas karakter '0' atau '1'. Sebuah "sajak biner bergantian" adalah sebuah string S yang memenuhi seluruh syarat berikut:
+Kota Padang terkenal dengan "sajak biner"-nya. Sebuah sajak biner adalah sebuah string yang memenuhi seluruh syarat berikut:
+
+- S yang hanya terdiri atas karakter '0' atau '1'.
+- S terdiri atas setidaknya 1 karakter.
+- S[0] = '1'. (Indeks string dimulai dari 0.)
+
+Sebuah "sajak biner bergantian" adalah sebuah string S yang memenuhi seluruh syarat berikut:
 
 - S adalah sajak biner.
-- S terdiri atas 1 atau lebih karakter.
-- S[0] = '1'. (Indeks string dimulai dari 0.)
 - S[i] dan S[i-1] berbeda, untuk i > 0.
 
-Sebagai contoh, "1", "10", "101", dan "1010" adalah sajak-sajak biner bergantian.
+Sebagai contoh, "1", "10", "101", dan "1010" adalah sajak-sajak biner bergantian, sedangkan "", "0", "01", "010", dan "100" bukan.
 
 Suatu hari, kota Padang tengah diserang sesosok makhluk jahat! Pak Dengklek, sang penguasa kota Padang, sedang berunding dengan makhluk jahat tersebut agar ia segera pergi. Rupanya, makhluk jahat tersebut hanya ingin dibuatkan sebuah sajak biner S yang memenuhi seluruh berikut:
 

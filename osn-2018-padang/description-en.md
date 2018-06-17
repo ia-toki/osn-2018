@@ -2,14 +2,18 @@
 
 ### Description
 
-Padang city is famous for its "binary poems". A binary poem is a string consisting of only characters '0' or '1'. An "alternating binary poem" is a string S that satisfies all of the following conditions:
+Padang city is famous for its "binary poems". A binary poem is a S that satisfies all of the following conditoins:
+
+- S consists of only characters '0' or '1'.
+- S consists of at least one character.
+- S[0] = '1'. (0-based indexing.)
+
+An "alternating binary poem" is a string S that satisfies all of the following conditions:
 
 - S is a binary poem.
-- S consists of 1 or more characters.
-- S[0] = '1'. (0-based indexing.)
 - S[i] and S[i-1] differ, for i > 0.
 
-For example, "1", "10", "101", and "1010" are all alternating binary poems.
+For example, "1", "10", "101", and "1010" are all alternating binary poems, while "", "0", "01", "010", and "100" are not.
 
 One day, Padang city is being attacked by an evil creature! Pak Dengklek, the ruler of Padang city, is now negotiating with the evil creature for it to go away. It turns out that the evil creature only wants a binary poem S that satisfies all of the following conditions: 
 
