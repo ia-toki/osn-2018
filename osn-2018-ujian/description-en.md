@@ -127,7 +127,7 @@ Consists of only the following test case:
 
 #### Subtask 4:
 
-- 1 ≤ K ≤ N ≤ 10
+- N ≤ 10
 
 #### Subtask 5:
 

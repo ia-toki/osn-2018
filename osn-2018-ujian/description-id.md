@@ -127,7 +127,7 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 4:
 
-- 1 ≤ K ≤ N ≤ 10
+- N ≤ 10
 
 #### Subsoal 5:
 
