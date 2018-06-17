@@ -17,7 +17,7 @@ Or, more formally, for each i, all of the following conditions must be satisfied
 - If i > H[A[i]], then it must be the case that P[i] ≤ H[A[i]].
 - If i < H[A[i]], then it must be the case that P[i] ≥ H[A[i]].
 
-Now, the college is curious: how many different permutations are possible?
+Now, the college is curious: how many different permutations are possible? Since it can be very large, they are curious on the result modulo 1.000.000.007.
 
 ### Input Format
 

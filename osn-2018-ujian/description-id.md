@@ -17,7 +17,7 @@ Atau dengan kata lain, secara formal, untuk setiap i, seluruh syarat berikut har
 - Jika i > H[A[i]], maka harus berlaku P[i] ≤ H[A[i]].
 - Jika i < H[A[i]], maka harus berlaku P[i] ≥ H[A[i]].
 
-Sekarang, pihak kampus malah penasaran, sebenarnya ada berapa permutasi berbeda yang mungkin?
+Sekarang, pihak kampus malah penasaran, sebenarnya ada berapa permutasi berbeda yang mungkin? Karena hasilnya bisa sangat besar, mereka hanya penasaran pada hasilnya modulo 1.000.000.007.
 
 ### Format Masukan
 
