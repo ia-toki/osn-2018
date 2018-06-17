@@ -20,7 +20,7 @@ Suatu hari, kota Padang tengah diserang sesosok makhluk jahat! Pak Dengklek, san
 - S mengandung tepat A buah subsekuens yang berupa sajak biner bergantian dengan panjang ganjil.
 - S mengandung tepat B buah subsekuens yang berupa sajak biner bergantian dengan panjang genap. 
 
-Sebuah subsekuens dari S dihasilkan dengan membuang nol atau lebih karakter dari S. Sebagai contoh, sajak biner "011" memiliki tepat 7 buah subsekuens sajak biner: "0" (1 buah), "1" (2 buah) "01" (2 buah), "11" (1 buah), dan "011" (1 buah).
+Sebuah subsekuens dari S dihasilkan dengan membuang nol atau lebih karakter dari S. Sebagai contoh, sajak biner "1101" memiliki tepat 7 buah subsekuens sajak biner bergantian: "1" (3 buah), "10" (2 buah), dan "101" (2 buah).
 
 Karena mungkin saja terdapat banyak sajak biner yang memenuhi syarat, makhluk jahat tersebut ingin sajak biner yang terkecil secara leksikografis (lihat bagian Catatan).
 

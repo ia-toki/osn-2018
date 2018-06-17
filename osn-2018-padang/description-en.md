@@ -20,7 +20,7 @@ One day, Padang city is being attacked by an evil creature! Pak Dengklek, the ru
 - S contains exactly A subsequences that are alternating binary poems of odd length.
 - S contains exactly B subsequences that are alternating binary poems of even length.
 
-A subsequence of S is produced by removing zero or more characters from S. For example, the binary poem "011" contains exactly 7 subsequences that are binary poems: "0" (1 time), "1" (2 times) "01" (2 times), "11" (1 time), and "011" (1 time).
+A subsequence of S is produced by removing zero or more characters from S. For example, the binary poem "1101" contains exactly 7 subsequences that are alternating binary poems: "1" (3 times), "10" (2 times), and "101" (2 times).
 
 Since it is possible that there are multiple binary poems that satisfy the conditions, the evil creature wants the lexicographically smallest such binary poem (see the Notes section).
 
