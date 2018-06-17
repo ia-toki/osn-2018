@@ -106,7 +106,7 @@ Consists of only the following test case:
 
 #### Subtask 3:
 
-- 1 ≤ |S| ≤ 1.000
+- |S| ≤ 1.000
 - K = 1
 
 #### Subtask 4:
@@ -120,7 +120,7 @@ Consists of only the following test case:
 
 #### Subtask 6:
 
-- 1 ≤ |S| ≤ 2
+- |S| ≤ 2
 
 #### Subtask 7:
 

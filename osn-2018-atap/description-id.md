@@ -106,7 +106,7 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 3:
 
-- 1 ≤ |S| ≤ 1.000
+- |S| ≤ 1.000
 - K = 1
 
 #### Subsoal 4:
@@ -120,7 +120,7 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 6:
 
-- 1 ≤ |S| ≤ 2
+- |S| ≤ 2
 
 #### Subsoal 7:
 
