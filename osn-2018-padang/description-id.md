@@ -148,11 +148,11 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 5:
 
-- 0 ≤ A, B ≤ 2.000
+- A, B ≤ 2.000
 
 #### Subsoal 6:
 
-- 0 ≤ A, B ≤ 1.000.000
+- A, B ≤ 1.000.000
 
 #### Subsoal 7:
 
