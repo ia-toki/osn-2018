@@ -106,7 +106,7 @@ Hanya berisi kasus uji berikut:
 
 #### Subsoal 8:
 
-- Semua nilai A[i] sama
+- Semua nilai A[i] sama.
 
 #### Subsoal 9:
 
