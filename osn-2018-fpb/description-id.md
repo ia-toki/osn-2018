@@ -84,21 +84,21 @@ Hanya berisi kasus uji berikut:
 
 ### Subsoal 3:
 
-- 1 ≤ N ≤ 10
+- N ≤ 10
 
 #### Subsoal 4:
 
-- 1 ≤ N ≤ 500
+- N ≤ 500
 - K = 1
 
 #### Subsoal 5:
 
-- 1 ≤ N ≤ 500
-- 1 ≤ K ≤ min(N, 2)
+- N ≤ 500
+- K ≤ min(N, 2)
 
 #### Subsoal 6:
 
-- 1 ≤ N ≤ 500
+- N ≤ 500
 
 #### Subsoal 7:
 

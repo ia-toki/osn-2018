@@ -84,21 +84,21 @@ Consists of only the following test case:
 
 #### Subtask 3:
 
-- 1 ≤ N ≤ 10
+- N ≤ 10
 
 #### Subtask 4:
 
-- 1 ≤ N ≤ 500
+- N ≤ 500
 - K = 1
 
 #### Subtask 5:
 
-- 1 ≤ N ≤ 500
-- 1 ≤ K ≤ min(N, 2)
+- N ≤ 500
+- K ≤ min(N, 2)
 
 #### Subtask 6:
 
-- 1 ≤ N ≤ 500
+- N ≤ 500
 
 #### Subtask 7:
 
