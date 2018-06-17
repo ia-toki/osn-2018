@@ -8,7 +8,7 @@ To increase the village income, the mayor is organizing a program called "GCD Fe
 
 The mayor will always choose a different way of choosing K groups every day. The festival is over when all possible ways have occurred.
 
-In the end, what is the total income obtained from this festival?
+The mayor is now curious, in the end, what is the total income obtained from this festival? Since the amount can be very large, he is only interested in the result modulo 1.000.000.007.
 
 ### Input Format
 

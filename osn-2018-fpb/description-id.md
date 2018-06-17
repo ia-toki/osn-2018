@@ -8,7 +8,7 @@ Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festiva
 
 Kepala desa akan selalu memilih pengelompokan yang berbeda setiap harinya. Festival ini berakhir ketika semua kemungkinan pemilihan K buah kelompok sudah terjadi.
 
-Pada akhirnya, berapakah total pendapatan dari festival ini?
+Kepala desa penasaran, pada akhirnya, berapakah total pendapatan dari festival ini? Karena totalnya bisa sangat besar, ia hanya tertarik pada hasilnya modulo 1.000.000.007.
 
 ### Format Masukan
 
