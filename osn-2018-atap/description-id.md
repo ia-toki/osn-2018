@@ -34,7 +34,11 @@ Baris-baris berikutnya diberikan dalam format berikut:
 
     S
     K Q
-    L[1] L[2] .. K[Q]
+    L[1] R[1]
+    L[2] R[2]
+    .
+    .
+    L[Q] R[Q]
 
 ### Format Keluaran
 
