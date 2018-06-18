@@ -1,5 +1,7 @@
 ## Rooftop Decoration
 
+### Description
+
 Pak Dengklek wants to make a decoration for his rooftop. He has N bricks of sizes 1 × N, 1 × (N-1), ..., 1 × 1. He will put the bricks one-by-one from the longest to the shortest, in that order.
 
 Firstly, Pak Dengklek puts the longest brick so that it is placed at columns 1 through N. Then, he will put each of the next bricks above the immediate previous brick, in one of the following ways: left-aligned, or right-aligned.

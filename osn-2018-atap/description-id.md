@@ -1,5 +1,7 @@
 ## Atap Rumah
 
+### Deskripsi
+
 Pak Dengklek ingin membuat hiasan untuk atap rumahnya. Ia memiliki N buah balok berukuran 1 × N, 1 × (N-1), ..., 1 × 1. Ia akan memasang balok-balok tersebut secara berurutan dari yang panjang ke yang paling pendek.
 
 Pertama-tama, Pak Dengklek meletakkan balok terpanjang sedemikian sehingga balok tersebut berada pada kolom 1 hingga N. Kemudian, ia akan meletakkan setiap balok selanjutnya di atas tepat balok sebelumnya, dengan salah satu dari dua cara berikut: rata kiri atau rata kanan.
