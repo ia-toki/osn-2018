@@ -44,8 +44,8 @@ Sebagai contoh, apabila label sebuah kasus uji sebuah soal adalah `0..345`, maka
 Baris-baris berikutnya diberikan dalam format berikut:
 
     V E
-    C_d C_p
-    M_d M_p
+    C_d M_d
+    M_p M_p
     A B
     X[1] Y[1] K[1] Q[1]
     X[2] Y[2] K[2] Q[2]
