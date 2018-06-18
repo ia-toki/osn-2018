@@ -124,7 +124,7 @@ For each test case:
 
 - N = 100
 - P = 137
-- There are no clues with colot 'B'.
+- There are no clues with color 'B'.
 
 #### osn-2018-pajel_6.in
 
@@ -136,7 +136,7 @@ For each test case:
 
 - N = 250
 - P = 181
-- All clues on the left and right side are '-'.
+- All clues on the left and right sides are '-'.
 
 #### osn-2018-pajel_8.in
 
