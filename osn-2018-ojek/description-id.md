@@ -2,28 +2,24 @@
 
 ### Deskripsi
 
-Terdapat V kota di Padang, dinomori 1 hingga V. Terdapat E buah ruas jalan dua arah yang menghubungkan kota-kota, dinomori 1 hingga E. Ruas jalan ke-i menghubungkan kota X[i] dengan Y[i], dan memiliki jarak K[i]. Setiap pasang kota terhubung oleh paling banyak satu ruas jalan. Tidak ada ruas jalan yang menghubungkan sebuah kota dengan dirinya sendiri.
+Terdapat V kota di Sumatra Barat, dinomori 1 hingga V. Terdapat E buah ruas jalan dua arah yang menghubungkan kota-kota, dinomori 1 hingga E. Ruas jalan ke-i menghubungkan kota X[i] dengan Y[i], dan memiliki jarak K[i]. Setiap pasang kota terhubung oleh paling banyak satu ruas jalan. Tidak ada ruas jalan yang menghubungkan sebuah kota dengan dirinya sendiri.
 
-Di kota tersebut, hanya terdapat dua moda transportasi: ojek pangkalan (lokal) dan ojek daring (*online*). Keduanya dapat Anda pesan melalui telepon genggam Anda. Ojek yang dipesan akan menghampiri Anda di manapun Anda berada.
+Hanya terdapat dua moda transportasi: ojek pangkalan (lokal) dan ojek daring (*online*). Keduanya dapat Anda pesan melalui telepon genggam Anda, yang lalu akan menghampiri Anda di manapun Anda berada.
 
 Terdapat beberapa aturan pemesanan ojek, bergantung pada lokasi Anda sekarang dan jenis ojek, sebagaimana dijelaskan berikut:
 
 - Jika Anda sedang berada tepat pada suatu kota (yakni, tepat pada suatu ujung dari suatu ruas jalan), maka Anda dapat memesan dan mulai menaiki ojek pangkalan maupun ojek daring.
-- Jika Anda sedang berada pada bagian manapun dari suatu ruas jalan (selain pada kota), maka Anda:
-  - selalu dapat memesan ojek pangkalan.
-  - dapat memesan ojek daring, hanya apabila ruas jalan tersebut TIDAK dikuasai oleh ojek pangkalan. Ruas jalan ke-i dikuasai oleh ojek pangkalan apabila Q[i] = 1.
+- Jika Anda sedang berada pada bagian manapun dari suatu ruas jalan yang memiliki jarak berupa bilangan bulat dari kedua ujungnya (selanjutnya akan disebut "bagian bulat"), selain pada kota sebagaimana dijelaskan di atas, maka Anda:
+  - dapat memesan dan mulai menaiki ojek pangkalan.
+  - dapat memesan dan mulai menaiki ojek daring, hanya apabila ruas jalan tersebut TIDAK dikuasai oleh ojek pangkalan. Ruas jalan ke-i dikuasai oleh ojek pangkalan apabila Q[i] = 1.
 
-Setelah Anda memesan ojek dan menaikinya, untuk kedua jenis ojek, Anda boleh melewati kota maupun bagian manapun dari ruas jalan manapun, kemudian dapat turun di kota manapun maupun bagian manapun dari ruas jalan manapun.
+Setelah Anda memesan ojek dan menaikinya, untuk kedua jenis ojek, Anda boleh melewati kota dan jalan manapun, kemudian dapat turun di kota manapun maupun bagian bulat manapun dari ruas jalan manapun.
 
 Untuk ojek pangkalan, tarif sekali naik adalah C\_p (yakni, jauh-dekat harga sama), dan jarak maksimum dalam satu perjalanan adalah M\_p.
 
-Untuk ojek daring, tarif sekali naik adalah C\_d × ceiling(jarak yang ditempuh), dan jarak maksimum dalam satu perjalanan adalah M\_d.
+Untuk ojek daring, tarif sekali naik adalah C\_d × (jarak yang ditempuh), dan jarak maksimum dalam satu perjalanan adalah M\_d.
 
 Anda ingin pergi dari kota A menuju kota B, dengan hanya memanfaatkan ojek (tanpa jalan kaki). Tentukan tarif termurah yang bisa Anda capai!
-
-### Catatan
-
-ceiling(x) menyatakan bilangan bulat terkecil yang tidak kurang dari x.
 
 ### Format Masukan
 
@@ -116,7 +112,7 @@ Untuk semua subsoal, berlaku:
 - 1 ≤ K[i] ≤ 10^9
 - 0 ≤ Q[i] ≤ 1
 - Setiap pasang kota terhubung oleh paling banyak satu ruas jalan.
-- Dijamin selalu terdapat jalan untuk pergi dari setiap kota ke semua kota lainnya.
+- Dijamin selalu terdapat cara untuk pergi dari setiap kota ke semua kota lainnya, melalui kota-kota dan jalan-jalan.
 
 #### Subsoal 1:
 
