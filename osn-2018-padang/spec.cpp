@@ -92,7 +92,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask8() {
-    Points(20);
+    // Points(20);
     CONS(header[8] == '8');
   }
 
