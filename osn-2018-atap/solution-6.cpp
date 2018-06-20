@@ -55,12 +55,14 @@ int main() {
     } else if (s == "AB" || s == "BA") {
       ll mid = n / 2;
       if (l <= mid && mid <= r) {
-        ans = k;
+        ans = k * 2;
       } else {
         if (l > mid) {
-          ans = n - 1 - l;
+          ans = k * 2 - 2LL * (l - mid);
+          ans += s == "BA";
         } else if (r < mid) {
-          ans = r;
+          ans = k * 2 - 2LL * (mid - r);
+          ans += s == "AB";
         } else {
           assert(false);
         }
@@ -69,7 +71,7 @@ int main() {
       assert(false);
     }
     assert(ans != -1);
-    cout << min<ll>(k, ans) + 1 << '\n';
+    cout << min<ll>(k * SZ(s), ans) + 1 << '\n';
   }
   return 0;
 }
