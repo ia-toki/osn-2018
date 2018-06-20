@@ -36,17 +36,20 @@ long long solve(int lt, int lb, int rt, int rb) {
 	return ret;
 }
 
-long long inv(long long inp) {
-	return ((MOD + 1) / inp) % MOD;
+long long divide(long long nom, long long denom) {
+	while(nom % denom) {
+		nom += MOD;
+	}
+	return nom / denom;
 }
 
 long long solveBig(int la, int lb, int lc, int ra, int rb, int rc) {
 	// cout << la << " " << lb << " " << lc << " " << ra << " " << rb << " " << rc << "\n";
 	long long dup = 1 << (2 - lb - rb);
 	// cout << " " << dup << "\n";
-	long long ret =  (((
+	long long ret =  divide(((
 		solve(la, lb + lc, ra, rb + rc) + solve(la, lb + lc, ra + rb, rc) +
-		solve(la + lb, lc, ra, rb + rc) + solve(la + lb, lc, ra + rb, rc)) % MOD) * inv(dup)) % MOD;
+		solve(la + lb, lc, ra, rb + rc) + solve(la + lb, lc, ra + rb, rc)) % MOD), dup) % MOD;
 	ret = (ret - solve(la, lc, ra, rc) * (lb & rb) + MOD) % MOD;
 	// cout << " ==> " << ret << "\n";
 	return ret;
