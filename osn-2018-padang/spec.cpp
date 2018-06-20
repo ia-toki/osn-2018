@@ -56,6 +56,7 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask3() {
     // Points(9);
 
+    CONS(header[3] == '3');
     CONS(0 <= A + B && A + B <= 8);
     CONS(Q == 1);
   }
@@ -63,6 +64,7 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask4() {
     // Points(10);
 
+    CONS(header[4] == '4');
     CONS(0 <= A + B && A + B <= 18);
     CONS(Q == 1);
   }
@@ -70,6 +72,7 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask5() {
     // Points(19);
 
+    CONS(header[5] == '5');
     CONS(0 <= A && A <= 2000);
     CONS(0 <= B && B <= 2000);
   }
@@ -77,17 +80,20 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask6() {
     // Points(25);
 
+    CONS(header[6] == '6');
     CONS(0 <= A && A <= TEN<6>);
     CONS(0 <= B && B <= TEN<6>);
   }
 
   void Subtask7() {
     // Points(17);
+    CONS(header[7] == '7');
     CONS(Q == 0);
   }
 
   void Subtask8() {
     Points(20);
+    CONS(header[8] == '8');
   }
 
  private:
@@ -135,7 +141,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   // 1 <= A + B <= 8, Q = 1
   void TestGroup1() {
     Subtasks({3, 4, 5, 6, 8});
-    const string curHeader = "...34567.";
+    const string curHeader = "...3456.8";
 
     CASE(header=curHeader, A = 1; B = 0; Q = 1; L = {0}; R = {0});
     CASE(header=curHeader, A = 1; B = 0; Q = 1; L = {1}; R = {1});
