@@ -13,9 +13,9 @@ void die() {
     exit(0);
 }
 
-void live(int points) {
+void live(int points, int q) {
     printf("OK\n");
-    printf("%d\n", points);
+    printf("%d Q = %d\n", points, q);
     exit(0);
 }
 
@@ -142,10 +142,10 @@ int main(int argc, char* argv[]) {
 
     // Compute points
     int points;
-
     if (q < p) points = 11;
     else if (q == p) points = 10;
     else if (1 <= q - p && q - p <= 40) points = 10 - sqrt(2 * (q - p));
     else if (q - p > 40) points = 0;
-    live(points);
+    
+    live(points, q);
 }
