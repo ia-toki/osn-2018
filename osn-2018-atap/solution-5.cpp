@@ -47,7 +47,7 @@ int main() {
     ll l, r;
     cin >> l >> r;
     assert(1 <= l && l <= r && r <= n);
-    ll mn = min((r - 1) / dl, (n - l) / dr);
+    ll mn = min(dl == 0 ? LLONG_MAX : (r - 1) / dl, dr == 0 ? LLONG_MAX : (n - l) / dr);
     mn = min<ll>(mn, k);  // !!!
     ll ans = 1 + mn * SZ(s);
     ll pntL = 1 + mn * dl;
