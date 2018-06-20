@@ -83,13 +83,7 @@ The above output corresponds to the solution in the first image above.
 
 For each test case:
 
-| Condition      | Points                        |
-| -------------- | ----------------------------- |
-| Q < P          | 11                            |
-| Q = P          | 10                            |
-| 1 ≤ Q - P ≤ 40 | floor(10 - sqrt(2 × (Q - P))) |
-| Q - P > 40     | 0                             | 
-
+[pajel_4-en.md]
 
 ### Constraints
 

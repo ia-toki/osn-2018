@@ -86,12 +86,7 @@ Contoh keluaran tersebut menyatakan solusi dari gambar pertama di atas.
 
 Untuk setiap kasus uji:
 
-| Kondisi        | Poin                          |
-| -------------- | ----------------------------- |
-| Q < P          | 11                            |
-| Q = P          | 10                            |
-| 1 ≤ Q - P ≤ 40 | floor(10 - sqrt(2 × (Q - P))) |
-| Q - P > 40     | 0                             | 
+[pajel_4-id.png]
 
 ### Kasus-Kasus Uji
 
