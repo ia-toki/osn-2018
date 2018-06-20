@@ -2,7 +2,7 @@
 
 ### Deskripsi
 
-Terdapat V kota di Sumatra Barat, dinomori 1 hingga V. Terdapat E buah ruas jalan dua arah yang menghubungkan kota-kota, dinomori 1 hingga E. Ruas jalan ke-i menghubungkan kota X[i] dengan Y[i], dan memiliki jarak K[i]. Setiap pasang kota terhubung oleh paling banyak satu ruas jalan. Tidak ada ruas jalan yang menghubungkan sebuah kota dengan dirinya sendiri.
+Terdapat V kota di Sumatra Barat, dinomori 1 hingga V. Terdapat E buah ruas jalan dua arah yang menghubungkan kota-kota, dinomori 1 hingga E. Ruas jalan ke-i menghubungkan kota X[i] dengan Y[i], dan memiliki jarak K[i] km. Setiap pasang kota terhubung oleh paling banyak satu ruas jalan. Tidak ada ruas jalan yang menghubungkan sebuah kota dengan dirinya sendiri.
 
 Hanya terdapat dua moda transportasi: ojek pangkalan (lokal) dan ojek daring (*online*). Keduanya dapat Anda pesan melalui telepon genggam Anda, yang lalu akan menghampiri Anda di manapun Anda berada.
 
@@ -19,7 +19,7 @@ Untuk ojek pangkalan, tarif sekali naik adalah C\_p (yakni, jauh-dekat harga sam
 
 Untuk ojek daring, tarif sekali naik adalah C\_d × (jarak yang ditempuh), dan jarak maksimum dalam satu perjalanan adalah M\_d.
 
-Anda ingin pergi dari kota A menuju kota B, dengan hanya memanfaatkan ojek (tanpa jalan kaki). Tentukan tarif termurah yang bisa Anda capai!
+Anda ingin pergi dari kota A menuju kota B, dengan hanya menaiki ojek (tanpa jalan kaki). Tentukan tarif termurah yang bisa Anda capai!
 
 ### Format Masukan
 
@@ -58,9 +58,9 @@ Sebuah baris berisi tarif termurah untuk pergi dari kota A ke kota B.
     0...4567
     4 4
     1 3
-    2 1
+    2 2
     1 2
-    1 2 7 1
+    1 2 6 1
     1 3 2 0
     3 4 4 0
     4 2 6 0
@@ -71,7 +71,13 @@ Sebuah baris berisi tarif termurah untuk pergi dari kota A ke kota B.
 
 ### Penjelasan Contoh 1
 
-TODO
+Cara termurah adalah sebagai berikut:
+
+1. Naik ojek daring dari kota 1 menuju kota 2 sejauh 3 km.
+2. Naik ojek pangkalan menuju kota 2 sejauh 2 km.
+3. Naik ojek pangkalan menuju kota 2 sejauh 1 km.
+
+Total tarif adalah (1 × 3) + 2 + 2 = 
 
 ### Contoh Masukan 2
 
