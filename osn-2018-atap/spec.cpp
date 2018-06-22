@@ -30,6 +30,7 @@ protected:
 
 	void Constraints() {
 		CONS(HEADER.length() == 9);
+		CONS((int)S.length() <= 1e5);
 		CONS(N == (long long)S.length() * K + 1);
 		CONS(consistOf(S, "AB"));
 		CONS(1 <= K && K <= 1e9);
@@ -43,11 +44,21 @@ protected:
 
 	void Subtask1() {
 		Points(0);
+		CONS(S == "AABA");
+		CONS(K == 3);
+		CONS(Q == 6);
+		CONS(L == vector<long long>({1, 5, 10, 1, 3, 10}));
+		CONS(R == vector<long long>({4, 9, 13, 2, 5, 12}));
 		CONS(HEADER[1] == '1');
 	}
 
 	void Subtask2() {
 		Points(0);
+		CONS(S == "AABABAABB");
+		CONS(K == 11);
+		CONS(Q == 7);
+		CONS(L == vector<long long>({1, 1, 2, 3, 98, 99, 100}));
+		CONS(R == vector<long long>({100, 1, 2, 3, 98, 99, 100}));
 		CONS(HEADER[2] == '2');
 	}
 
@@ -699,6 +710,18 @@ protected:
 			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 1,
 			generateBlockedQuery(Q, L, R, L_num)
 		);
+
+		CASE(
+			HEADER = "....45..8",
+			S = zebraString(S_len), K = 1, N = (long long)S.length() * K + 1, Q = 1,
+			L = {1}, R = {N}
+		);
+
+		CASE(
+			HEADER = "....45..8",
+			S = yinyangString(S_len), K = 1, N = (long long)S.length() * K + 1, Q = 1,
+			L = {1}, R = {N}
+		);
 	}
 
 	void TestGroup13() {
@@ -1335,6 +1358,30 @@ private:
 		vector<long long> ret;
 		for(int i = 0; i < sz; i++) {
 			ret.push_back(rnd.nextLongLong(low, hi));
+		}
+		return ret;
+	}
+
+	string zebraString(int sz) {
+		string ret;
+		ret.resize(sz);
+		for(int i = 0; i < sz; i += 2) {
+			ret[i] = 'A';
+		}
+		for(int i = 1; i < sz; i += 2) {
+			ret[i] = 'B';
+		}
+		return ret;
+	}
+
+	string yinyangString(int sz) {
+		string ret;
+		ret.resize(sz);
+		for(int i = 0; i < sz / 2; i++) {
+			ret[i] = 'A';
+		}
+		for(int i = sz / 2; i < sz; i++) {
+			ret[i] = 'B';
 		}
 		return ret;
 	}
