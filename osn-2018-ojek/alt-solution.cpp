@@ -124,6 +124,12 @@ void expand_use_edge(int pos, int dst, int type, Edge edge) {
       long long opang_dis = base_dis + 1ll * c_o * (sisa_len / m_o);
       int opang_len = sisa_len % m_o;
 
+      // lebih meyakinkan
+      if(opang_len == 0) {
+        opang_len += m_o;
+        opang_dis -= c_o;
+      }
+
       // kebalik 0/1 edge_type sama type
       relax(opang_dis, nxt, M - opang_len, 1 - edge_type);
     }
