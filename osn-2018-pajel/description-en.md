@@ -83,7 +83,7 @@ The above output corresponds to the solution in the first image above.
 
 For each test case:
 
-[pajel_4-en.md]
+[pajel_4-en.png]
 
 ### Constraints
 
