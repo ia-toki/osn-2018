@@ -2,7 +2,7 @@
 
 ### Description
 
-Padang city is famous for its "binary poems". A binary poem is a S that satisfies all of the following conditoins:
+Padang city is famous for its "binary poems". A binary poem is a string S that satisfies all of the following conditoins:
 
 - S consists of only characters '0' or '1'.
 - S consists of at least one character.
