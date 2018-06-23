@@ -30,6 +30,7 @@ protected:
 
 	void Constraints() {
 		CONS(HEADER.length() == 9);
+		CONS(validHeader(HEADER));
 		CONS((int)S.length() <= 1e5);
 		CONS(N == (long long)S.length() * K + 1);
 		CONS(consistOf(S, "AB"));
@@ -100,6 +101,16 @@ protected:
 	}
 
 private:
+
+	bool validHeader(const string& header) {
+		for(int i = 0; i < header.length(); i++) {
+			if(header[i] != '.' && header[i] != (char)(i + '0')) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	bool consistOf(const string &S, const string &validElem) {
 		for(char x : S) {
 			bool valid = false;
@@ -383,12 +394,9 @@ protected:
 	void TestGroup7() {
 		// 1 <= |S| <= 2, K = 1, Q > 1, Li = Ri
 		Subtasks({3, 6, 7, 8});
-		CASE(HEADER = "...3..678", S = "A", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
 		CASE(HEADER = "...3..678", S = "B", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
 
 		CASE(HEADER = "...3..678", S = "AA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "...3..678", S = "BB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "...3..678", S = "AB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
 		CASE(HEADER = "...3..678", S = "BA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, L = R = generateVector(Q, 1, N));
 	}
 
@@ -398,31 +406,22 @@ protected:
 
 		// Random query
 		CASE(HEADER = "...3..6.8", S = "A", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
-		CASE(HEADER = "...3..6.8", S = "B", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
 
-		CASE(HEADER = "...3..6.8", S = "AA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
 		CASE(HEADER = "...3..6.8", S = "BB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
 		CASE(HEADER = "...3..6.8", S = "AB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
-		CASE(HEADER = "...3..6.8", S = "BA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateRandomQuery(Q, L, R));
 
 
 		// Narrow query
 		CASE(HEADER = "...3..6.8", S = "A", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
-		CASE(HEADER = "...3..6.8", S = "B", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
 
 		CASE(HEADER = "...3..6.8", S = "AA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
-		CASE(HEADER = "...3..6.8", S = "BB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
-		CASE(HEADER = "...3..6.8", S = "AB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
 		CASE(HEADER = "...3..6.8", S = "BA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateNarrowQuery(Q, L, R));
 
 		// Blocked query
-		CASE(HEADER = "...3..6.8", S = "A", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 1));
 		CASE(HEADER = "...3..6.8", S = "B", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 1));
 
 		CASE(HEADER = "...3..6.8", S = "AA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 0));
-		CASE(HEADER = "...3..6.8", S = "BB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 2));
 		CASE(HEADER = "...3..6.8", S = "AB", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 1));
-		CASE(HEADER = "...3..6.8", S = "BA", K = 1, N = (long long)S.length() * K + 1, Q = 100000, generateBlockedQuery(Q, L, R, 1));
 	}
 
 	void TestGroup9() {
@@ -430,32 +429,16 @@ protected:
 		Subtasks({3, 7, 8});
 		int S_len, L_num;
 
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "...3...78", 
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N);
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 579;
+		L_num = 76;
 		CASE(
 			HEADER = "...3...78",
 			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
 			L = R = generateVector(Q, 1, N);
 		);
 
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "...3...78",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N);
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		S_len = 846;
+		L_num = 435;
 		CASE(
 			HEADER = "...3...78",
 			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
@@ -727,21 +710,11 @@ protected:
 	void TestGroup13() {
 		// K > 1, |S| <= 2, Q = 1, Li = Ri
 		Subtasks({5, 6, 7, 8});
-		CASE(HEADER = ".....5678", S = "A", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "B", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
 
-		CASE(HEADER = ".....5678", S = "AA", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "BB", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "AB", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "BA", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
+		CASE(HEADER = ".....5678", S = "A", K = 76414, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
 
-		CASE(HEADER = ".....5678", S = "A", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "B", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-
-		CASE(HEADER = ".....5678", S = "AA", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "BB", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "AB", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
-		CASE(HEADER = ".....5678", S = "BA", K = 100000, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
+		CASE(HEADER = ".....5678", S = "AA", K = 89741, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
+		CASE(HEADER = ".....5678", S = "BA", K = 91234, N = (long long)S.length() * K + 1, Q = 1, L = R = {rnd.nextLongLong(1, N)});
 	}
 
 	void TestGroup14() {
@@ -749,16 +722,10 @@ protected:
 		Subtasks({5, 6, 8});
 		CASE(HEADER = ".....56.8", S = "A", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
 			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
-		CASE(HEADER = ".....56.8", S = "B", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
-			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
 
-		CASE(HEADER = ".....56.8", S = "AA", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
-			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
 		CASE(HEADER = ".....56.8", S = "BB", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
 			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
 		CASE(HEADER = ".....56.8", S = "AB", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
-			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
-		CASE(HEADER = ".....56.8", S = "BA", K = rnd.nextInt(2, 100000), N = (long long)S.length() * K + 1, Q = 1,
 			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span});
 	}
 
@@ -766,29 +733,15 @@ protected:
 		// Q = 1, K > 1, |S| > 2, Li = Ri
 		Subtasks({5, 7, 8});
 		int S_len, L_num;
-		S_len = rnd.nextInt(3, 100000);
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 81798;
+		L_num = 10123;
 		CASE(
 			HEADER = ".....5.78",
 			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
 			L = {rnd.nextLongLong(1, N)}, R = {L[0]}
 		);
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".....5.78",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
-			L = {rnd.nextLongLong(1, N)}, R = {L[0]}
-		);
-		S_len = rnd.nextInt(3, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".....5.78",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
-			L = {rnd.nextLongLong(1, N)}, R = {L[0]}
-		);
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		S_len = 96248;
+		L_num = 48123;
 		CASE(
 			HEADER = ".....5.78",
 			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
@@ -800,29 +753,15 @@ protected:
 		// Q = 1, K > 1, |S| > 2, Li < Ri
 		Subtasks({5, 8});
 		int S_len, L_num;
-		S_len = rnd.nextInt(3, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".....5..8", 
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
-			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span}
-		);
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 87142;
+		L_num = 12345;
 		CASE(
 			HEADER = ".....5..8",
 			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
 			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span}
 		);
-		S_len = rnd.nextInt(3, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".....5..8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
-			span = rnd.nextLongLong(1, N - 1), L = {rnd.nextLongLong(1, N - span)}, R = {L[0] + span}
-		);
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		S_len = 98123;
+		L_num = 49872;
 		CASE(
 			HEADER = ".....5..8",
 			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 1,
@@ -833,30 +772,10 @@ protected:
 	void TestGroup17() {
 		// |S| <= 2, Li = Ri, Q > 1, K > 1
 		Subtasks({6, 7, 8});
-		// normal case
-		CASE(HEADER = "......678", S = "A", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "A", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "AA", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "AB", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "BA", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "BB", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			L = R = generateVector(Q, 1, N));
 
-		// corner case
-		CASE(HEADER = "......678", S = "A", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N));
 		CASE(HEADER = "......678", S = "B", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "AA", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N));
 		CASE(HEADER = "......678", S = "AB", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N));
-		CASE(HEADER = "......678", S = "BA", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			L = R = generateVector(Q, 1, N));
 		CASE(HEADER = "......678", S = "BB", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			L = R = generateVector(Q, 1, N));
@@ -865,32 +784,12 @@ protected:
 	void TestGroup18() {
 		// |S| <= 2, Li < Ri, Q > 1, K > 1
 		Subtasks({6, 8});
-		// normal case
-		CASE(HEADER = "......6.8", S = "A", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "A", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "AA", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "AB", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "BA", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "BB", K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = rnd.nextInt(1, 100000),
-			generateRandomQuery(Q, L, R));
 
-		// corner case
 		CASE(HEADER = "......6.8", S = "A", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "B", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			generateRandomQuery(Q, L, R));
 		CASE(HEADER = "......6.8", S = "AA", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			generateRandomQuery(Q, L, R));
 		CASE(HEADER = "......6.8", S = "AB", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "BA", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R));
-		CASE(HEADER = "......6.8", S = "BB", K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
 			generateRandomQuery(Q, L, R));
 	}
 
@@ -900,99 +799,16 @@ protected:
 		Subtasks({7, 8});
 		int S_len, L_num;
 
-		// random query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		// narrow query case
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 98174;
+		L_num = 16123;
 		CASE(
 			HEADER = ".......78",
 			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
 			L = R = generateVector(Q, 1, N)
 		);
 
-		S_len = 1000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		// blocked query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = ".......78",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			L = R = generateVector(Q, 1, N)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		S_len = 98121;
+		L_num = 67142;
 		CASE(
 			HEADER = ".......78",
 			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
@@ -1006,296 +822,54 @@ protected:
 		Subtasks({8});
 		int S_len, L_num;
 
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
+		// random query case
+		S_len = 98567;
+		L_num = 47123;
 		CASE(
 			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
+			S = generateString(S_len, L_num), K = 987654312, N = (long long)S.length() * K + 1, Q = 100000,
 			generateRandomQuery(Q, L, R)	
 		);
 
 		// narrow query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 97159;
+		L_num = 48174;
 		CASE(
 			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
+			S = generateString(S_len, L_num), K = 912345678, N = (long long)S.length() * K + 1, Q = 100000,
 			generateNarrowQuery(Q, L, R)
 		);
 
 		// blocked query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 98543;
+		L_num = 23141;
 		CASE(
 			HEADER = "........8",
 			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
+			generateBlockedQuery(Q, L, R, L_num)
 		);
 
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		// random query case
+		S_len = 98567;
+		L_num = 34151;
 		CASE(
 			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
+			S = generateString(S_len, L_num), K = 987654312, N = (long long)S.length() * K + 1, Q = 100000,
 			generateRandomQuery(Q, L, R)	
 		);
 
 		// narrow query case
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt(0, S_len);
+		S_len = 97159;
+		L_num = 11234;
 		CASE(
 			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
+			S = generateString(S_len, L_num), K = 912345678, N = (long long)S.length() * K + 1, Q = 100000,
 			generateNarrowQuery(Q, L, R)
 		);
 
 		// blocked query case
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = rnd.nextInt(3, 1000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 1000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R);
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateRandomQuery(Q, L, R)	
-		);
-
-		// narrow query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateNarrowQuery(Q, L, R)
-		);
-
-		// blocked query case
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt(0, S_len);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = rnd.nextInt(1001, 100000);
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
-		CASE(
-			HEADER = "........8",
-			S = generateString(S_len, L_num), K = rnd.nextInt(2, 1e9), N = (long long)S.length() * K + 1, Q = 100000,
-			generateBlockedQuery(Q, L, R, L_num)
-		);
-
-		S_len = 100000;
-		L_num = rnd.nextInt((S_len + 3) / 4, (S_len * 3) / 4);
+		S_len = 98543;
+		L_num = 49274;
 		CASE(
 			HEADER = "........8",
 			S = generateString(S_len, L_num), K = 1e9, N = (long long)S.length() * K + 1, Q = 100000,
