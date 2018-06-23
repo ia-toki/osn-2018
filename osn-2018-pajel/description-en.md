@@ -137,6 +137,7 @@ For each test case:
 - N = 357
 - P = 156
 - Non-'-' clues are only located on rows and columns whose indices are equal to 3 modulo 4.
+- All numbers on each clue (if any) are equal to 3 modulo 4.
 
 #### osn-2018-pajel_9.in
 

@@ -141,6 +141,7 @@ Untuk setiap kasus uji:
 - N = 357
 - P = 156
 - Petunjuk bukan '-' hanya terdapat pada baris dan kolom yang indeksnya sama dengan 3 dalam modulo 4.
+- Bilangan pada setiap petunjuk (jika ada), sama dengan 3 dalam modulo 4.
 
 #### osn-2018-pajel_9.in
 
