@@ -41,7 +41,7 @@ Baris-baris berikutnya diberikan dalam format berikut:
 
     V E
     C_d M_d
-    M_p M_p
+    C_p M_p
     A B
     X[1] Y[1] K[1] Q[1]
     X[2] Y[2] K[2] Q[2]
@@ -56,34 +56,36 @@ Sebuah baris berisi tarif termurah untuk pergi dari kota A ke kota B.
 ### Contoh Masukan 1
 
     0...4567
-    4 4
-    1 3
-    2 2
-    1 2
-    1 2 6 1
-    1 3 2 0
-    3 4 4 0
-    4 2 6 0
+    6 6
+    2 6
+    4 2
+    5 2
+    1 2 14 1
+    1 3 4 0
+    3 4 8 0
+    4 2 12 0
+    5 6 1 0
+    6 1 1 0
     
 ### Contoh Keluaran 1
 
-    11
+    32
 
 ### Penjelasan Contoh 1
 
 Cara termurah adalah sebagai berikut:
 
-1. Naik ojek daring dari kota 1 menuju kota 2 sejauh 3 km.
-2. Naik ojek pangkalan menuju kota 2 sejauh 2 km.
-3. Naik ojek pangkalan menuju kota 2 sejauh 1 km.
+1. Sekali naik ojek pangkalan dari kota 5 menuju kota 6 lalu kota 1 (total sejauh 2 km). Tarif = 4.
+2. Sekali naik ojek daring menuju kota 2 sejauh 6 km. Tarif = 2 × 6 = 12.
+3. Empat kali naik ojek pangkalan menuju kota 2 masing-masing sejauh 2 km. Tarif = 4 × 4 = 16.
 
-Total tarif adalah (1 × 3) + 2 + 2 = 
+Total tarif adalah 6 + 12 + 16 = 32. 
 
 ### Contoh Masukan 2
 
-    0...4567
+    0....567
     7 9
-    1 1
+    1 2
     2 1
     1 7
     1 2 1 1
@@ -102,7 +104,29 @@ Total tarif adalah (1 × 3) + 2 + 2 =
 
 ### Penjelasan Contoh 2
 
-TODO
+Cara termurah adalah sebagai berikut:
+
+1. Sekali naik ojek daring dari kota 1 menuju kota 3 lalu kota 5 (total sejauh 2 km). Tarif = 1 × 2 = 2.
+2. Sekali naik ojek daring menuju kota 7 (sejauh 1 km). Tarif = 1 × 1 = 1.
+
+Total tarif adalah 2 + 1 = 3.
+
+### Contoh Masukan 3
+
+    0...4567
+    2 1
+    100 3
+    1 100
+    1 2
+    1 2 6 1
+
+### Contoh Keluaran 3
+
+    1
+
+### Penjelasan Contoh 3
+
+Cara termurah adalah dengan sekali naik ojek pangkalan dari kota 1 menuju kota 2 (sejauh 6 km). Tarif = 1.
 
 ### Subsoal
 
@@ -110,7 +134,7 @@ Untuk semua subsoal, berlaku:
 
 - 2 ≤ V ≤ 200
 - V - 1 ≤ E ≤ V × (V - 1) / 2
-- 1 ≤ C\_p, C\_d ≤ 10^9
+- 1 ≤ C\_p, C\_d ≤ 10^8
 - 1 ≤ M\_p, M\_d ≤ 200
 - 1 ≤ A, B, X[i], Y[i] ≤ V
 - A != B
