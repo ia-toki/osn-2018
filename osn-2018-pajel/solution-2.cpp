@@ -3,9 +3,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	printf("BBBB--M---\n");
-	printf("B-M------M\n");
-	printf("B---M-----\n");
-	printf("-M--MM---B\n");
+	printf("BMMM--M--M\n");
+	printf("BM-MM-M---\n");
+	printf("-M--MMM--B\n");
 	printf("-M-----B--\n");
 	
 	printf("------BB--\n");
