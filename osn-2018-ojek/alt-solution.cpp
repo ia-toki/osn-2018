@@ -125,7 +125,7 @@ void expand_use_edge(int pos, int dst, int type, Edge edge) {
       int opang_len = sisa_len % m_o;
 
       // lebih meyakinkan
-      if(opang_len == 0) {
+      if(sisa_len >= m_o && opang_len == 0) {
         opang_len += m_o;
         opang_dis -= c_o;
       }
