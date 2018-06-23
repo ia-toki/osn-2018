@@ -66,7 +66,7 @@ void expand_node(int pos, int dst, int type) {
   // pake ojol
   {
     long long ndis = dis;
-    relax(ndis, pos, dst + m_g, 1);
+    relax(ndis, pos, dst + max(m_g, m_o), 1);
   }
 
   // pake opang
@@ -91,6 +91,11 @@ void expand_use_edge(int pos, int dst, int type, Edge edge) {
   int nxt = edge.to;
   int len = edge.len;
   int edge_type = edge.type;
+
+  // blocked, pake ojol, dan jaraknya lebih dari maksimum
+  if (edge_type == 1 && type == 1 && real_dst > m_g) {
+    return;
+  }
 
   if (real_dst >= len) {
     // langsung nyampein
