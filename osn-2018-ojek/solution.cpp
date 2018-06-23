@@ -101,10 +101,8 @@ void processNodeUnblocked(PQ &pq, int u, int excess, ll value) {
     {
       int coveredByOpang = (cnt - 1) * Mo;
       int coveredByGojek = k - coveredByOpang;
-      if (coveredByGojek <= Mg) {
-        assert(coveredByOpang >= 0 && coveredByGojek > 0);
-        relax(pq, to, value + 1LL * (cnt - 1) * Co + 1LL * coveredByGojek * Cg, 0);
-      }
+      assert(coveredByOpang >= 0 && coveredByGojek > 0);
+      relax(pq, to, value + 1LL * (cnt - 1) * Co + 1LL * coveredByGojek * Cg, 0);
     }
   };
   for (const Edge &e : unblockedEdge[u]) {
