@@ -41,6 +41,8 @@ protected:
     }
     
     void Constraints() {
+		CONS(HEADER.size()==8);
+		CONS(ValidHeader(HEADER));
 		CONS(Between(N,1,200000));
 		CONS(Between(K,1,N));
 		CONS(Unique(P));
@@ -112,6 +114,9 @@ private:
 	}
 	bool AllBetween(vector<int> &V,int l,int r) {
 		for (int data:V) if (!Between(data,l,r)) return false; return true;
+	}
+	bool ValidHeader(string h) {
+		for (int i=0;i<h.size();i++) if (h[i]!='.' && h[i]!=i+'0') return false; return true;
 	}
 	bool Unique(vector<int> &V) {
 		set<int> S; S.clear();
