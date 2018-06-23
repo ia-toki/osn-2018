@@ -148,13 +148,40 @@ Untuk semua subsoal, berlaku:
 
 Hanya berisi kasus uji berikut:
 
-TODO
+    .1....67
+    5 4
+    3 3
+    10 4
+    1 5
+    1 2 1 0
+    2 3 100 0
+    3 4 100000 1
+    4 5 100000000 0
 
 #### Subsoal 2:
 
 Hanya berisi kasus uji berikut:
 
-TODO
+    ..2.4567
+    10 15
+    3 1
+    5 1
+    1 10
+    1 4 4 1
+    1 2 1 0
+    2 3 2 0
+    2 4 2 0
+    3 4 2 0
+    3 5 2 0
+    4 5 2 0
+    3 8 9 0
+    5 6 1 0
+    6 7 1 0
+    7 5 1 0
+    6 8 3 1
+    8 9 3 0
+    7 9 3 0
+    9 10 4 0
 
 #### Subsoal 3:
 
