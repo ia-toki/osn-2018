@@ -119,11 +119,13 @@ void dfs(int i, int j) {
 void bfs() {
 	for(int i = 0; i < N; i++) {
 		for(int j = 0; j < N; j++) {
-			for(int k = 0; k < 4; k++) {
-				int ii = i + xx[k];
-				int jj = j + yy[k];
-				if(valid(ii, jj) && ar[ii][jj] == '\0') {
-					ar[ii][jj] = ' ';
+			if(ar[i][j] == '-' || ar[i][j] == 'M' || ar[i][j] == 'B') {
+				for(int k = 0; k < 4; k++) {
+					int ii = i + xx[k];
+					int jj = j + yy[k];
+					if(valid(ii, jj) && ar[ii][jj] == '\0') {
+						ar[ii][jj] = ' ';
+					}
 				}
 			}
 		}
