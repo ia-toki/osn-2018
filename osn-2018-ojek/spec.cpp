@@ -36,7 +36,7 @@ class ProblemSpec : public BaseProblemSpec {
 
   void Constraints() {
     CONS(HEADER.length() == 8);
-    CONS(2 <= N && N <= 200);
+    CONS(2 <= N && N <= 100);
     CONS(N - 1 <= M && M <= N * (N - 1) / 2);
     CONS(1 <= S && S <= N);
     CONS(1 <= T && T <= N);
@@ -52,7 +52,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask1() {
-    // CONS(HEADER[1] == '1');
+    CONS(HEADER[1] == '1');
 
     vector<int> check_u = {1, 2, 3, 4};
     vector<int> check_v = {2, 3, 4, 5};
@@ -65,7 +65,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask2() {
-    // CONS(HEADER[2] == '2');
+    CONS(HEADER[2] == '2');
 
     vector<int> check_u = {1, 1, 2, 2, 3, 3, 4, 3, 5, 6, 7, 6, 8, 7, 9};
     vector<int> check_v = {4, 2, 3, 4, 4, 5, 5, 8, 6, 7, 5, 8, 9, 9, 10};
@@ -78,7 +78,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask3() {
-    // CONS(HEADER[3] == '3');
+    CONS(HEADER[3] == '3');
 
     CONS(Cg == 1);
     CONS(Co == 1);
@@ -88,27 +88,27 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask4() {
-    // CONS(HEADER[4] == '4');
+    CONS(HEADER[4] == '4');
 
     CONS(Mg == 1);
     CONS(Mo == 1);
   }
 
   void Subtask5() {
-    // CONS(HEADER[5] == '5');
+    CONS(HEADER[5] == '5');
 
     CONS(validEdgeCosts(1, 10));
   }
 
   void Subtask6() {
-    // CONS(HEADER[6] == '6');
+    CONS(HEADER[6] == '6');
 
     CONS(Mg <= 10);
     CONS(Mo <= 10);
   }
 
   void Subtask7() {
-    // CONS(HEADER[7] == '7');
+    CONS(HEADER[7] == '7');
   }
 
  private:
@@ -262,96 +262,110 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void TestGroup3() {
     Subtasks({3, 4, 5, 6, 7});
 
-    CASE(cheapGojek(1, 200, 1, 1, 1, 1, 1, 1));
-    CASE(cheapOpang(1, 200, 1, 1, 1, 1, 1, 1));
+    const string header = "...34567";
 
-    commonGraph(true, true, 1, 1, 1, 55, 155, 1, 1);
-    commonGraph(true, true, 1, 1, 1, 55, 155, 1, 1);
+    CASE(HEADER=header; cheapGojek(2, 100, 1, 1, 1, 1, 1, 1));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1));
+
+    commonGraph(header, true, true, 1, 1, 1, 55, 100, 1, 1);
+    commonGraph(header, true, true, 1, 1, 1, 55, 100, 1, 1);
   }
     
   // Mg = Mo = 1, 1 <= dist <= 10
   void TestGroup4() {
     Subtasks({4, 5, 6, 7});
 
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 1, 1, 1, 10));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 1, 1, 1, 10));
-    CASE(maxDistanceGraph(200, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
+    const string header = "....4567";
 
-    commonGraph(false, true, 2, 1, 1, 55, 155, 1, 10);
-    commonGraph(false, true, 2, 1, 1, 55, 155, 1, 10);
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 1, 1, 1, 10));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 1, 10));
+    CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
+
+    commonGraph(header, false, true, 2, 1, 1, 55, 100, 1, 10);
+    commonGraph(header, false, true, 2, 1, 1, 55, 100, 1, 10);
   }
     
   // Mg = Mo = 1, 11 <= dist <= 1e8
   void TestGroup5() {
     Subtasks({4, 6, 7});
 
-    CASE(maxDistanceGraph(200, TEN<8>, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
-    CASE(cheapGojek(1, 20, 1, TEN<8>, 1, 1, 11, 20));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 1, 1, 11, TEN<8>));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
-    CASE(cheapOpang(1, 20, 1, TEN<8>, 1, 1, 11, 20));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 1, 1, 11, TEN<8>));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
+    const string header = "....4.67";
 
-    commonGraph(false, true, 2, 1, 1, 125, 150, 11, 200);
-    commonGraph(false, true, 2, 1, 1, 150, 175, 201, TEN<8>);
+    CASE(HEADER=header; maxDistanceGraph(100, TEN<8>, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
+    CASE(HEADER=header; cheapGojek(2, 20, 1, TEN<8>, 1, 1, 11, 20));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 1, 1, 11, TEN<8>));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 1, 1, 11, 20));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 11, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
+
+    commonGraph(header, false, true, 2, 1, 1, 75, 100, 11, 100);
+    commonGraph(header, false, true, 2, 1, 1, 50, 75, 201, TEN<8>);
   }
     
   // Mg > 1 atau Mo > 1, dua2nya <= 10, 1 <= dist <= 10
   void TestGroup6() {
     Subtasks({5, 6, 7});
 
-    CASE(trickyUnblockedGojekOpang(1));
-    CASE(fullHeavyGraph(200, 200, 1, 10, 0.5));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 2, 10, 1, 10));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 2, 10, 1, 10));
-    CASE(coveredByOpang(1, 200, 1, TEN<8>, 2, 10, 1, 10));
+    const string header = ".....567";
 
-    commonGraph(false, false, 2, 2, 10, 50, 100, 1, 10);
+    CASE(HEADER=header; trickyUnblockedGojekOpang(1));
+    CASE(HEADER=header; fullHeavyGraph(100, 100, 1, 10, 0.5));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 2, 10, 1, 10));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 1, 10));
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10));
+
+    commonGraph(header, false, false, 2, 2, 10, 50, 100, 1, 10);
   }
 
   // Mg > 1 atau Mo > 1, dua2nya <= 10, 11 <= dist <= 1e8
   void TestGroup7() {
     Subtasks({6, 7});
 
-    CASE(trickyUnblockedGojekOpang(2));
-    CASE(fullHeavyGraph(200, 200, TEN<6>, TEN<8>, 0.5));
-    CASE(cheapGojek(1, 20, 1, TEN<8>, 2, 10, 11, 20));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 2, 10, 11, TEN<8>));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
-    CASE(cheapOpang(1, 20, 1, TEN<8>, 2, 10, 11, 20));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 2, 10, 11, TEN<8>));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
+    const string header = "......67";
 
-    commonGraph(false, false, 2, 2, 10, 75, 150, TEN<2> + 1, TEN<8>);
-    commonGraph(false, false, 2, 2, 10, 150, 200, TEN<6>, TEN<8>);
+    CASE(HEADER=header; trickyUnblockedGojekOpang(2));
+    CASE(HEADER=header; fullHeavyGraph(100, 100, TEN<6>, TEN<8>, 0.5));
+    CASE(HEADER=header; cheapGojek(2, 20, 1, TEN<8>, 2, 10, 11, 20));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 2, 10, 11, TEN<8>));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 2, 10, 11, 20));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 11, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
+
+    commonGraph(header, false, false, 2, 2, 10, 75, 100, TEN<2> + 1, TEN<8>);
+    commonGraph(header, false, false, 2, 2, 10, 50, 100, TEN<6>, TEN<8>);
   }
 
   // Mg > 10 atau Mo > 10, dist <= 10
   void TestGroup8() {
     Subtasks({5, 7});
 
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 20, 100, 1, 10));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 20, 100, 1, 10));
-    CASE(coveredByOpang(1, 200, 1, TEN<8>, 11, 100, 1, 10));
+    const string header = ".....5.7";
 
-    commonGraph(false, false, 10, 10, 100, 150, 200, 1, 10);
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, 1, 10));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, 1, 10));
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10));
+
+    commonGraph(header, false, false, 10, 10, 50, 100, 100, 1, 10);
   }
 
   // Mg > 10 atau Mo > 10, 11 <= dist <= 1e8
   void TestGroup9() {
     Subtasks({7});
 
-    CASE(cheapGojek(1, 20, 1, TEN<8>, 20, 100, 11, 20));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 20, 100, 11, TEN<8>));
-    CASE(cheapGojek(1, 200, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
-    CASE(cheapOpang(1, 20, 1, TEN<8>, 20, 100, 11, 20));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 20, 100, 11, TEN<8>));
-    CASE(cheapOpang(1, 200, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
-    CASE(coveredByOpang(1, 200, 1, TEN<8>, 11, 100, 11, TEN<8>));
+    const string header = ".......7";
 
-    commonGraph(false, false, 10, 10, 100, 100, 200, 11, TEN<8>);
-    commonGraph(false, false, 10, 10, 100, 200, 200, TEN<6>, TEN<8>);
+    CASE(HEADER=header; cheapGojek(2, 20, 1, TEN<8>, 20, 100, 11, 20));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, 11, TEN<8>));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 20, 100, 11, 20));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, 11, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
+
+    commonGraph(header, false, false, 10, 10, 100, 100, 100, 11, TEN<8>);
+    commonGraph(header, false, false, 10, 10, 100, 100, 100, TEN<6>, TEN<8>);
   }
 
  private:
@@ -404,7 +418,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
           U.push_back(i);
           V.push_back(j);
           K.push_back(rnd.nextInt(minK, maxK));
-          X.push_back(rnd.nextInt(0, 1));
+          X.push_back(0);
         }
       }
     }
@@ -467,10 +481,10 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
       Cg = 2;
       Mg = 2;
       Co = 9;
-      Mo = 9;
+      Mo = 7;
       K = {10};
     } else if (type == 2) {
-      Co = TEN<8> - 1;
+      Co = TEN<8> - TEN<7> - TEN<7> - TEN<6>;
       Mo = 3;
       Cg = TEN<7>;
       Mg = 2;
@@ -548,13 +562,13 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     }
   };
 
-  void commonGraph(bool allOneC, bool allOneM, int minLargeC, int minLargeM, int maxM, int minN, int maxN, int minK, int maxK) {
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphLarge(minK, maxK));
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
-    CASE(randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomStar(minN, maxN, minK, maxK));
+  void commonGraph(string header, bool allOneC, bool allOneM, int minLargeC, int minLargeM, int maxM, int minN, int maxN, int minK, int maxK) {
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphLarge(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomStar(minN, maxN, minK, maxK));
   }
 
   void fullHeavyGraph(int minN, int maxN, int minK, int maxK, double probQ0) {
