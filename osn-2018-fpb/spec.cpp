@@ -50,14 +50,14 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask3() {
     // Points(9);
 
-    // CONS(HEADER[3] == '3');
+    CONS(HEADER[3] == '3');
     CONS(N <= 10);
   }
 
   void Subtask4() {
     // Points(10);
 
-    // CONS(HEADER[4] == '4');
+    CONS(HEADER[4] == '4');
     CONS(N <= 500);
     CONS(K == 1);
   }
@@ -65,7 +65,7 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask5() {
     // Points(13);
 
-    // CONS(HEADER[5] == '5');
+    CONS(HEADER[5] == '5');
     CONS(N <= 500);
     CONS(K <= 2);
   }
@@ -73,27 +73,27 @@ class ProblemSpec : public BaseProblemSpec {
   void Subtask6() {
     // Points(23);
 
-    // CONS(HEADER[6] == '6');
+    CONS(HEADER[6] == '6');
     CONS(N <= 500);
   }
 
   void Subtask7() {
     // Points(29);
-    // CONS(HEADER[7] == '7');
+    CONS(HEADER[7] == '7');
 
     CONS(K == 1);
   }
 
   void Subtask8() {
     // Points(29);
-    // CONS(HEADER[8] == '8');
+    CONS(HEADER[8] == '8');
 
     CONS(eachElementBetween(A, A[0], A[0]));
   }
 
   void Subtask9() {
     // Points(29);
-    // CONS(HEADER[9] == '9');
+    CONS(HEADER[9] == '9');
   }
 
  private:
@@ -192,7 +192,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     string header = "...3..6.89";
 
-    CASE(N = 10, K = 5, A = randomSameArray(N, MAX_VAL));
+    CASE(HEADER = header, N = 10, K = 5, A = randomSameArray(N, MAX_VAL));
     generateSameValuedCases(header, 3, 10, 3, 10);
   }
 
