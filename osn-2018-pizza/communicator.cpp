@@ -39,11 +39,21 @@ int get_best_pizza(int n, int s, vector<int> &pizza, vector<bool> &dengklek_like
     }
   }
 
-  // take smallest that judge like
+  vector<int> choices;
   for (int i = 1; i <= n; i++) {
     if (pizza[i] > 0 && judge_like[i]) {
-      return i;
+      choices.push_back(i);
     }
+  }
+
+  if(!choices.empty()) {
+    int idx = 0;
+    // if s == 1, take smallest, otherwise random
+    if(s == 2) {
+      idx = rand() % choices.size();
+    }
+
+    return choices[idx];
   }
 
   // no pizza can be taken
