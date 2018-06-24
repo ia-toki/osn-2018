@@ -140,7 +140,7 @@ ll solve(int s, int t) {
   vi popped(N);
 
   for (int i = 0; i < N; i++) {
-    for (int j = 0; j < N; j++) {
+    for (int j = 0; j < 2 * N; j++) {
       dist[i][j][0] = dist[i][j][1] = LLONG_MAX / 2;
     }
   }
