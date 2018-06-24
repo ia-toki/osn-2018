@@ -33,15 +33,20 @@ struct Edge {
 
 struct PQEntry {
   int u, excess;
+  int temporary;  // intermediate state in unblocked edge
   ll value;
 
   PQEntry() {}
-  PQEntry(int u, int excess, ll value) : u(u), excess(excess), value(value) {}
+  PQEntry(int u, int excess, bool temporary, ll value) : u(u), excess(excess), temporary(temporary), value(value) {}
 
   struct DefaultComparator {
     bool operator()(const PQEntry &a, const PQEntry &b) const {
       if (a.value != b.value) {
         return a.value > b.value;
+      }
+      // prioritize non temporary for same value entries
+      if (a.temporary != b.temporary) {
+        return a.temporary > b.temporary;
       }
       if (a.excess != b.excess) {
         return a.excess < b.excess;
@@ -53,7 +58,7 @@ struct PQEntry {
 
 int n, m;
 int Cg, Mg, Co, Mo;
-ll dist[N][N];
+ll dist[N][N][2]; // dist, excess, temporary
 vector<Edge> blockedEdge[N];
 vector<Edge> unblockedEdge[N];
 
