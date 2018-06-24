@@ -10,6 +10,7 @@ export default class Server extends Duplex {
     super(options)
     this._input = new PassThrough()
     this._output = new PassThrough()
+    this._error = new PassThrough()
     this._output2 = new PassThrough()
 
     this._clientInterpreter = new ClientInterpreter(this._input)
@@ -57,7 +58,8 @@ export default class Server extends Duplex {
       x -= 1
 
       if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
-        console.log('server gives invalid response')
+        // console.log('server gives invalid response')
+        this.error('grader salah\n')
         return
       }
 
@@ -72,7 +74,8 @@ export default class Server extends Duplex {
       x -= 1
 
       if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count === 0) {
-        console.log('client gives invalid response')
+        // console.log('client gives invalid response')
+        this.error('masukan salah\n')
         return
       }
 
@@ -104,8 +107,13 @@ export default class Server extends Duplex {
     if (!this._isDestroyed) this._output.write(msg)
   }
 
+  error(msg) {
+    if (!this._isDestroyed) this._error.write(msg)
+  }
+
   checkQuit() {
     if (this._clientResponse == 0 && this._serverResponse == 0) {
+      this.error(this.K + '\n')
       this._clientInterpreter.break()
       this._serverInterpreter.break()
       this.destroy()
@@ -117,6 +125,7 @@ export default class Server extends Duplex {
     this._input.destroy()
     this._output.destroy()
     this._output2.destroy()
+    this._error.destroy()
     this._isDestroyed = true
   }
 

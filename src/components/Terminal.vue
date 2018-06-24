@@ -5,7 +5,7 @@
         <el-col
           :span="12"
           :offset="log.server ? 12 : 0">
-          <span>{{log.msg}}</span>
+          <span :class="{error: log.error}">{{log.msg}}</span>
         </el-col>
       </el-row>
     </div>
@@ -41,17 +41,23 @@ export default {
   },
   methods: {
     addClient(msg) {
-      this.addMessage(false, msg)
+      this.addMessage(false, false, msg)
     },
     addServer(msg) {
-      this.addMessage(true, msg)
+      this.addMessage(true, false, msg)
     },
-    addMessage(server, msg) {
+    addClientError(msg) {
+      this.addMessage(false, true, msg)
+    },
+    addServerError(msg) {
+      this.addMessage(true, true, msg)
+    },
+    addMessage(server, error, msg) {
       if (msg.length == 0) return
       let log;
       if (this.logs.length > 0) log = this.logs[this.logs.length-1]
-      if (!log || log.server != server) {
-        log = {id: this.curId++, server:server, msg: ''}
+      if (!log || log.server != server || log.error != error) {
+        log = {id: this.curId++, server:server, error:error, msg: ''}
         this.logs.push(log)
       }
       log.msg += msg
@@ -95,11 +101,15 @@ export default {
 
 .log {
   padding: 12px 15px;
-  white-space: pre;
+  white-space: pre-wrap;
   border-bottom: $--border-base;
 }
 
 .log:last-of-type {
   border-bottom: none;
+}
+
+.error {
+  color: $--color-danger;
 }
 </style>

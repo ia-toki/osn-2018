@@ -74,6 +74,9 @@ export default {
     this.server.on('data', (data) => {
       this.$refs.terminal.addServer(data)
     })
+    this.server._error.on('data', (data) => {
+      this.$refs.terminal.addServerError(data)
+    })
     this.client.on('data', (data) => {
       this.$refs.terminal.addClient(data)
     })
@@ -117,7 +120,7 @@ export default {
         x -= 1
 
         if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
-          console.log('server gives invalid response')
+          // console.log('server gives invalid response')
           return
         }
 
@@ -130,7 +133,7 @@ export default {
         x -= 1
 
         if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count == 0) {
-          console.log('client gives invalid response')
+          // console.log('client gives invalid response')
           return
         }
 
