@@ -1,7 +1,16 @@
 <template>
   <el-container id="app">
-    <el-header>
+    <el-header class="header" height="auto">
       <h1>Berebut Pizza</h1>
+      <el-menu 
+        class="navbar" 
+        mode="horizontal"
+        @select="changePage">
+        <el-menu-item index="tc1">TC 1</el-menu-item>
+        <el-menu-item index="tc2">TC 2</el-menu-item>
+        <el-menu-item index="custom">Custom</el-menu-item>
+        <el-menu-item index="generate">Generate</el-menu-item>
+      </el-menu>
     </el-header>
     <el-container>
       <el-aside class="aside" width="30%">
@@ -203,6 +212,10 @@ export default {
     noChoose() {
       this.client.answer('0\n')
     },
+
+    changePage(key, keyPath) {
+      console.log(key, keyPath)
+    },
   }
 }
 </script>
@@ -220,6 +233,12 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   color: $--color-text-regular;
   height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .aside {
