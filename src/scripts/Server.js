@@ -27,17 +27,11 @@ export default class Server extends Duplex {
     this._isDestroyed = false;
   }
 
-  start() {
+  start(tc) {
     this._clientInterpreter.start()
     this._serverInterpreter.start()
 
-    this._output.write([
-      '0..3.',
-      '3 1',
-      '2 4 4',
-      '2 2 3',
-      '2 1 3'
-    ].join('\n') + '\n')
+    this._output.write(tc)
   }
 
   serverInit(conf) {

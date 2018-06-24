@@ -5,6 +5,7 @@
       <el-menu 
         class="navbar" 
         mode="horizontal"
+        default-active="tc1"
         @select="changePage">
         <el-menu-item index="tc1">TC 1</el-menu-item>
         <el-menu-item index="tc2">TC 2</el-menu-item>
@@ -81,6 +82,9 @@ export default {
     }
   },
   mounted() {
+    this.tc1 = '0..3.\n3 1\n2 4 4\n2 2 3\n2 1 3\n'
+    this.tc2 = '0..3.\n3 1\n2 4 4\n1 1\n2 1 2\n'
+    this.tc = this.tc1
     this.reset()
   },
   methods: {
@@ -126,7 +130,7 @@ export default {
         this.client.answer(msg)
       }
       this.server.pipe(this.client).pipe(this.server)
-      this.server.start()
+      this.server.start(this.tc)
       this.client.start()
     },
 
@@ -215,6 +219,13 @@ export default {
 
     changePage(key, keyPath) {
       console.log(key, keyPath)
+      if (key == 'tc1') {
+        this.tc = this.tc1
+        this.reset()
+      } else if (key == 'tc2') {
+        this.tc = this.tc2
+        this.reset()
+      }
     },
   }
 }
