@@ -59,13 +59,17 @@ For all subtasks:
 
 Consists of only the following test case:
 
-TODO
+    .1.3456
+    10
+    1 2 3 4 5 6 7 8 9 10
 
 #### Subtask 2:
 
 Consists of only the following test case:
 
-TODO
+    ..23456
+    15
+    5 4 5 4 4 2 1 3 3 5 3 5 2 4 5
 
 ### Subtask 3:
 

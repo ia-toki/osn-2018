@@ -59,13 +59,17 @@ Untuk semua subsoal, berlaku:
 
 Hanya berisi kasus uji berikut:
 
-TODO
+    .1.3456
+    10
+    1 2 3 4 5 6 7 8 9 10
 
 #### Subsoal 2:
 
 Hanya berisi kasus uji berikut:
 
-TODO
+    ..23456
+    15
+    5 4 5 4 4 2 1 3 3 5 3 5 2 4 5
 
 ### Subsoal 3:
 
