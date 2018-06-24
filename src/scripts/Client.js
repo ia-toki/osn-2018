@@ -59,22 +59,6 @@ export default class Client extends Duplex {
     console.log(x)
   }
 
-  getAnswer() {
-    let choose = -1
-    for (let i=0; i<this.pizzas.length; i++) {
-      if (!this.pizzas[i].j && this.pizzas[i].count > 0) { // select the smallest
-        choose = i
-        break
-      }
-    }
-
-    if (choose != -1) {
-      return this.answer(choose + '\n')
-    } else {
-      return this.answer('0\n')
-    }
-  }
-
   answer(msg) {
     if (!this._isDestroyed) this._output.write(msg)
   }
