@@ -9,20 +9,21 @@
         </el-col>
       </el-row>
     </div>
-    <el-input 
-      class="input"
-      placeholder="Tekan Enter untuk mengirim" 
-      v-model="input"
-      :disabled="disabled"
-      @change="submit"
-      clearable>
-      <el-button 
-        class="submit" 
-        slot="append"
-        @click="submit">
-        Kirim
-      </el-button>
-    </el-input>
+    <el-form @submit.native.prevent="submit">
+      <el-input 
+        class="input"
+        placeholder="Tekan Enter untuk mengirim" 
+        v-model="input"
+        :disabled="disabled"
+        clearable>
+        <el-button 
+          class="submit" 
+          slot="append"
+          native-type="submit">
+          Kirim
+        </el-button>
+      </el-input>
+    </el-form>
   </div>
 </template>
 
@@ -81,6 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .logs {
   flex: 1;
   border: $--border-base;
@@ -90,6 +92,7 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .log {
   padding: 12px 15px;
   white-space: pre;
