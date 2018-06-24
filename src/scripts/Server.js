@@ -58,7 +58,6 @@ export default class Server extends Duplex {
 
       if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
         console.log('server gives invalid response')
-        this._serverInterpreter.continue()
         return
       }
 
