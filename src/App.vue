@@ -113,6 +113,8 @@ export default {
       for (let i=0; i<conf.J; i++) {
         this.pizzas[conf.Jidx[i]-1].j = true
       }
+      this.dengklek = 0
+      this.juri = 0
     },
 
     serverAnswer(x) {

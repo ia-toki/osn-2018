@@ -50,6 +50,15 @@ export default class Server extends Duplex {
     conf.Jidx.forEach(x => {
       this.pizzas[x-1].j = true
     })
+    let x = 0
+    let y = 0
+    this.pizzas.forEach(pizza => {
+      if (pizza.j && pizza.d) x += pizza.count
+      if (!pizza.j && pizza.d) y += pizza.count
+    })
+    this.K = Math.floor((x + 1)/2) + y
+    this.dengklek = 0
+    this.juri = 0
   }
 
   serverAnswer(x) {
@@ -63,7 +72,7 @@ export default class Server extends Duplex {
         return
       }
 
-      this.pizzas[x].count--
+      this.update(true, x)
     }
     this.checkQuit()
   }
@@ -79,11 +88,20 @@ export default class Server extends Duplex {
         return
       }
 
-      this.pizzas[x].count--;
+      this.update(false, x)
     }
     this.checkQuit()
 
     this.getAnswer()
+  }
+
+  update(juri, idx) {
+    const pizza = this.pizzas[idx]
+
+    if (!juri) this.dengklek++
+    else this.juri++
+
+    pizza.count--
   }
 
   getAnswer() {
@@ -113,7 +131,11 @@ export default class Server extends Duplex {
 
   checkQuit() {
     if (this._clientResponse == 0 && this._serverResponse == 0) {
-      this.error(this.K + '\n')
+      if (this.dengklek >= this.K) {
+        this.error('ACCEPTED\n')
+      } else {
+        this.error('WRONG ANSWER\n')
+      }
       this._clientInterpreter.break()
       this._serverInterpreter.break()
       this.destroy()
