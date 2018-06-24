@@ -18,15 +18,20 @@
           @click="choose(idx)">
           {{pizza.count}} / {{pizza.maxCount}} / {{pizza.d}} / {{pizza.j}}
         </el-button> -->
-        <Pizza
-          class="pizza"
-          v-for="(pizza, idx) in pizzas"
-          :key="pizza.id"
-          @choose="choose(idx, $event)"
-          :dengklek="pizza.d"
-          :juri="pizza.j"
-          :selected="pizza.selected">
-        </Pizza>
+        <div class="pizzas">
+          <div
+            class="pizza"
+            v-for="(pizza, idx) in pizzas"
+            :key="pizza.id">
+            <Pizza
+              @choose="choose(idx, $event)"
+              :dengklek="pizza.d"
+              :juri="pizza.j"
+              :selected="pizza.selected">
+            </Pizza>
+            <span class="pizza-text">{{idx + 1}}</span>
+          </div>
+        </div>
         <div>
           <el-button 
             class="pass" 
@@ -180,6 +185,7 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -187,11 +193,27 @@ html, body {
   color: $--color-text-regular;
   height: 100%;
 }
+
 .aside {
   padding: $--main-padding;
 }
+
 .terminal {
   height: 100%;
+}
+
+.pizzas {
+  display: flex;
+}
+
+.pizza + .pizza {
+  margin-left: 16px;
+}
+
+.pizza-text {
+  display: block;
+  font-size: 2em;
+  text-align: center;
 }
 
 </style>
