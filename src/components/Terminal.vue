@@ -39,7 +39,15 @@ export default {
       input: ''
     }
   },
+  mounted() {
+    this.reset()
+  },
   methods: {
+    reset() {
+      this.curId = 0
+      this.logs = []
+      this.input = ''
+    },
     addClient(msg) {
       this.addMessage(false, false, msg)
     },

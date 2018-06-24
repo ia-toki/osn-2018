@@ -12,6 +12,11 @@
       </el-aside>
       <el-main class="main">
         <h2>{{dengklek}} / {{juri}}</h2>
+        <el-button 
+          icon="el-icon-refresh" 
+          circle
+          @click="reset">
+        </el-button>
         <!-- <el-button 
           v-for="(pizza, idx) in pizzas" 
           :key="pizza.id" 
@@ -67,37 +72,55 @@ export default {
     }
   },
   mounted() {
-    this.server = new Server()
-    this.server.setEncoding('utf8')
-    this.client = new Client()
-    this.client.setEncoding('utf8')
-    this.server.on('data', (data) => {
-      this.$refs.terminal.addServer(data)
-    })
-    this.server._error.on('data', (data) => {
-      this.$refs.terminal.addServerError(data)
-    })
-    this.client.on('data', (data) => {
-      this.$refs.terminal.addClient(data)
-    })
-
-    this.server.on('destroy', () => {
-      this.finished = true
-    })
-
-    this.client._serverInit = this.serverInit.bind(this)
-    this.client._serverAnswer = this.serverAnswer.bind(this)
-    this.client._clientAnswer = this.clientAnswer.bind(this)
-
-    this.$refs.terminal.submitCallback = (msg) => {
-      this._choosenSlice = -1
-      this.client.answer(msg)
-    }
-    this.server.pipe(this.client).pipe(this.server)
-    this.server.start()
-    this.client.start()
+    this.reset()
   },
   methods: {
+    clean() {
+      if (this.server) this.server.destroy()
+      if (this.client) this.client.destroy()
+    },
+
+    reset() {
+      this.clean()
+
+      this.$refs.terminal.reset()
+
+      this.pizzas = []
+      this.dengklek = 0
+      this.juri = 0
+      this.finished = false
+
+      this.server = new Server()
+      this.server.setEncoding('utf8')
+      this.client = new Client()
+      this.client.setEncoding('utf8')
+      this.server.on('data', (data) => {
+        this.$refs.terminal.addServer(data)
+      })
+      this.server._error.on('data', (data) => {
+        this.$refs.terminal.addServerError(data)
+      })
+      this.client.on('data', (data) => {
+        this.$refs.terminal.addClient(data)
+      })
+
+      this.server.on('destroy', () => {
+        this.finished = true
+      })
+
+      this.client._serverInit = this.serverInit.bind(this)
+      this.client._serverAnswer = this.serverAnswer.bind(this)
+      this.client._clientAnswer = this.clientAnswer.bind(this)
+
+      this.$refs.terminal.submitCallback = (msg) => {
+        this._choosenSlice = -1
+        this.client.answer(msg)
+      }
+      this.server.pipe(this.client).pipe(this.server)
+      this.server.start()
+      this.client.start()
+    },
+
     serverInit(conf) {
       this.pizzas = []
       for (let i=0; i<conf.N; i++) {
