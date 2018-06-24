@@ -98,6 +98,11 @@ void expand_use_edge(int pos, int dst, int type, Edge edge) {
   }
 
   if (real_dst >= len) {
+    // kalau bablas, gak mungkin real_dst > m_g
+    if(type == 1 && real_dst > m_g) {
+      return;
+    }
+
     // langsung nyampein
     {
       long long ndis = dis;
