@@ -116,7 +116,7 @@ export default {
       if (x > 0) {
         x -= 1
 
-        if (x >= this.pizzas.length || this.pizzas[x].j || this.pizzas[x].count == 0) {
+        if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
           console.log('server gives invalid response')
           return
         }
@@ -129,7 +129,7 @@ export default {
       if (x > 0) {
         x -= 1
 
-        if (x >= this.pizzas.length || this.pizzas[x].d || this.pizzas[x].count == 0) {
+        if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count == 0) {
           console.log('client gives invalid response')
           return
         }
@@ -162,7 +162,7 @@ export default {
 
     choose(idx, slice) {
       const pizza = this.pizzas[idx]
-      if (pizza.d) return // not valid
+      if (!pizza.d) return // not valid
       if (pizza.count == 0) return // not valid
       if (pizza.selected[slice].value) return // not valid
 

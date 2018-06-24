@@ -14,12 +14,12 @@
     </Slice>
     <text class="count" :x="size/2" :y="size/2" dominant-baseline="central" text-anchor="middle" :font-size="size/2">{{count}}</text>
     <circle 
-      v-if="juri" 
+      v-if="!juri" 
       class="juri"
       :cx="size/2" :cy="size/2" :r="size/2">
     </circle>
     <path 
-      v-if="dengklek" 
+      v-if="!dengklek" 
       class="dengklek"
       :d="crossPath">
     </path>

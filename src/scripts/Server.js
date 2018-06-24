@@ -34,8 +34,8 @@ export default class Server extends Duplex {
       '0..3.',
       '3 1',
       '2 4 4',
-      '1 1',
-      '1 2'
+      '2 2 3',
+      '2 1 3'
     ].join('\n') + '\n')
   }
 
@@ -56,7 +56,7 @@ export default class Server extends Duplex {
     if (x > 0) {
       x -= 1
 
-      if (x >= this.pizzas.length || this.pizzas[x].j || this.pizzas[x].count == 0) {
+      if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
         console.log('server gives invalid response')
         this._serverInterpreter.continue()
         return
@@ -72,7 +72,7 @@ export default class Server extends Duplex {
     if (x > 0) {
       x -= 1
 
-      if (x >= this.pizzas.length || this.pizzas[x].d || this.pizzas[x].count === 0) {
+      if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count === 0) {
         console.log('client gives invalid response')
         return
       }
@@ -87,7 +87,7 @@ export default class Server extends Duplex {
   getAnswer() {
     let choose = -1
     for (let i=0; i<this.pizzas.length; i++) {
-      if (!this.pizzas[i].j && this.pizzas[i].count > 0) { // select the smallest
+      if (this.pizzas[i].j && this.pizzas[i].count > 0) { // select the smallest
         choose = i
         break
       }
