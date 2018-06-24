@@ -33,14 +33,15 @@ protected:
   }
 
   void Subtask1() {
-    // Points(7);
+    Points(5);
     CONS(HEADER[1] == '1');
+
     CONS(N == 10);
     CONS(A == vector<int>({1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
   }
 
   void Subtask2() {
-    // Points(7);
+    Points(8);
     CONS(HEADER[2] == '2');
 
     CONS(N == 15);
@@ -48,28 +49,28 @@ protected:
   }
 
   void Subtask3() {
-    // Points(7);
+    Points(16);
     CONS(HEADER[3] == '3');
 
     CONS(N <= 100);
   }
 
   void Subtask4() {
-    // Points(7);
+    Points(20);
     CONS(HEADER[4] == '4');
 
     CONS(N <= 2000);
   }
 
   void Subtask5() {
-    // Points(7);
+    Points(17);
     CONS(HEADER[5] == '5');
 
     CONS(eachElementBetween(A, 1, 100));
   }
 
   void Subtask6() {
-    // Points(7);
+    Points(34);
     CONS(HEADER[6] == '6');
   }
 
@@ -268,28 +269,6 @@ protected:
            A = permutationArray(N));
     }
   }
-
-  // void TestCases() {
-  //   CASE(N = MIN_N, A = {1});
-
-  //   // max case
-  //   CASE(N = MAX_N, A = randomArray(N, N, N));
-  //   CASE(N = MAX_N, A = randomArray(N, 1, N));
-  //   CASE(N = MAX_N, A = randomArray(N, 1, 10));
-  //   CASE(N = MAX_N, A = randomArrayWithMajority(N, 1, N));
-  //   CASE(N = MAX_N, A = permutationArray(N));
-
-  //   for(int i = 0 ; i < 2 ; i++) {
-  //     CASE(N = rnd.nextInt(MAX_N / 2, MAX_N),
-  //          A = randomArray(N, 1, min(N, 100)));
-
-  //     CASE(N = rnd.nextInt(MAX_N / 2, MAX_N),
-  //          A = randomArrayWithMajority(N, 1, N));
-
-  //     CASE(N = rnd.nextInt(MAX_N / 2, MAX_N),
-  //          A = permutationArray(N));
-  //   }
-  // }
 
 private:
   vector<int> randomArray(int n, int lo, int hi) {
