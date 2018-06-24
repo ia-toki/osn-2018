@@ -14,11 +14,24 @@ class ProblemSpec : public BaseProblemSpec {
   string header;
   long long A, B, Q;
   vector<long long> L, R;
+
+  // output format validation
+  string isPossible;
+  vector<string> answers;
         
   void InputFormat() {
     LINE(header);
     LINE(A, B, Q);
     LINES(L, R) % SIZE(Q);
+  }
+
+  void OutputFormat1() {
+    RAW_LINE(isPossible);
+    RAW_LINES(answers) % SIZE(Q);
+  }
+
+  void OutputFormat2() {
+    RAW_LINE(isPossible);
   }
 
   void GradingConfig() {
