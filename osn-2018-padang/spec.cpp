@@ -44,6 +44,7 @@ class ProblemSpec : public BaseProblemSpec {
 
   void Constraints() {
     CONS(static_cast<int>(header.size()) == 9);
+    CONS(validHeader());
     CONS(A + B > 0);
     CONS(0 <= A && A <= TEN<15>);
     CONS(0 <= B && B <= TEN<15>);
@@ -110,6 +111,15 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
  private:
+  bool validHeader() {
+    for (int i = 0; i < 9; i++) {
+      if (header[i] != '.' && header[i] != '0' + i) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   bool eachElementBetween(const vector<long long> &A, long long lo, long long hi) {
     for (long long it : A) {
       if (it < lo || it > hi) {
