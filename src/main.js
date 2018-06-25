@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 
 import Home from './pages/Home.vue'
 import TC from './pages/TC.vue'
+import Custom from './pages/Custom.vue'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -13,8 +14,9 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/tc/:tc', component: TC },
+  { path: '/', name:'home', component: Home },
+  { path: '/tc/:tc', name:'tc', component: TC },
+  { path: '/custom', name:'custom', component: Custom },
 ]
 
 const router = new VueRouter({
