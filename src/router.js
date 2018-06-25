@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './pages/Home.vue'
-import TC from './pages/TC.vue'
-import Custom from './pages/Custom.vue'
-import Generate from './pages/Generate.vue'
+import Home from './views/Home.vue'
+import TC from './views/TC.vue'
+import Custom from './views/Custom.vue'
+import Generate from './views/Generate.vue'
 
 Vue.use(Router)
 
