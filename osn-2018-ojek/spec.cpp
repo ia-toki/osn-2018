@@ -49,6 +49,7 @@ class ProblemSpec : public BaseProblemSpec {
     CONS(validEdgeCosts(1, TEN<8>));
     CONS(validBlockedValues());
     CONS(connected());
+    CONS(uniqueEdges());
   }
 
   void Subtask1() {
@@ -112,6 +113,19 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
  private:
+
+  bool uniqueEdges() {
+    set<pair<int, int>> edges;
+    for (int i = 0; i < M; i++) {
+      int x = U[i];
+      int y = V[i];
+      if (x > y) {
+        swap(x, y);
+      }
+      edges.emplace(x, y);
+    }
+    return edges.size() == M;
+  }
 
   bool validEdgeEndpoints() {
     for (int i = 0; i < M; i++) {
@@ -266,8 +280,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     CASE(HEADER=header; cheapGojek(2, 100, 1, 1, 1, 1, 1, 1));
     CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1); applyPermutation());
 
-    commonGraph(header, true, true, 1, 1, 1, 55, 100, 1, 1);
     commonGraph(header, true, true, 1, 1, 1, 55, 100, 1, 1);
   }
     
@@ -280,8 +294,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 1, 1, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 1, 10));
     CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
+    CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1; applyPermutation());
 
-    commonGraph(header, false, true, 2, 1, 1, 55, 100, 1, 10);
     commonGraph(header, false, true, 2, 1, 1, 55, 100, 1, 10);
   }
     
@@ -298,9 +312,9 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 1, 1, 11, 20));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 11, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>); applyPermutation());
 
     commonGraph(header, false, true, 2, 1, 1, 75, 100, 11, 100);
-    commonGraph(header, false, true, 2, 1, 1, 50, 75, 201, TEN<8>);
   }
     
   // Mg > 1 atau Mo > 1, dua2nya <= 10, 1 <= dist <= 10
@@ -314,6 +328,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 2, 10, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 1, 10));
     CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10));
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10); applyPermutation());
+    CASE(HEADER=header; special2());
 
     commonGraph(header, false, false, 2, 2, 10, 50, 100, 1, 10);
   }
@@ -324,6 +340,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     const string header = "......67";
 
+    CASE(HEADER=header; ayazSpecial());
     CASE(HEADER=header; trickyUnblockedGojekOpang(2));
     CASE(HEADER=header; fullHeavyGraph(100, 100, TEN<6>, TEN<8>, 0.5));
     CASE(HEADER=header; cheapGojek(2, 20, 1, TEN<8>, 2, 10, 11, 20));
@@ -332,9 +349,9 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 2, 10, 11, 20));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 11, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>); applyPermutation());
 
     commonGraph(header, false, false, 2, 2, 10, 75, 100, TEN<2> + 1, TEN<8>);
-    commonGraph(header, false, false, 2, 2, 10, 50, 100, TEN<6>, TEN<8>);
   }
 
   // Mg > 10 atau Mo > 10, dist <= 10
@@ -346,6 +363,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, 1, 10));
     CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10));
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10); applyPermutation());
 
     commonGraph(header, false, false, 10, 10, 50, 100, 100, 1, 10);
   }
@@ -356,19 +374,40 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     const string header = ".......7";
 
+    CASE(HEADER=header; special3());
     CASE(HEADER=header; cheapGojek(2, 20, 1, TEN<8>, 20, 100, 11, 20));
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, 11, TEN<8>));
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
-    CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 20, 100, 11, 20));
-    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, 11, TEN<8>));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
+    CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
-    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
+    CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
+    CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>); applyPermutation());
 
     commonGraph(header, false, false, 10, 10, 100, 100, 100, 11, TEN<8>);
-    commonGraph(header, false, false, 10, 10, 100, 100, 100, TEN<6>, TEN<8>);
   }
 
  private:
+
+  void generateOne(int minN, int maxN, int minK, int maxK, int prob0, int probAddEdge) {
+    randomTree(minN, maxN, minK, maxK);
+    set<pair<int, int>> inserted;
+    for (int i = 0; i < M; i++) {
+      inserted.emplace(U[i], V[i]);
+      inserted.emplace(V[i], U[i]);
+    }
+    for (int i = 0; i < N; i++) {
+      for (int j = i + 1; j < N; j++) {
+        if (!inserted.count(make_pair(i, j)) && rnd.nextInt(100) < probAddEdge) {
+          U.push_back(i);
+          V.push_back(j);
+          K.push_back(rnd.nextInt(minK, maxK));
+          X.push_back(rnd.nextInt(100) < prob0 ? 0 : 1);
+        }
+      }
+    }
+    M = SZ(U);
+  }
 
   void coveredByOpang(int minN, int maxN, int minC, int maxC, int minM, int maxM, int minK, int maxK) {
     int maxChainLength = min({maxN - 1, maxM / minK});
@@ -389,13 +428,22 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     int oldN = N;
     N += addN;
     for (int i = oldN; i < N; i++) {
+      int cnt = 0;
       for (int j = 0; j < i; j++) {
         if (rnd.nextInt(0, 2) == 2) {
-          U.push_back(i - 1);
+          U.push_back(j);
           V.push_back(i);
           K.push_back(rnd.nextInt(minK, maxK));
           X.push_back(rnd.nextInt(0, 1));
+          cnt++;
         }
+      }
+      if (cnt == 0) {
+        int j = rnd.nextInt(i);
+        U.push_back(j);
+        V.push_back(i);
+        K.push_back(rnd.nextInt(minK, maxK));
+        X.push_back(rnd.nextInt(0, 1));
       }
     }
     M = SZ(U);
@@ -412,13 +460,22 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
       X.push_back(rnd.nextInt(0, 1));
       inserted.emplace(U.back(), V.back());
     }
+    int type = rnd.nextInt(2);
     for (int i = 0; i < N; i++) {
       for (int j = i + 1; j < N; j++) {
         if (!inserted.count(make_pair(i, j)) && rnd.nextInt(0, 1)) {
           U.push_back(i);
           V.push_back(j);
-          K.push_back(rnd.nextInt(minK, maxK));
-          X.push_back(0);
+          X.push_back(rnd.nextInt(0, 1));
+          if (type == 0) {
+            if (X.back() == 1) {
+              K.push_back(rnd.nextInt(max(minK, maxK - 10), maxK));
+            } else {
+              K.push_back(rnd.nextInt(minK, min(maxK, minK + 10)));
+            }
+          } else {
+            K.push_back(rnd.nextInt(minK, maxK));
+          }
         }
       }
     }
@@ -501,8 +558,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
       while (Cg == 1 && Co == 1) {
         if (rnd.nextInt(0, 1)) Cg = rnd.nextInt(minLargeC, TEN<8>);
         if (rnd.nextInt(0, 1)) Co = rnd.nextInt(minLargeC, TEN<8>);
-        if (rnd.nextInt(0, 3) == 3) Cg = rnd.nextInt(TEN<7>, TEN<8>);
-        if (rnd.nextInt(0, 3) == 3) Co = rnd.nextInt(TEN<7>, TEN<8>);
+        if (rnd.nextInt(0, 3) <= 2) Cg = rnd.nextInt(TEN<7>, TEN<8>);
+        if (rnd.nextInt(0, 3) >= 2) Co = rnd.nextInt(TEN<7>, TEN<8>);
       }
     }
     if (!allOneM) {
@@ -513,47 +570,23 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     }
   }
 
-  void randomTree(int minN, int maxN, int minK, int maxK) {
+  void randomTree(int minN, int maxN, int minK, int maxK, int prob0 = 50) {
     N = rnd.nextInt(minN, maxN);
     M = N - 1;
     S = 0; T = N - 1;
     for (int i = 1; i < N; i++) {
-      U.push_back(i);
-      V.push_back(rnd.nextInt(0, i - 1));
+      U.push_back(rnd.nextInt(0, i - 1));
+      V.push_back(i);
       K.push_back(rnd.nextInt(minK, maxK));
-      X.push_back(rnd.nextInt(0, 1));
+      X.push_back(rnd.nextInt(0, 99) < prob0 ? 0 : 1);
     }
   }
-
-  void randomGraphSmall(int minK, int maxK) {
-    int toComplete = N * (N - 1) / 2 - M;
-    int addEdge = min(toComplete, 10);
-    while (addEdge--) {
-      M++;
-      U.push_back(rnd.nextInt(0, N - 2));
-      V.push_back(rnd.nextInt(U.back() + 1, N - 1));
-      K.push_back(rnd.nextInt(minK, maxK));
-      X.push_back(rnd.nextInt(0, 1));
-    }
-  };
-
-  void randomGraphLarge(int minK, int maxK) {
-    int toComplete = N * (N - 1) / 2 - M;
-    int addEdge = rnd.nextInt(toComplete / 2, 3 * toComplete / 4);
-    while (addEdge--) {
-      M++;
-      U.push_back(rnd.nextInt(0, N - 2));
-      V.push_back(rnd.nextInt(U.back() + 1, N - 1));
-      K.push_back(rnd.nextInt(minK, maxK));
-      X.push_back(rnd.nextInt(0, 1));
-    }
-  };
 
   void randomStar(int minN, int maxN, int minK, int maxK) {
     N = rnd.nextInt(minN, maxN);
     M = N - 1;
     S = 0;
-    T = rnd.nextInt(0, N - 1);
+    T = rnd.nextInt(1, N - 1);
     for (int i = 1; i < N; i++) {
       U.push_back(0);
       V.push_back(i);
@@ -562,13 +595,111 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     }
   };
 
+  void ayazSpecial() {
+    N = 3;
+    M = 2;
+    Cg = 1; Mg = 1;
+    Co = 6; Mo = 5;
+    S = 0; T = 2;
+    U = {0, 1};
+    V = {1, 2};
+    K = {100, 17};
+    X = {0, 1};
+  }
+
+  void special2() {
+    N = 4;
+    M = 3;
+    Cg = 1; Mg = 1;
+    Co = 8; Mg = 7;
+    S = 3; T = 0;
+    U = {0, 1, 2};
+    V = {1, 2, 3};
+    K = {3, 2, 4};
+    X = {1, 1, 0};
+  }
+
+  void special3() {
+    N = 5;
+    M = 4;
+    Cg = 1; Mg = 1;
+    Co = 99; Mo = 100;
+    S = 0; T = 4;
+    U = {0, 1, 2, 3};
+    V = {1, 2, 3, 4};
+    K = {11, 165, 24, 25};
+    X = {1, 0, 1, 1};
+  }
+
+  void special4() {
+    N = 5;
+    M = 4;
+    Cg = 1; Mg = 1;
+    Co = 9; Mo = 10;
+    S = 0; T=  4;
+    U = {0, 1, 2, 3};
+    V = {1, 2, 3, 4};
+    K = {4, 13, 3, 3};
+    X = {1, 0, 1, 1};
+  }
+
+  void applyPermutation() {
+    vector<int> perm(N);
+    iota(begin(perm), end(perm), 0);
+    rnd.shuffle(begin(perm), end(perm));
+    for (int i = 0; i < M; i++) {
+      U[i] = perm[U[i]];
+      V[i] = perm[V[i]];
+    }
+    S = perm[S];
+    T = perm[T];
+  }
+
+  void randomGraphSmall(int minK, int maxK) {
+    set<pair<int, int>> seen;
+    for (int i = 0; i < M; i++) {
+      seen.emplace(U[i], V[i]);
+      seen.emplace(V[i], U[i]);
+    }
+    vector<pair<int, int>> unseen;
+    for (int i = 0; i < N; i++) {
+      for (int j = i + 1; j < N; j++) {
+        if (!seen.count(make_pair(i, j))) {
+          unseen.emplace_back(i, j);
+        }
+      }
+    }
+    rnd.shuffle(begin(unseen), end(unseen));
+    int toComplete = N * (N - 1) / 2 - M;
+    int addEdge = min(toComplete, 10);
+    for (int i = 0; i < addEdge; i++) {
+      M++;
+      U.push_back(unseen[i].first);
+      V.push_back(unseen[i].second);
+      K.push_back(rnd.nextInt(minK, maxK));
+      X.push_back(rnd.nextInt(0, 1));
+    }
+  }
+
+
   void commonGraph(string header, bool allOneC, bool allOneM, int minLargeC, int minLargeM, int maxM, int minN, int maxN, int minK, int maxK) {
     CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
-    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK));
-    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphLarge(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
+    CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
     CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
     CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomTree(minN, maxN, minK, maxK); randomGraphSmall(minK, maxK));
     CASE(HEADER=header; randomizeCM(allOneC, allOneM, minLargeC, minLargeM, maxM); randomStar(minN, maxN, minK, maxK));
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 14, 14); Co = allOneC ? 1 : TEN<8>/min(20, maxM); Cg = allOneC ? 1 : (TEN<8>-rnd.nextInt(1, 10)); Mo = Mg = allOneM ? 1 : min(20, maxM));
+
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 100, 15); Co = allOneC ? 1 : minLargeC; Cg = allOneC ? 1 : TEN<8>, Mo = Mg = allOneM ? 1 : maxM);
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 25, 65); Co = allOneC ? 1 : minLargeC; Cg = allOneC ? 1 : TEN<8>, Mo = Mg = allOneM ? 1 : maxM);
+
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 0, 15); Cg = allOneC ? 1 : minLargeC; Co = allOneC ? 1 : minLargeC * 10; Mo = Mg = allOneM ? 1 : minLargeM);
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 100, 15); Cg = allOneC ? 1 : minLargeC; Co = allOneC ? 1 : minLargeC * 10; Mo = Mg = allOneM ? 1 : minLargeM);
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 25, 65); Cg = allOneC ? 1 : minLargeC; Co = allOneC ? 1 : minLargeC * 10; Mo = Mg = allOneM ? 1 : minLargeM);
+    CASE(HEADER=header; generateOne(minN, maxN, minK, maxK, 75, 65); Cg = allOneC ? 1 : minLargeC; Co = allOneC ? 1 : minLargeC * 10; Mo = Mg = allOneM ? 1 : minLargeM);
+    CASE(HEADER=header; generateOne(maxN, maxN, maxK, maxK, 50, 100); Cg = Co = allOneC ? 1 : minLargeC; Mo = Mg = allOneM ? 1 : minLargeM);
   }
 
   void fullHeavyGraph(int minN, int maxN, int minK, int maxK, double probQ0) {
@@ -588,6 +719,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   void maxDistanceGraph(int n, int maxK, int x) {
     N = n;
     M = N - 1;
+    S = 0;
+    T = N - 1;
     for (int i = 1; i < N; i++) {
       U.push_back(i - 1);
       V.push_back(i);
