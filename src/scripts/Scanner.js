@@ -9,7 +9,7 @@ export default class Scanner {
   }
 
   async getToken (regex) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const cb = () => {
         let res
         while (true) {
@@ -22,10 +22,17 @@ export default class Scanner {
         if (res) {
           this._cache = this._cache.substr(res.index + res[1].length)
           this._readable.removeListener('readable', cb)
+          this._readable.removeListener('close', close)
           resolve(res[2])
         }
       }
+      const close = () => {
+        this._readable.removeListener('readable', cb)
+        this._readable.removeListener('close', close)
+        reject(new Error('Stream closed'))
+      }
       this._readable.on('readable', cb)
+      this._readable.on('close', close)
       cb()
     })
   }

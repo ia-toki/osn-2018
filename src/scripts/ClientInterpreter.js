@@ -10,14 +10,18 @@ export default class ClientInterpreter {
   }
 
   async start() {
-    while (true) {
-      this._break = false
-      
-      this.answer(await this._scanner.getInt())
+    try {
+      while (true) {
+        this._break = false
+        
+        this.answer(await this._scanner.getInt())
 
-      if (this._break) {
-        break
+        if (this._break) {
+          break
+        }
       }
+    } catch (err) {
+      // catch err, maybe emit event?
     }
   }
 
