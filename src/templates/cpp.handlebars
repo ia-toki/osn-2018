@@ -1,0 +1,31 @@
+#include <cstdio>
+
+int N, K;
+char header[20], grader[20];
+
+int main() {
+    scanf("%s", header);
+    {{#if (ne data.length 0)}}
+    {{#each data}}
+    {{#if (ne @index 0)}}
+    } else if {{else}}
+    if {{/if}}(header[{{testcase}}] == '{{testcase}}') {
+        scanf("%d %d",&N, &K); // {{{begin}}}
+        
+        {{#each middle}}
+        printf("{{{output}}}\n");
+        fflush(stdout);
+        scanf("%s", grader); // {{{input}}}
+        
+        {{/each}}
+        printf("{{{end}}}\n");
+        fflush(stdout);
+        
+    {{/each}}
+    } else {
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    }
+    {{else}}
+    // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    {{/if}}
+}

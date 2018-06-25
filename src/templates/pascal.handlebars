@@ -1,0 +1,30 @@
+var
+    N, K: integer;
+    header, grader: string;
+
+begin
+    readln(header);
+    {{#if (ne data.length 0)}}
+    {{#each data}}
+    {{#if (ne @index 0)}}
+    end else if {{else}}
+    if {{/if}}(header[{{add testcase 1}}] = '{{testcase}}') then begin
+        readln(N, K); // {{{begin}}}
+        
+        {{#each middle}}
+        writeln('{{{output}}}');
+        flush(output);
+        readln(grader); // {{{input}}}
+        
+        {{/each}}
+        writeln('{{{end}}}');
+        flush(output);
+        
+    {{/each}}
+    end else begin
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    end;
+    {{else}}
+    // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    {{/if}}
+end.
