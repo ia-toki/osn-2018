@@ -126,7 +126,22 @@ int main() {
 
 							k_local -= i;
 							k_online += i;
-							if (k_local < 0 || k_online < 0) continue;
+							if (k_local <= 0 || k_online < 0) continue;
+
+							new_dist = dist + (type == 0 ? 0 : fuel * C_g) + k_online * C_g + (k_local + M_o-1) / M_o * C_o;
+							new_fuel = (k_local % M_o == 0 ? 0 : M_o - k_local % M_o);
+							new_type = 0;
+							if (new_dist < sp[new_pos][new_fuel][new_type]) {
+								sp[new_pos][new_fuel][new_type] = new_dist;
+								pq.push(PIIII(PII(-new_dist, new_pos), PII(new_fuel, new_type)));
+							}
+						}
+
+						for (long long i = 1; i < M_o; i++) {
+							long long k_local = i;
+							long long k_online = (k-fuel-i);
+
+							if (k_local <= 0 || k_online < 0) continue;
 
 							new_dist = dist + (type == 0 ? 0 : fuel * C_g) + k_online * C_g + (k_local + M_o-1) / M_o * C_o;
 							new_fuel = (k_local % M_o == 0 ? 0 : M_o - k_local % M_o);
