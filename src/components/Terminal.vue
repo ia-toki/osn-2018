@@ -110,11 +110,10 @@ export default {
 .log {
   padding: 12px 15px;
   white-space: pre-wrap;
-  border-bottom: $--border-base;
 }
 
-.log:last-of-type {
-  border-bottom: none;
+.log + .log {
+  border-top: $--border-base;
 }
 
 .error {
