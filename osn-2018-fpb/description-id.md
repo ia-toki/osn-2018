@@ -7,7 +7,7 @@ Di sebuah desa kecil di Padang, terdapat N rumah yang berjajar bersebelahan memb
 Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festival FPB". Setiap harinya, kepala desa akan memilih satu atau lebih rumah, lalu membaginya ke dalam tepat K buah kelompok sedemikian sehingga:
 
 - Setiap rumah termasuk ke dalam paling banyak satu kelompok.
-- Semua rumah dalam satu kelompok yang sama terletak saling bersebelahan, tidak diselingin oleh rumah lain yang bukan merupakan kelompok tersebut.
+- Semua rumah dalam setiap kelompok yang sama terletak saling bersebelahan, tidak diselingin oleh rumah lain yang bukan merupakan kelompok tersebut.
 
 Kemudian, setiap kelompok memberikan sumbangan sebesar faktor persekutuan terbesar (FPB) dari banyaknya anggota keluarga di rumah-rumah pada kelompok tersebut.
 
@@ -70,7 +70,7 @@ Untuk semua subsoal, berlaku:
 - 1 ≤ K ≤ min(N, 20)
 - 1 ≤ A[i] ≤ 100.000
 
-#### Subsoal 1:
+#### Subsoal 1 (7 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -79,7 +79,7 @@ Hanya berisi kasus uji berikut:
     30 15 3 48 24 8 12 100 52
 
 
-#### Subsoal 2:
+#### Subsoal 2 (8 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -87,32 +87,32 @@ Hanya berisi kasus uji berikut:
     9 3
     1 1 1 1 1 1 1 1 1
 
-### Subsoal 3:
+### Subsoal 3 (7 poin):
 
 - N ≤ 10
 
-#### Subsoal 4:
+#### Subsoal 4 (8 poin):
 
 - N ≤ 500
 - K = 1
 
-#### Subsoal 5:
+#### Subsoal 5 (10 poin):
 
 - N ≤ 500
 - K ≤ min(N, 2)
 
-#### Subsoal 6:
+#### Subsoal 6 (15 poin):
 
 - N ≤ 500
 
-#### Subsoal 7:
+#### Subsoal 7 (19 poin):
 
 - K = 1
 
-#### Subsoal 8:
+#### Subsoal 8 (11 poin):
 
 - Semua nilai A[i] sama.
 
-#### Subsoal 9:
+#### Subsoal 9 (15 poin):
 
 - Tidak ada batasan tambahan.

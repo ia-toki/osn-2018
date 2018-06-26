@@ -7,13 +7,13 @@ At a small village in Padang, there are N houses lined up in a row. The i-th hou
 To increase the village income, the mayor is organizing a program called "GCD Festival". Every day, the mayor will pick one or more houses, then split them into exactly K groups in such a way that:
 
 - Each house belongs to at most one group.
-- All houses in a group are consecutive, not interleaved by any house not in that group.
+- All houses in each group are consecutive, not interleaved by any house not in that group.
 
 Then, each group will donate an amount that equals to the greatest common divisor (GCD) of the number of family members in every house in that group.
 
 The mayor will always choose a different way of choosing K groups every day. The festival is over when all possible ways have occurred.
 
-The mayor is now curious, in the end, what is the total income obtained from this festival? Since the amount can be very large, he is only interested in the result modulo 1.000.000.007.
+The mayor is now curious, in the end, what is the total income obtained from this festival? Since the amount can be very large, he is only interested in the result modulo 1,000,000,007.
 
 ### Input Format
 
@@ -38,7 +38,7 @@ The next lines are given in the following format:
 
 ### Output Format
 
-A single line containing the total income, modulo 1.000.000.007.
+A single line containing the total income, modulo 1,000,000,007.
 
 ### Sample Input
 
@@ -66,11 +66,11 @@ Therefore, the total income is 10 + 11 + 7 + 7 + 9 = 44.
 
 For all subtasks:
 
-- 1 ≤ N ≤ 50.000
+- 1 ≤ N ≤ 50,000
 - 1 ≤ K ≤ min(N, 20)
-- 1 ≤ A[i] ≤ 100.000
+- 1 ≤ A[i] ≤ 100,000
 
-#### Subtask 1:
+#### Subtask 1 (7 points):
 
 Consists of only the following test case:
 
@@ -79,7 +79,7 @@ Consists of only the following test case:
     30 15 3 48 24 8 12 100 52
 
 
-#### Subtask 2:
+#### Subtask 2 (8 points):
 
 Consists of only the following test case:
 
@@ -87,32 +87,32 @@ Consists of only the following test case:
     9 3
     1 1 1 1 1 1 1 1 1
 
-#### Subtask 3:
+#### Subtask 3 (7 points):
 
 - N ≤ 10
 
-#### Subtask 4:
+#### Subtask 4 (8 points):
 
 - N ≤ 500
 - K = 1
 
-#### Subtask 5:
+#### Subtask 5 (10 points):
 
 - N ≤ 500
 - K ≤ min(N, 2)
 
-#### Subtask 6:
+#### Subtask 6 (15 points):
 
 - N ≤ 500
 
-#### Subtask 7:
+#### Subtask 7 (19 points):
 
 - K = 1
 
-#### Subtask 8:
+#### Subtask 8 (11 points):
 
 - All values of A[i] are equal.
 
-#### Subtask 9:
+#### Subtask 9 (15 points):
 
 - No additional constraints.
