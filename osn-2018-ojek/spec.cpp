@@ -187,6 +187,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
             "4 2 12 0",
             "5 6 1 0",
             "6 1 1 0"});
+    Output({"32"});
   }
 
   void SampleTestCase2() {
@@ -206,6 +207,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
             "5 6 1 1",
             "6 7 1 1",
             "7 5 1 1"});
+    Output({"3"});
   }
 
   void SampleTestCase3() {
@@ -217,6 +219,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
             "1 100",
             "1 2",
             "1 2 6 1"});
+    Output({"1"});
   }
 
   void BeforeTestCase() {
