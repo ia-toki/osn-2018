@@ -44,7 +44,7 @@ protected:
 	}
 
 	void Subtask1() {
-		Points(0);
+		Points(6);
 		CONS(S == "AABA");
 		CONS(K == 3);
 		CONS(Q == 6);
@@ -54,7 +54,7 @@ protected:
 	}
 
 	void Subtask2() {
-		Points(0);
+		Points(8);
 		CONS(S == "AABABAABB");
 		CONS(K == 11);
 		CONS(Q == 7);
@@ -64,39 +64,39 @@ protected:
 	}
 
 	void Subtask3() {
-		Points(0);
+		Points(11);
 		CONS(K == 1);
 		CONS((int)S.length() <= 1000);
 		CONS(HEADER[3] == '3');
 	}
 
 	void Subtask4() {
-		Points(0);
+		Points(9);
 		CONS(K == 1);
 		CONS(Q == 1);
 		CONS(HEADER[4] == '4');
 	}
 
 	void Subtask5() {
-		Points(0);
+		Points(16);
 		CONS(Q == 1);
 		CONS(HEADER[5] == '5');
 	}
 
 	void Subtask6() {
-		Points(0);
+		Points(15);
 		CONS(S.length() <= 2);
 		CONS(HEADER[6] == '6');
 	}
 
 	void Subtask7() {
-		Points(0);
+		Points(19);
 		CONS(eachElementSame(L, R));
 		CONS(HEADER[7] == '7');
 	}
 
 	void Subtask8() {
-		Points(0);
+		Points(16);
 		CONS(HEADER[8] == '8');
 	}
 
