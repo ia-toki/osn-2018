@@ -2,7 +2,7 @@
 
 ### Deskripsi
 
-Kota Padang terkenal dengan "sajak biner"-nya. Sebuah sajak biner adalah sebuah string yang memenuhi seluruh syarat berikut:
+Kota Padang terkenal dengan "sajak biner"-nya. Sebuah sajak biner adalah sebuah string S yang memenuhi seluruh syarat berikut:
 
 - S yang hanya terdiri atas karakter '0' atau '1'.
 - S terdiri atas setidaknya 1 karakter.
@@ -121,7 +121,7 @@ Untuk semua subsoal, berlaku:
 - 0 ≤ L[i] ≤ R[i] < 10^16
 - R[i] - L[i] ≤ 50
 
-#### Subsoal 1:
+#### Subsoal 1 (10 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -129,7 +129,7 @@ Hanya berisi kasus uji berikut:
     3 9 1
     1 4
 
-#### Subsoal 2:
+#### Subsoal 2 (10 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -140,28 +140,28 @@ Hanya berisi kasus uji berikut:
     0 9
     0 10
 
-#### Subsoal 3: 
+#### Subsoal 3 (10 poin): 
 
 - A + B ≤ 8
 - Q = 1
 
-#### Subsoal 4:
+#### Subsoal 4 (11 poin):
 
 - A + B ≤ 18
 - Q = 1
 
-#### Subsoal 5:
+#### Subsoal 5 (15 poin):
 
 - A, B ≤ 2.000
 
-#### Subsoal 6:
+#### Subsoal 6 (20 poin):
 
 - A, B ≤ 1.000.000
 
-#### Subsoal 7:
+#### Subsoal 7 (14 poin):
 
 - Q = 0
 
-#### Subsoal 8:
+#### Subsoal 8 (10 poin):
 
 - Tidak ada batasan tambahan.

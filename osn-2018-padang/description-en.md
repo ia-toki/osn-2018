@@ -121,11 +121,11 @@ For all subtasks:
 
 - 0 ≤ A, B ≤ 10^15
 - A + B > 0
-- 0 ≤ Q ≤ 20.000
+- 0 ≤ Q ≤ 20,000
 - 0 ≤ L[i] ≤ R[i] < 10^16
 - R[i] - L[i] ≤ 50
 
-#### Subtask 1:
+#### Subtask 1 (10 points):
 
 Consists of only the following test case:
 
@@ -133,7 +133,7 @@ Consists of only the following test case:
     3 9 1
     1 4
 
-#### Subtask 2:
+#### Subtask 2 (10 points):
 
 Consists of only the following test case:
 
@@ -144,28 +144,28 @@ Consists of only the following test case:
     0 9
     0 10
 
-#### Subtask 3: 
+#### Subtask 3 (10 points): 
 
 - A + B ≤ 8
 - Q = 1
 
-#### Subtask 4:
+#### Subtask 4 (11 points):
 
 - A + B ≤ 18
 - Q = 1
 
-#### Subtask 5:
+#### Subtask 5 (15 points):
 
 - A, B ≤ 2.000
 
-#### Subtask 6:
+#### Subtask 6 (20 points):
 
 - A, B ≤ 1.000.000
 
-#### Subtask 7:
+#### Subtask 7 (14 points):
 
 - Q = 0
 
-#### Subtask 8:
+#### Subtask 8 (10 points):
 
 - No additional constraints.
