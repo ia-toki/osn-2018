@@ -55,7 +55,7 @@ Untuk semua subsoal, berlaku:
 - 3 ≤ N ≤ 100.000
 - 1 ≤ A[i] ≤ 100.000
 
-#### Subsoal 1:
+#### Subsoal 1 (5 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -63,7 +63,7 @@ Hanya berisi kasus uji berikut:
     10
     1 2 3 4 5 6 7 8 9 10
 
-#### Subsoal 2:
+#### Subsoal 2 (8 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -71,18 +71,18 @@ Hanya berisi kasus uji berikut:
     15
     5 4 5 4 4 2 1 3 3 5 3 5 2 4 5
 
-### Subsoal 3:
+### Subsoal 3 (16 poin):
 
 - N ≤ 100
 
-#### Subsoal 4:
+#### Subsoal 4 (20 poin):
 
 - N ≤ 2.000
 
-#### Subsoal 5:
+#### Subsoal 5 (17 poin):
 
 - A[i] ≤ 100
 
-#### Subsoal 6:
+#### Subsoal 6 (34 poin):
 
 - Tidak ada batasan tambahan.

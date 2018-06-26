@@ -52,10 +52,10 @@ The triplets satisfying the conditions are (1, 2, 4) and (2, 3, 4).
 
 For all subtasks:
 
-- 3 ≤ N ≤ 100.000
-- 1 ≤ A[i] ≤ 100.000
+- 3 ≤ N ≤ 100,000
+- 1 ≤ A[i] ≤ 100,000
 
-#### Subtask 1:
+#### Subtask 1 (5 points):
 
 Consists of only the following test case:
 
@@ -63,7 +63,7 @@ Consists of only the following test case:
     10
     1 2 3 4 5 6 7 8 9 10
 
-#### Subtask 2:
+#### Subtask 2 (8 points):
 
 Consists of only the following test case:
 
@@ -71,18 +71,18 @@ Consists of only the following test case:
     15
     5 4 5 4 4 2 1 3 3 5 3 5 2 4 5
 
-### Subtask 3:
+### Subtask 3 (16 points):
 
 - N ≤ 100
 
-#### Subtask 4:
+#### Subtask 4 (20 points):
 
-- N ≤ 2.000
+- N ≤ 2,000
 
-#### Subtask 5:
+#### Subtask 5 (17 points):
 
 - A[i] ≤ 100
 
-#### Subtask 6:
+#### Subtask 6 (34 points):
 
 - No additional constraints.
