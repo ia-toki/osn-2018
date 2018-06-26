@@ -13,11 +13,11 @@ Petak-petak pada pinggir luar sisi kanan dan bawah papan berisi petunjuk berupa 
 
 Sebagai contoh, berikut adalah dua buah solusi berbeda dari permainan Mejik yang sama. Pada kedua solusi berikut, seluruh petunjuk jumlah terpenuhi.
 
-[mejik_1.png] [mejik_2.png]
+![mejik_1](mejik_1.png) ![mejik_2](mejik_2.png)
 
 Berikut ini adalah solusi lainnya. Pada solusi ini, hanya satu petunjuk jumlah yang terpenuhi (kolom pertama).
 
-[mejik_3.png]
+![mejik_3](mejik_3.png)
 
 Pada permainan ini, nilai Anda akan bergantung pada banyaknya petunjuk jumlah yang terpenuhi. Semakin banyak semakin bagus, sesuai yang dijelaskan pada bagian Penilaian.
 

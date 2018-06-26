@@ -6,18 +6,18 @@ Pak Dengklek invented a new solitaire game for you called Mejik. This game consi
 
 Initially, each square is empty. You have to fill each square with a number from 1 through N^2, each exactly once, by considering the clues on the outside of the right and bottom sides of the grid.
 
-Each square outisde of the right and bottom sides of the grid contains one of the following clues:
+Each square outside of the right and bottom sides of the grid contains one of the following clues:
 
 - A sum clue: a positive integer that denotes the sum of all numbers on that row (for right-side clues) or column (for bottom-side clues).
 - An empty clue: a character '-', which can be ignored.
 
 As an example, here are two different solutions to the same Mejik game. In both solutions, all sum clues are satisfied.
 
-[mejik_1.png] [mejik_2.png]
+![mejik_1](mejik_1.png) ![mejik_2](mejik_2.png)
 
 Here is another solution. In this solution, only a single sum clue is satisfied (the first column).
 
-[mejik_3.png]
+![mejik_3](mejik_3.png)
 
 In this game, your score depends on the number of sum clues that are satisfied. The more, the better, as explained in the Scoring section.
 
