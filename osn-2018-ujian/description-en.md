@@ -1,5 +1,7 @@
 ## Skybridges
 
+### Description
+
 In Padang city, there is a famous college called the University of Dengklek. All students stay in an N-level dorm building. This year, the college has finished constructing a new N-level dorm building.
 
 There are K skybridges between the two buildings. The i-th skybridge is mounted at the height of level H[i]. Each level in each building is only connected to exactly one skybridge via a special tunnel. Level i in the old building is only connected to the A[i]-th skybridge, and level i in the new building is only connected to the B[i]-th skybridge.
@@ -17,7 +19,7 @@ Or, more formally, for each i, all of the following conditions must be satisfied
 - If i > H[A[i]], then it must be the case that P[i] ≤ H[A[i]].
 - If i < H[A[i]], then it must be the case that P[i] ≥ H[A[i]].
 
-Now, the college is curious: how many different permutations are possible? Since it can be very large, they are curious on the result modulo 1.000.000.007.
+Now, the college is curious: how many different permutations are possible? Since it can be very large, they are curious on the result modulo 1,000,000,007.
 
 ### Input Format
 
@@ -44,7 +46,7 @@ The next lines are given in the following format:
 
 ### Output Format
 
-A single line consisting of the number of possible permutations, modulo 1.000.000.007.
+A single line consisting of the number of possible permutations, modulo 1,000,000,007.
 
 ### Sample Input 1
 
@@ -64,7 +66,7 @@ There are 6 levels, and 1 skybridge located at the height of level 3. Each level
 
 This sample is illustrated by the following image. The left building represents the old building, while the right one represent the new building.
 
-[ujian_1.png]
+![ujian_1](ujian_1.png)
 
 According to the restrictions:
 
@@ -93,15 +95,15 @@ Notice that levels 4, 5, and 6 in the old buildings must be relocated to levels 
 
 This sample is illustrated by the following image.
 
-[ujian_2.png]
+![ujian_2](ujian_2.png)
 
 Notice that level 2 in the old building is connected to a skybridge at the height of level 1 (the level is higher than the skybridge), but only levels 3 and 5 in the new building are connected to the skybridge (which are also higher than the skybridge). In this case, level 2 cannot be relocated anywhere without violating the restrictions. Thus, there is no possible permutation.
 
 ### Subtasks
 
-For all subtasks
+For all subtasks:
 
-- 1 ≤ K ≤ N ≤ 200.000
+- 1 ≤ K ≤ N ≤ 100.000
 - 1 ≤ H[i] ≤ N
 - All values of H[i] are different.
 - 1 ≤ A[i], B[i] ≤ K
@@ -109,7 +111,7 @@ For all subtasks
 - B[i] contains all numbers from 1 to K.
 - For each skybridge, the number of connected levels in the old building, is equal to the number of connected levels in the new building.
 
-#### Subtask 1:
+#### Subtask 1 (6 points):
 
 Consists of only the following test case:
 
@@ -119,7 +121,7 @@ Consists of only the following test case:
     1 1 1 1 1
     1 1 1 1 1
 
-#### Subtask 2:
+#### Subtask 2 (8 points):
 
 Consists of only the following test case:
 
@@ -129,23 +131,23 @@ Consists of only the following test case:
     2 2 1 3 3 2 3 4 4
     2 1 3 2 3 3 2 4 4
 
-#### Subtask 3:
+#### Subtask 3 (10 points):
 
 - K = N
 
-#### Subtask 4:
+#### Subtask 4 (15 points):
 
 - N ≤ 10
 
-#### Subtask 5:
+#### Subtask 5 (23 points):
 
 - K = 1
 
-#### Subtask 6:
+#### Subtask 6 (18 points):
 
 - For each i, H[A[i]] ≠ i
 - For each i, H[B[i]] ≠ i
 
-#### Subtask 7:
+#### Subtask 7 (20 points):
 
 - No additional constraints.

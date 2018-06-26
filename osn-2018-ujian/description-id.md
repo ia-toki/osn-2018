@@ -1,5 +1,7 @@
 ## Jembatan Layang
 
+### Deskripsi
+
 Di kota Padang, terdapat sebuah kampus terkenal bernama Universitas Dengklek. Seluruh mahasiswa kampus tersebut tinggal pada sebuah gedung asrama setinggi N lantai. Tahun ini, pihak kampus selesai membangun gedung asrama baru yang juga setinggi N lantai. 
 
 Terdapat K buah jembatan layang di antara kedua gedung tersebut. Jembatan ke-i terletak pada ketinggian lantai H[i]. Uniknya, setiap lantai dari masing-masing gedung hanya terhubung pada tepat satu jembatan melalui sebuah terowongan khusus. Lantai i pada gedung lama hanya terhubung pada jembatan ke-A[i], dan lantai i pada gedung baru hanya terhubung pada jembatan ke-B[i].
@@ -64,7 +66,7 @@ Terdapat 6 lantai, dan 1 jembatan layang yang terletak pada ketinggian lantai 3.
 
 Contoh ini diilustrasikan oleh gambar berikut. Gedung sebelah kiri adalah gedung lama, sedangkan yang sebelah kanan adalah gedung baru.
 
-[ujian_1.png]
+![ujian_1](ujian_1.png)
 
 Menurut aturan yang diberikan, maka:
 
@@ -93,7 +95,7 @@ Perhatikan bahwa lantai-lantai 4, 5, dan 6 di gedung lama pasti direlokasi ke la
 
 Contoh ini diilustrasikan oleh gambar berikut.
 
-[ujian_2.png]
+![ujian_2](ujian_2.png)
 
 Perhatikan bahwa lantai 2 di gedung lama terhubung pada jembatan yang berada pada ketinggian lantai 1 (lantai lebih tinggi daripada jembatan), namun hanya lantai 3 dan 5 di gedung baru yang terhubung pada jembatan tersebut (yang juga lebih tinggi daripada jembatan). Pada kasus ini, lantai 2 tidak dapat direlokasi ke manapun tanpa melanggar aturan yang diberikan, sehingga tidak ada permutasi yang mungkin.
 
@@ -101,7 +103,7 @@ Perhatikan bahwa lantai 2 di gedung lama terhubung pada jembatan yang berada pad
 
 Untuk semua subsoal, berlaku:
 
-- 1 ≤ K ≤ N ≤ 200.000
+- 1 ≤ K ≤ N ≤ 100.000
 - 1 ≤ H[i] ≤ N
 - Nilai-nilai H[i] berbeda-beda.
 - 1 ≤ A[i], B[i] ≤ K
@@ -109,7 +111,7 @@ Untuk semua subsoal, berlaku:
 - B[i] mengandung setiap bilangan dari 1 hingga K.
 - Untuk setiap jembatan layang, banyaknya lantai di gedung lama yang terhubung, sama dengan banyaknya lantai di gedung baru yang terhubung.
 
-#### Subsoal 1:
+#### Subsoal 1 (6 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -119,7 +121,7 @@ Hanya berisi kasus uji berikut:
     1 1 1 1 1
     1 1 1 1 1
 
-#### Subsoal 2:
+#### Subsoal 2 (8 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -129,23 +131,23 @@ Hanya berisi kasus uji berikut:
     2 2 1 3 3 2 3 4 4
     2 1 3 2 3 3 2 4 4
 
-#### Subsoal 3:
+#### Subsoal 3 (10 poin):
 
 - K = N
 
-#### Subsoal 4:
+#### Subsoal 4 (15 poin):
 
 - N ≤ 10
 
-#### Subsoal 5:
+#### Subsoal 5 (23 poin):
 
 - K = 1
 
-#### Subsoal 6:
+#### Subsoal 6 (18 poin):
 
 - Untuk setiap i, H[A[i]] ≠ i
 - Untuk setiap i, H[B[i]] ≠ i
 
-#### Subsoal 7:
+#### Subsoal 7 (20 poin):
 
 - Tidak ada batasan tambahan.
