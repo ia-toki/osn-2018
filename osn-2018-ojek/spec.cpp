@@ -20,6 +20,7 @@ class ProblemSpec : public BaseProblemSpec {
   int S, T;
   int Cg, Mg, Co, Mo;
   vector<int> U, V, K, X;
+  long long ans;
 
   void InputFormat() {
     LINE(HEADER);
@@ -28,6 +29,10 @@ class ProblemSpec : public BaseProblemSpec {
     LINE(Co, Mo);
     LINE(S, T);
     LINES(U, V, K, X) % SIZE(M);
+  }
+
+  void OutputFormat() {
+    LINE(ans);
   }
 
   void StyleConfig() {
@@ -50,6 +55,7 @@ class ProblemSpec : public BaseProblemSpec {
     CONS(validBlockedValues());
     CONS(connected());
     CONS(uniqueEdges());
+    CONS(validHeader());
   }
 
   void Subtask1() {
@@ -113,6 +119,15 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
  private:
+
+  bool validHeader() {
+    for (int i = 0; i <= 7; i++) {
+      if (HEADER[i] != '.' && HEADER[i] != '0' + i) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   bool uniqueEdges() {
     set<pair<int, int>> edges;
@@ -230,6 +245,14 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
   }
 
   void AfterTestCase() {
+    if (HEADER[1] == '.' && HEADER[2] == '.') {
+      applyPermutation();
+      for (int i = 0; i < M; i++) {
+        if (rnd.nextInt(2)) {
+          swap(U[i], V[i]);
+        }
+      }
+    }
     S++;
     T++;
     for (int &i : U) i++;
@@ -283,7 +306,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 
     CASE(HEADER=header; cheapGojek(2, 100, 1, 1, 1, 1, 1, 1));
     CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1));
-    CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1); applyPermutation());
+    CASE(HEADER=header; cheapOpang(2, 100, 1, 1, 1, 1, 1, 1));
 
     commonGraph(header, true, true, 1, 1, 1, 55, 100, 1, 1);
   }
@@ -297,7 +320,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 1, 1, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 1, 10));
     CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
-    CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1; applyPermutation());
+    CASE(HEADER=header; maxDistanceGraph(100, 10, 1); Cg = TEN<8>; Mg = 1; Co = TEN<8>; Mo = 1);
 
     commonGraph(header, false, true, 2, 1, 1, 55, 100, 1, 10);
   }
@@ -315,7 +338,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 1, 1, 11, 20));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, 11, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
-    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>); applyPermutation());
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 1, 1, TEN<6>, TEN<8>));
 
     commonGraph(header, false, true, 2, 1, 1, 75, 100, 11, 100);
   }
@@ -331,7 +354,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 2, 10, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 1, 10));
     CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10));
-    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10); applyPermutation());
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 2, 10, 1, 10));
     CASE(HEADER=header; special2());
 
     commonGraph(header, false, false, 2, 2, 10, 50, 100, 1, 10);
@@ -352,7 +375,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapOpang(2, 20, 1, TEN<8>, 2, 10, 11, 20));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, 11, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
-    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>); applyPermutation());
+    CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 2, 10, TEN<6>, TEN<8>));
 
     commonGraph(header, false, false, 2, 2, 10, 75, 100, TEN<2> + 1, TEN<8>);
   }
@@ -366,7 +389,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, 1, 10));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, 1, 10));
     CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10));
-    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10); applyPermutation());
+    CASE(HEADER=header; coveredByOpang(1, 100, 1, TEN<8>, 11, 100, 1, 10));
 
     commonGraph(header, false, false, 10, 10, 50, 100, 100, 1, 10);
   }
@@ -385,7 +408,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapGojek(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
     CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
-    CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>); applyPermutation());
+    CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
 
     commonGraph(header, false, false, 10, 10, 100, 100, 100, 11, TEN<8>);
   }
