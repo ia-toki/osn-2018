@@ -156,11 +156,11 @@ Consists of only the following test case:
 
 #### Subtask 5 (15 points):
 
-- A, B ≤ 2.000
+- A, B ≤ 2,000
 
 #### Subtask 6 (20 points):
 
-- A, B ≤ 1.000.000
+- A, B ≤ 1,000,000
 
 #### Subtask 7 (14 points):
 
