@@ -15,7 +15,7 @@ void die() {
 
 void live(int points, int q) {
     printf("OK\n");
-    printf("%d Q = %d\n", points, q);
+    printf("%d [Q = %d]\n", points, q);
     exit(0);
 }
 
