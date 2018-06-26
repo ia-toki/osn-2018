@@ -25,6 +25,8 @@ protected:
         CONS(4 <= N && N <= 8);
         CONS(validClue(ROW));
         CONS(validClue(COL));
+        // The constraint of valid puzzle (there is at least a solution) is guaranteed by
+        // deriving from the TC generator on this spec file itself.
     }
 
     void Subtask1() {
@@ -149,13 +151,10 @@ private:
 		rnd.shuffle(tmp.begin(), tmp.end());
 
 		int ans[17][17];
-		printf("\n");
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				ans[i][j] = tmp[N * i + j];
-				printf("%d ", ans[i][j]);
 			}
-			printf("\n");
 		}
 
 		for (int i = 0; i < N; i++) {
@@ -181,13 +180,10 @@ private:
 		rnd.shuffle(tmp.begin(), tmp.end());
 
 		int ans[17][17];
-		printf("\n");
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				ans[i][j] = tmp[N * i + j];
-				printf("%d ", ans[i][j]);
 			}
-			printf("\n");
 		}
 
 		for (int i = 0; i < N; i++) {
