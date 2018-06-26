@@ -210,14 +210,14 @@ private:
         }
 
         // Print board
-        printf("\n\n");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                printf("%c", ans[i][j]);
-            }
-            printf("\n");
-        }
-        printf("\n\n");
+        // printf("\n\n");
+        // for (int i = 0; i < N; i++) {
+        //     for (int j = 0; j < N; j++) {
+        //         printf("%c", ans[i][j]);
+        //     }
+        //     printf("\n");
+        // }
+        // printf("\n\n");
 
         return true;
     }
