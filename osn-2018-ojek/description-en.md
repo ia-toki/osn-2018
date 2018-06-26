@@ -55,7 +55,7 @@ A single line containing the cheapest possible total fares to get from city A to
 
 ### Sample Input 1
 
-    0...4567
+    0.....67
     6 6
     2 6
     4 2
@@ -79,7 +79,7 @@ The cheapest way is as follows:
 2. Take one online ojek trip to city 2 for 6 km. Fare = 2 × 6 = 12.
 3. Take four local ojek trips to city 2, each for 2 km. Fare  = 4 × 4 = 16.
 
-The total fare is 6 + 12 + 16 = 32. 
+The total fare is 4 + 12 + 16 = 32. 
 
 ### Sample Input 2
 
@@ -132,19 +132,19 @@ The cheapest way is to take one local ojek trip from city 1 to city 2 (for 6 km)
 
 For all subtasks:
 
-- 2 ≤ V ≤ 200
+- 2 ≤ V ≤ 100
 - V - 1 ≤ E ≤ V × (V - 1) / 2
 - 1 ≤ C\_p, C\_d ≤ 10^8
-- 1 ≤ M\_p, M\_d ≤ 200
+- 1 ≤ M\_p, M\_d ≤ 100
 - 1 ≤ A, B, X[i], Y[i] ≤ V
 - A != B
 - For each i, X[i] != Y[i]
-- 1 ≤ K[i] ≤ 10^9
+- 1 ≤ K[i] ≤ 10^8
 - 0 ≤ Q[i] ≤ 1
 - Each pair of cities are directly connected by at most one road.
 - It is guaranteed that it is possible to go from each city to every other cities via cities and roads.
 
-#### Subtask 1:
+#### Subtask 1 (8 points):
 
 Consists of only the following test case:
 
@@ -158,7 +158,7 @@ Consists of only the following test case:
     3 4 100000 1
     4 5 100000000 0
 
-#### Subtask 2:
+#### Subtask 2 (10 points):
 
 Consists of only the following test case:
 
@@ -183,24 +183,24 @@ Consists of only the following test case:
     7 9 3 0
     9 10 4 0
 
-#### Subtask 3:
+#### Subtask 3 (11 points):
 
 - C\_d = C\_p = 1
 - M\_d = M\_p = 1
 - K[i] = 1
 
-#### Subtask 4:
+#### Subtask 4 (13 points):
 
 - M\_d = M\_p = 1
 
-#### Subtask 5:
+#### Subtask 5 (16 points):
 
 - K[i] ≤ 10
 
-#### Subtask 6:
+#### Subtask 6 (18 points):
 
-- K[i] ≤ 200
+- M\_d, M\_p ≤ 10
 
-#### Subtask 7:
+#### Subtask 7 (24 points):
 
 - No additional constraints.

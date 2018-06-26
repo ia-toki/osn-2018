@@ -4,7 +4,7 @@
 
 Terdapat V kota di Sumatra Barat, dinomori 1 hingga V. Terdapat E buah ruas jalan dua arah yang menghubungkan kota-kota, dinomori 1 hingga E. Ruas jalan ke-i menghubungkan kota X[i] dengan Y[i], dan memiliki jarak K[i] km. Setiap pasang kota terhubung oleh paling banyak satu ruas jalan. Tidak ada ruas jalan yang menghubungkan sebuah kota dengan dirinya sendiri.
 
-Hanya terdapat dua moda transportasi: ojek pangkalan (lokal) dan ojek daring (*online*). Keduanya dapat Anda pesan melalui telepon genggam Anda, yang lalu akan menghampiri Anda di manapun Anda berada.
+Hanya terdapat dua moda transportasi: ojek pangkalan (lokal) dan ojek daring (*online*). Keduanya dapat Anda pesan melalui telepon genggam Anda, yang akan menghampiri Anda di manapun Anda berada.
 
 Terdapat beberapa aturan pemesanan ojek, bergantung pada lokasi Anda sekarang dan jenis ojek, sebagaimana dijelaskan berikut:
 
@@ -55,7 +55,7 @@ Sebuah baris berisi tarif termurah untuk pergi dari kota A ke kota B.
 
 ### Contoh Masukan 1
 
-    0...4567
+    0.....67
     6 6
     2 6
     4 2
@@ -79,7 +79,7 @@ Cara termurah adalah sebagai berikut:
 2. Sekali naik ojek daring menuju kota 2 sejauh 6 km. Tarif = 2 × 6 = 12.
 3. Empat kali naik ojek pangkalan menuju kota 2 masing-masing sejauh 2 km. Tarif = 4 × 4 = 16.
 
-Total tarif adalah 6 + 12 + 16 = 32. 
+Total tarif adalah 4 + 12 + 16 = 32. 
 
 ### Contoh Masukan 2
 
@@ -132,19 +132,19 @@ Cara termurah adalah dengan sekali naik ojek pangkalan dari kota 1 menuju kota 2
 
 Untuk semua subsoal, berlaku:
 
-- 2 ≤ V ≤ 200
+- 2 ≤ V ≤ 100
 - V - 1 ≤ E ≤ V × (V - 1) / 2
 - 1 ≤ C\_p, C\_d ≤ 10^8
-- 1 ≤ M\_p, M\_d ≤ 200
+- 1 ≤ M\_p, M\_d ≤ 100
 - 1 ≤ A, B, X[i], Y[i] ≤ V
 - A != B
 - Untuk setiap i, X[i] != Y[i]
-- 1 ≤ K[i] ≤ 10^9
+- 1 ≤ K[i] ≤ 10^8
 - 0 ≤ Q[i] ≤ 1
 - Setiap pasang kota terhubung oleh paling banyak satu ruas jalan.
 - Dijamin selalu terdapat cara untuk pergi dari setiap kota ke semua kota lainnya, melalui kota-kota dan jalan-jalan.
 
-#### Subsoal 1:
+#### Subsoal 1 (8 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -158,7 +158,7 @@ Hanya berisi kasus uji berikut:
     3 4 100000 1
     4 5 100000000 0
 
-#### Subsoal 2:
+#### Subsoal 2 (10 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -183,24 +183,24 @@ Hanya berisi kasus uji berikut:
     7 9 3 0
     9 10 4 0
 
-#### Subsoal 3:
+#### Subsoal 3 (11 poin):
 
 - C\_d = C\_p = 1
 - M\_d = M\_p = 1
 - K[i] = 1
 
-#### Subsoal 4:
+#### Subsoal 4 (13 poin):
 
 - M\_d = M\_p = 1
 
-#### Subsoal 5:
+#### Subsoal 5 (16 poin):
 
 - K[i] ≤ 10
 
-#### Subsoal 6:
+#### Subsoal 6 (18 poin):
 
-- K[i] ≤ 200
+- M\_d, M\_p ≤ 10
 
-#### Subsoal 7:
+#### Subsoal 7 (24 poin):
 
 - Tidak ada batasan tambahan.
