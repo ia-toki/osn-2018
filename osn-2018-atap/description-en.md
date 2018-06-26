@@ -8,7 +8,7 @@ Firstly, Pak Dengklek puts the longest brick so that it is placed at columns 1 t
 
 For example, suppose N = 7. Initially, Pak Dengklek puts the 1 × 7 brick at columns 1 through 7. Suppose that for the next 6 bricks, the alignments are left, right, right, left, right, right. Then, the final result of the rooftop decoration is as follows:
 
-[atap.png]
+![atap](atap.png)
 
 Since Pak Dengklek has so many bricks, the configuration of brick placements will be denoted by the concatenation of K copies of a string S. Therefore, N = |S| × K + 1. The i-th character of the concatenated string is the alignment of the (i+1)-th brick, with 'A' denoting left alignment and 'B' denoting right alignment. For example, the above illustration can be denoted by S = "ABB" and K = 2.
 
@@ -63,7 +63,7 @@ Q lines, containing the answers to each question.
     4
     2
 
-### Explanation
+### Explanation of Sample
 
 This sample test case corresponds to the illustration in the problem description.
 
@@ -77,7 +77,7 @@ For all subtasks:
 - 1 ≤ Q ≤ 100.000
 - 1 ≤ L[i] ≤ R[i] ≤ N
 
-#### Subtask 1:
+#### Subtask 1 (6 points):
 
 Consists of only the following test case:
 
@@ -91,7 +91,7 @@ Consists of only the following test case:
     3 5
     10 12
 
-#### Subtask 2:
+#### Subtask 2 (8 points):
 
 Consists of only the following test case:
 
@@ -106,28 +106,28 @@ Consists of only the following test case:
     99 99
     100 100
 
-#### Subtask 3:
+#### Subtask 3 (11 points):
 
 - |S| ≤ 1.000
 - K = 1
 
-#### Subtask 4:
+#### Subtask 4 (9 points):
 
 - K = 1
 - Q = 1
 
-#### Subtask 5:
+#### Subtask 5 (16 points):
 
 - Q = 1
 
-#### Subtask 6:
+#### Subtask 6 (15 points):
 
 - |S| ≤ 2
 
-#### Subtask 7:
+#### Subtask 7 (19 points):
 
 - For each i, L[i] = R[i]
 
-#### Subtask 8:
+#### Subtask 8 (16 points):
 
 - No additional constraints.

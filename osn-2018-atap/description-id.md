@@ -1,4 +1,4 @@
-## Atap Rumah
+## Hiasan Atap
 
 ### Deskripsi
 
@@ -8,7 +8,7 @@ Pertama-tama, Pak Dengklek meletakkan balok terpanjang sedemikian sehingga balok
 
 Sebagai contoh, misalkan N = 7. Mulanya, Pak Dengklek akan meletakkan balok 1 × 7 pada kolom 1 hingga 7. Misalkan untuk 6 balok berikutnya, Pak Dengklek secara berturut-turut meletakkan rata kiri, kanan, kanan, kiri, kanan, kanan. Maka, hasil akhir hiasan tersebut adalah sebagai berikut:
 
-[atap.png]
+![atap](atap.png)
 
 Karena Pak Dengklek memiliki sangat banyak balok, maka konfigurasi peletakan balok dinyatakan sebagai string S, yang disambung sebanyak K kali. Dengan demikian, N = |S| × K + 1. Karakter ke-i pada string akhir adalah cara peletakan balok ke-(i+1), dengan karakter 'A' menyatakan rata kiri dan karakter 'B' menyatakan rata kanan. Sebagai contoh, konfigurasi peletakan contoh di atas dapat dinyatakan dengan S = "ABB" dan K = 2.
 
@@ -63,7 +63,7 @@ Q buah baris, masing-masing berisi jawaban dari setiap pertanyaan.
     4
     2
 
-### Penjelasan
+### Penjelasan Contoh
 
 Contoh kasus uji ini sesuai dengan ilustrasi pada deskripsi soal.
 
@@ -77,7 +77,7 @@ Untuk semua subsoal, berlaku:
 - 1 ≤ Q ≤ 100.000
 - 1 ≤ L[i] ≤ R[i] ≤ N
 
-#### Subsoal 1:
+#### Subsoal 1 (6 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -91,7 +91,7 @@ Hanya berisi kasus uji berikut:
     3 5
     10 12
 
-#### Subsoal 2:
+#### Subsoal 2 (8 poin):
 
 Hanya berisi kasus uji berikut:
 
@@ -106,28 +106,28 @@ Hanya berisi kasus uji berikut:
     99 99
     100 100
 
-#### Subsoal 3:
+#### Subsoal 3 (11 poin):
 
 - |S| ≤ 1.000
 - K = 1
 
-#### Subsoal 4:
+#### Subsoal 4 (9 poin):
 
 - K = 1
 - Q = 1
 
-#### Subsoal 5:
+#### Subsoal 5 (16 poin):
 
 - Q = 1
 
-#### Subsoal 6:
+#### Subsoal 6 (15 poin):
 
 - |S| ≤ 2
 
-#### Subsoal 7:
+#### Subsoal 7 (19 poin):
 
 - Untuk setiap i, L[i] = R[i]
 
-#### Subsoal 8:
+#### Subsoal 8 (16 poin):
 
 - Tidak ada batasan tambahan.
