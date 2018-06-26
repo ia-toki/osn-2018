@@ -18,12 +18,11 @@ Dua buah petak berwarna sama (selain putih) yang berbagi sisi yang sama dikataka
 
 Sebagai contoh, berikut adalah dua buah solusi berbeda dari permainan Pajel yang sama. Pada kedua solusi berikut, terdapat 3 buah wilayah.
 
-[pajel_1.png] [pajel_2.png]
-
+![pajel_1](pajel_1.png) ![pajel_2](pajel_2.png)
 
 Berikut ini adalah solusi lainnya, yang mengandung 6 wilayah.
 
-[pajel_3.png]
+![pajel_3](pajel_3.png)
 
 Pada permainan ini, tujuan Anda adalah untuk mewarnai petak-petak sesuai dengan petunjuk-petunjuk yang diberikan, sedemikian sehingga banyaknya wilayah berbeda sesedikit mungkin. Misalkan banyaknya wilayah berbeda pada solusi juri adalah P, dan pada solusi Anda adalah Q. Nilai Anda akan bergantung pada seberapa dekat Q ke P, menggunakan rumus yang akan dijelaskan pada bagian Penilaian.
 
@@ -86,7 +85,7 @@ Contoh keluaran tersebut menyatakan solusi dari gambar pertama di atas.
 
 Untuk setiap kasus uji:
 
-[pajel_4-id.png]
+![pajel_4](pajel_4-id.png)
 
 ### Kasus-Kasus Uji
 

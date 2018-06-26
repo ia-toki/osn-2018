@@ -2,7 +2,9 @@
 
 ### Description
 
-Pak Dengklek invented a new solitaire game for you called Pajel. This game consists of a grid of N rows and N columns. Initially, each square on the grid is white. You have to color zero or more squares with maroon (M) or blue (B), in such a way that you satisfy all clues on the outside of the four sides of the grid.
+Pak Dengklek invented a new solitaire game for you called Pajel. This game consists of a grid of N rows and N columns. Rows and columns are numbered 1 through N.
+
+Initially, each square on the grid is white. You have to color zero or more squares with maroon (M) or blue (B), in such a way that you satisfy all clues on the outside of the four sides of the grid.
 
 Each square above the top side of the grid contains one of the following clues:
 
@@ -16,11 +18,11 @@ Two squares with the same color (other than white) that share the same side, are
 
 As an example, here are two different solutions to the same Pajel game. In both solutions, there are 3 regions.
 
-[pajel_1.png] [pajel_2.png]
+![pajel_1](pajel_1.png) ![pajel_2](pajel_2.png)
 
 Here is another solution, that has 6 regions.
 
-[pajel_3.png]
+![pajel_3](pajel_3.png)
 
 In this game, your goal is to color the squares satisfying all the given clues in such a way that the number of regions is as small as possible. Let the number of regions in judge's solution be P, and in your solution be Q. Your score will depend on how close Q to P, using a formula that will be explained in the Scoring section.
 
@@ -75,7 +77,7 @@ For each test case, output N rows of N characters each, denoting the color of ea
     -MMMM
     ----M
 
-### Explanation
+### Explanation of Sample
 
 The above output corresponds to the solution in the first image above.
 
@@ -83,14 +85,15 @@ The above output corresponds to the solution in the first image above.
 
 For each test case:
 
-[pajel_4-en.png]
+![pajel_4](pajel_4-en.png)
 
-### Constraints
+### Test Cases
+
+For all test cases:
 
 - 5 ≤ N ≤ 500
 - 1 ≤ P ≤ N^2
 - It is guaranteed that at least one solution exists that satisfies all clues.
-
 
 #### osn-2018-pajel_1.in
 
