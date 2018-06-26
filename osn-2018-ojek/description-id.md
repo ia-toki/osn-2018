@@ -113,7 +113,7 @@ Total tarif adalah 2 + 1 = 3.
 
 ### Contoh Masukan 3
 
-    0...4567
+    0....5.7
     2 1
     100 3
     1 100
