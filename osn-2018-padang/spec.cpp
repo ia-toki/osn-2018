@@ -55,12 +55,16 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask1() {
+    Points(10);
+
     CONS(header == ".1..456.8");
     CONS(A == 3 && B == 9 && Q == 1);
     CONS(L == vector<long long>({1}) && R == vector<long long>({4}));
   }
 
   void Subtask2() {
+    Points(10);
+
     CONS(header == "..2..56.8");
     CONS(A == 25 && B == 3 && Q == 4);
     CONS(L == vector<long long>({0, 0, 0, 0}));
@@ -68,7 +72,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask3() {
-    // Points(9);
+    Points(10);
 
     CONS(header[3] == '3');
     CONS(0 <= A + B && A + B <= 8);
@@ -76,7 +80,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask4() {
-    // Points(10);
+    Points(11);
 
     CONS(header[4] == '4');
     CONS(0 <= A + B && A + B <= 18);
@@ -84,7 +88,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask5() {
-    // Points(19);
+    Points(15);
 
     CONS(header[5] == '5');
     CONS(0 <= A && A <= 2000);
@@ -92,7 +96,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask6() {
-    // Points(25);
+    Points(20);
 
     CONS(header[6] == '6');
     CONS(0 <= A && A <= TEN<6>);
@@ -100,13 +104,15 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask7() {
-    // Points(17);
+    Points(14);
+
     CONS(header[7] == '7');
     CONS(Q == 0);
   }
 
   void Subtask8() {
-    // Points(20);
+    Points(10);
+
     CONS(header[8] == '8');
   }
 
