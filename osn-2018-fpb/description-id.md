@@ -87,7 +87,7 @@ Hanya berisi kasus uji berikut:
     9 3
     1 1 1 1 1 1 1 1 1
 
-### Subsoal 3 (7 poin):
+#### Subsoal 3 (7 poin):
 
 - N ≤ 10
 
