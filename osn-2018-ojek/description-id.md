@@ -137,8 +137,8 @@ Untuk semua subsoal, berlaku:
 - 1 ≤ C\_p, C\_d ≤ 10^8
 - 1 ≤ M\_p, M\_d ≤ 100
 - 1 ≤ A, B, X[i], Y[i] ≤ V
-- A != B
-- Untuk setiap i, X[i] != Y[i]
+- A ≠ B
+- Untuk setiap i, X[i] ≠ Y[i]
 - 1 ≤ K[i] ≤ 10^8
 - 0 ≤ Q[i] ≤ 1
 - Setiap pasang kota terhubung oleh paling banyak satu ruas jalan.
