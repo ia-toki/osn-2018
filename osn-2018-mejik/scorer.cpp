@@ -16,7 +16,7 @@ void die() {
 
 void live(int points, int satisfied) {
     printf("OK\n");
-    printf("%d SATISFIED = %d\n", points, satisfied);
+    printf("%d [CORRECT = %d]\n", points, satisfied);
     exit(0);
 }
 
