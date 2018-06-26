@@ -54,7 +54,7 @@ protected:
 	}
 	
 	void Subtask1() {	//Open Subtask 1
-		Points(4);
+		Points(6);
 		CONS(HEADER[1]=='1');
 		CONS(N==5);
 		CONS(K==1);
@@ -67,7 +67,7 @@ protected:
 	}
 	
 	void Subtask2() {	//Open Subtask 2
-		Points(9);
+		Points(8);
 		CONS(HEADER[2]=='2');
 		CONS(N==9);
 		CONS(K==4);
@@ -80,32 +80,32 @@ protected:
 	}
 	
 	void Subtask3() {	//Cek ada solusi/tidak
-		Points(12);
+		Points(10);
 		CONS(HEADER[3]=='3');
 		CONS(N==K);
 	}
 	
 	void Subtask4() {	//Bruteforce
-		Points(16);
+		Points(15);
 		CONS(HEADER[4]=='4');
 		CONS(Between(N,1,10));
 	}
 	
 	void Subtask5() {	//Cuma ada 1 garis
-		Points(10);
+		Points(23);
 		CONS(HEADER[5]=='5');
 		CONS(K==1);
 	}
 	
 	void Subtask6() {	//Tidak ada garis lurus
-		Points(19);
+		Points(18);
 		CONS(HEADER[6]=='6');
 		CONS(NoStraightLine(A,P));
 		CONS(NoStraightLine(B,P));
 	}
 	
 	void Subtask7() {	//Full
-		Points(30);
+		Points(20);
 		CONS(HEADER[7]=='7');
 	}
 private:
