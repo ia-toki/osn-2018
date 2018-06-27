@@ -59,6 +59,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask1() {
+    Points(8);
     CONS(HEADER[1] == '1');
 
     vector<int> check_u = {1, 2, 3, 4};
@@ -72,6 +73,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask2() {
+    Points(10);
     CONS(HEADER[2] == '2');
 
     vector<int> check_u = {1, 1, 2, 2, 3, 3, 4, 3, 5, 6, 7, 6, 8, 7, 9};
@@ -85,6 +87,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask3() {
+    Points(11);
     CONS(HEADER[3] == '3');
 
     CONS(Cg == 1);
@@ -95,6 +98,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask4() {
+    Points(13);
     CONS(HEADER[4] == '4');
 
     CONS(Mg == 1);
@@ -102,12 +106,14 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask5() {
+    Points(16);
     CONS(HEADER[5] == '5');
 
     CONS(validEdgeCosts(1, 10));
   }
 
   void Subtask6() {
+    Points(18);
     CONS(HEADER[6] == '6');
 
     CONS(Mg <= 10);
@@ -115,6 +121,7 @@ class ProblemSpec : public BaseProblemSpec {
   }
 
   void Subtask7() {
+    Points(24);
     CONS(HEADER[7] == '7');
   }
 
