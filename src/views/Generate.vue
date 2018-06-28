@@ -23,7 +23,7 @@
       </el-radio-group>
       <div class="option">
         <el-button @click="copyToClipboard">Copy</el-button>
-        <el-button>Download</el-button>
+        <el-button @click="downloadFile">Download</el-button>
       </div>
       <div class="option">
         <el-button 
@@ -46,6 +46,8 @@
 
 <script>
 /* eslint-disable no-console */
+import FileSaver from 'file-saver'
+
 import cpp_template from '../templates/cpp.handlebars'
 import pascal_template from '../templates/pascal.handlebars'
 
@@ -57,6 +59,11 @@ const modeMap = {
 const templateMap = {
   'Pascal': pascal_template,
   'C++': cpp_template
+}
+
+const extensionMap = {
+  'Pascal': 'pas',
+  'C++': 'cpp'
 }
 
 export default {
@@ -103,14 +110,29 @@ export default {
       this.$copyText(this.code).then(() => {
         this.$message({
           type: 'success',
-          message: 'Code ter-copy ke clipboard'
+          message: 'Berhasil men-copy ke clipboard'
         })
       }).catch(() => {
         this.$message({
           type: 'error',
-          message: 'Tidak dapat men-copy code'
+          message: 'Tidak dapat men-copy ke clipboard'
         })
       })
+    },
+    downloadFile () {
+      // try {
+        const blob = new Blob([this.code], {type: "text/plain"})
+        FileSaver.saveAs(blob, `berebut-pizza.${extensionMap[this.language]}`)
+        this.$message({
+          type: 'success',
+          message: 'Berhasil men-download file'
+        })
+      // } catch (e) {
+      //   this.$message({
+      //     type: 'error',
+      //     message: 'Tidak dapat men-download file'
+      //   })
+      // }
     },
     confirmDelete () {
       this.$confirm('Ini akan menghapus progress dari permainan. Lanjutkan menghapus?', 'Warning', {
