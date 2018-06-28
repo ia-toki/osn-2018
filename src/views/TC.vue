@@ -7,14 +7,17 @@
 
 import Game from './Game.vue'
 
+import tc1 from '../testcases/tc1.in'
+import tc2 from '../testcases/tc2.in'
+
 export default {
   components: {
     Game,
   },
   mounted() {
     this.tc = {
-      '1': '0..3.\n3 1\n2 4 4\n2 2 3\n2 1 3\n',
-      '2': '0..3.\n3 1\n2 4 4\n1 1\n2 1 2\n'
+      '1': tc1,
+      '2': tc2
     }
     this.changeTC(this.$route.params.tc)
   },
