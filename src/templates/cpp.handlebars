@@ -1,31 +1,41 @@
 #include <cstdio>
 
-int N, K;
-char header[20], grader[20];
+int N, S, D, J, grader;
+char header[20];
+int A[11], Ds[11], Js[11];
 
 int main() {
     scanf("%s", header);
-    {{#if (ne data.length 0)}}
-    {{#each data}}
-    {{#if (ne @index 0)}}
-    } else if {{else}}
-    if {{/if}}(header[{{testcase}}] == '{{testcase}}') {
-        scanf("%d %d",&N, &K); // {{{begin}}}
-        
-        {{#each middle}}
-        printf("{{{output}}}\n");
-        fflush(stdout);
-        scanf("%s", grader); // {{{input}}}
-        
-        {{/each}}
-        printf("{{{end}}}\n");
-        fflush(stdout);
-        
-    {{/each}}
-    } else {
-        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
-    }
-    {{else}}
+
+    {{#ifCond data.length '==' 0}}
     // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
-    {{/if}}
+    {{else}}
+    {{#each data}}
+    {{#ifCond data.length '>' 0}}else {{/ifCond}}if (header[{{testcase}}] = '{{testcase}}') {
+        scanf("%d %d", &N, &S); // N = {{N}}, S = {{S}}
+        for (int i = 1; i <= N; i++) scanf("%d", &A[i]); // A = {{printList A}}
+
+        scanf("%d", &D); // D = {{D}}
+        for (int i = 1; i <= D; i++) scanf("%d", &Ds[i]); // Ds = {{printList Ds}}
+
+        scanf("%d", &J); // J = {{J}}
+        for (int i = 1; i <= J; i++) scanf("%d", &Js[i]); // Js = {{printList Js}}
+
+        {{#each interaction}}
+        printf("{{answer}}\n");
+        fflush(stdout);
+        {{#ifCond response '!=' null}}
+        scanf("%d", &grader); // grader = {{response}}
+        {{/ifCond}}
+
+        {{/each}}
+    }
+    {{/each}}
+    else {
+
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+
+    }
+    {{/ifCond}}
+
 }

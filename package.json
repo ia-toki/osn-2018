@@ -17,6 +17,7 @@
     "sass-loader": "^7.0.3",
     "vue": "^2.5.16",
     "vue-codemirror": "^4.0.5",
+    "vue-localstorage": "^0.6.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

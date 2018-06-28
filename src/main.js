@@ -7,9 +7,11 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/clike/clike.js'
 import 'codemirror/mode/pascal/pascal.js'
 import 'codemirror/theme/neo.css'
+import VueLocalStorage from 'vue-localstorage'
 
 import router from './router'
 
+Vue.use(VueLocalStorage)
 Vue.use(ElementUI)
 Vue.use(VueCodemirror, {
   options: {

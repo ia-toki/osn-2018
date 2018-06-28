@@ -25,6 +25,20 @@ export default {
   name: 'app',
   components: {
   },
+  localStorage: {
+    data: {
+      type: Array,
+      default: []
+    },
+    selected_language: {
+      type: String,
+      default: 'Pascal'
+    },
+    selected_tcs: {
+      type: Array,
+      default: []
+    }
+  },
   data() {
     return {
       

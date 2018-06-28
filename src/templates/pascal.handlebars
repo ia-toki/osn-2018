@@ -1,30 +1,39 @@
 var
-    N, K: integer;
-    header, grader: string;
+    N, S, D, J, i, grader: integer;
+    header: string;
+    A, Ds, Js: array [1..10] of integer;
 
 begin
     readln(header);
-    {{#if (ne data.length 0)}}
-    {{#each data}}
-    {{#if (ne @index 0)}}
-    end else if {{else}}
-    if {{/if}}(header[{{add testcase 1}}] = '{{testcase}}') then begin
-        readln(N, K); // {{{begin}}}
-        
-        {{#each middle}}
-        writeln('{{{output}}}');
-        flush(output);
-        readln(grader); // {{{input}}}
-        
-        {{/each}}
-        writeln('{{{end}}}');
-        flush(output);
-        
-    {{/each}}
-    end else begin
-        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
-    end;
-    {{else}}
+
+    {{#ifCond data.length '==' 0}}
     // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
-    {{/if}}
+    {{else}}
+    {{#each data}}
+    {{#ifCond data.length '>' 0}}else {{/ifCond}}if (header[{{math testcase '+' 1}}] = '{{testcase}}') then begin
+        readln(N, S); // N = {{N}}, S = {{S}}
+        for i := 1 to N do read(A[i]); // A = {{printList A}}
+        
+        read(D); // D = {{D}}
+        for i := 1 to D do read(Ds[i]); // Ds = {{printList Ds}}
+
+        read(J); // J = {{J}}
+        for i := 1 to J do read(Js[i]); // Js = {{printList Js}}
+
+        {{#each interaction}}
+        writeln({{answer}});
+        flush(output);
+        {{#ifCond response '!=' null}}
+        readln(grader); // grader = {{response}}
+        {{/ifCond}}
+
+        {{/each}}
+    end
+    {{/each}}
+    else begin
+
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+
+    end;
+    {{/ifCond}}
 end.

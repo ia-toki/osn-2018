@@ -6,8 +6,9 @@
         v-model="tcs">
         <el-checkbox-button 
           v-for="tc in tc_option"
-          :key="tc"
-          :label="tc">
+          :key="tc.tc"
+          :label="tc.tc">
+        {{tc.name}}
         </el-checkbox-button>
       </el-checkbox-group>
       <el-radio-group 
@@ -23,6 +24,9 @@
         <el-button>Copy</el-button>
         <el-button>Download</el-button>
       </div>
+      <div class="option">
+        <el-button type="danger">Delete All Progress</el-button>
+      </div>
     </el-aside>
     <el-main>
       <codemirror 
@@ -37,6 +41,8 @@
 
 <script>
 /* eslint-disable no-console */
+import cpp_template from '../templates/cpp.handlebars'
+import pascal_template from '../templates/pascal.handlebars'
 
 const modeMap = {
   'Pascal': 'text/x-pascal',
@@ -47,21 +53,56 @@ export default {
   data() {
     return {
       tcs: [],
-      tc_option: ['TC 1', 'TC 2'],
+      tc_option: [{tc: 1, name: 'TC 1'}, {tc: 2, name: 'TC 2'}],
       language: 'Pascal',
       language_option: ['Pascal', 'C++'],
-      code: 'begin\nend\n',
+      code: '',
       cmOptions: {
         // readOnly: true,
         mode: 'text/x-pascal',
       }
     }
   },
+  localStorage: {
+    data: {
+      type: Array
+    },
+    selected_language: {
+      type: String
+    },
+    selected_tcs: {
+      type: Array,
+    },
+  },
+  beforeMount() {
+    this.tcs = this.$localStorage.selected_tcs
+    this.language = this.$localStorage.selected_language
+  },
   mounted() {
     this.$refs.codemirror.codemirror.setSize(null, '100%')
+    this.code = pascal_template({
+      data: [
+        {
+          testcase: 1,
+          N: 4, S: 1,
+          A: [2, 4, 6, 8],
+          D: 2, Ds: [3, 4],
+          J: 2, Js: [2, 4],
+          interaction: [
+            { answer: 4, response: 2 },
+            { answer: 4, response: 2 },
+            { answer: 0 },
+          ]
+        }
+      ]
+    })
   },
   watch: {
+    tcs (value) {
+      this.$localStorage.selected_tcs = value
+    },
     language (value) {
+      this.$localStorage.selected_language = value
       this.cmOptions.mode = modeMap[value]
     }
   }
