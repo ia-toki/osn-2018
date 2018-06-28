@@ -57,7 +57,8 @@ export default {
       pizzas: [],
       dengklek: 0,
       juri: 0,
-      finished: false
+      finished: false,
+      data: {},
     }
   },
   methods: {
@@ -76,6 +77,7 @@ export default {
 
       this.$refs.terminal.reset()
 
+      this.data = {interaction: []}
       this.pizzas = []
       this.dengklek = 0
       this.juri = 0
@@ -99,6 +101,14 @@ export default {
         this.finished = true
       })
 
+      this.server.on('accepted', () => {
+        this.$emit('accepted', this.data)
+      })
+
+      this.server.on('wronganswer', () => {
+        this.$emit('wronganswer', this.data)
+      })
+
       this.client._serverInit = this.serverInit.bind(this)
       this.client._serverAnswer = this.serverAnswer.bind(this)
       this.client._clientAnswer = this.clientAnswer.bind(this)
@@ -113,6 +123,14 @@ export default {
     },
 
     serverInit(conf) {
+      this.data.N = conf.N
+      this.data.S = conf.S
+      this.data.A = conf.A.slice()
+      this.data.D = conf.D
+      this.data.Ds = conf.Didx.slice()
+      this.data.J = conf.J
+      this.data.Js = conf.Jidx.slice()
+
       this.pizzas = []
       for (let i=0; i<conf.N; i++) {
         const selected = []
@@ -140,7 +158,11 @@ export default {
           return
         }
 
+        this.data.interaction[this.data.interaction.length-1].response = x + 1
+
         this.update(true, x, -1)
+      } else if (x == 0) {
+        this.data.interaction[this.data.interaction.length-1].response = 0
       }
     },
 
@@ -153,7 +175,11 @@ export default {
           return
         }
 
+        this.data.interaction.push({ answer: x + 1 })
+
         this.update(false, x, this._choosenSlice)
+      } else if (x == 0) {
+        this.data.interaction.push({ answer: 0 })
       }
     },
 

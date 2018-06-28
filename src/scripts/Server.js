@@ -127,8 +127,10 @@ export default class Server extends Duplex {
     if (this._clientResponse == 0 && this._serverResponse == 0) {
       if (this.dengklek >= this.K) {
         this.error('ACCEPTED\n')
+        this.emit('accepted')
       } else {
         this.error('WRONG ANSWER\n')
+        this.emit('wronganswer')
       }
       this._clientInterpreter.break()
       this._serverInterpreter.break()

@@ -63,13 +63,12 @@ export default {
         readOnly: true,
         mode: 'text/x-pascal',
       },
-      data: {
-        type: Object,
-        default: {}
-      }
     }
   },
   localStorage: {
+    data: {
+      type: Object
+    },
     language: {
       type: String,
       default: 'Pascal'
@@ -81,32 +80,6 @@ export default {
   },
   mounted() {
     this.$refs.codemirror.codemirror.setSize(null, '100%')
-    this.data = {
-      '1': {
-        testcase: 1,
-        N: 4, S: 1,
-        A: [2, 4, 6, 8],
-        D: 2, Ds: [3, 4],
-        J: 2, Js: [2, 4],
-        interaction: [
-          { answer: 4, response: 2 },
-          { answer: 4, response: 2 },
-          { answer: 0 },
-        ]
-      },
-      '2': {
-        testcase: 1,
-        N: 4, S: 1,
-        A: [2, 4, 6, 8],
-        D: 2, Ds: [3, 4],
-        J: 2, Js: [2, 4],
-        interaction: [
-          { answer: 4, response: 2 },
-          { answer: 4, response: 2 },
-          { answer: 0 },
-        ]
-      }
-    }
   },
   computed: {
     code () {

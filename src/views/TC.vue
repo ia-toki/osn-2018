@@ -1,5 +1,5 @@
 <template>
-  <Game ref="game"></Game>
+  <Game ref="game" @accepted="win" @wronganswer="lose"></Game>
 </template>
 
 <script>
@@ -13,6 +13,11 @@ import tc2 from '../testcases/tc2.in'
 export default {
   components: {
     Game,
+  },
+  localStorage: {
+    data: {
+      type: Object,
+    }
   },
   mounted() {
     this.tc = {
@@ -28,6 +33,22 @@ export default {
   methods: {
     changeTC (tc) {
       this.$refs.game.changeTC(this.tc[tc])
+    },
+    win (data) {
+      this.$message({
+        message: 'Menang',
+        type: 'success'
+      })
+      data.testcase = parseInt(this.$route.params.tc)
+
+      this.data[this.$route.params.tc] = data
+      this.data = this.data // force update
+    },
+    lose () {
+      this.$message({
+        message: 'Kalah',
+        type: 'error'
+      })
     }
   }
 }
