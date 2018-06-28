@@ -8,12 +8,14 @@ import 'codemirror/mode/clike/clike.js'
 import 'codemirror/mode/pascal/pascal.js'
 import 'codemirror/theme/neo.css'
 import VueLocalStorage from 'vue-localstorage'
+import VueClipboard from 'vue-clipboard2'
 
 import router from './router'
 
 Vue.use(VueLocalStorage, {
   bind: true
 })
+Vue.use(VueClipboard)
 Vue.use(ElementUI)
 Vue.use(VueCodemirror, {
   options: {

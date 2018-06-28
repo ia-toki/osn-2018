@@ -22,7 +22,7 @@
         </el-radio-button>
       </el-radio-group>
       <div class="option">
-        <el-button>Copy</el-button>
+        <el-button @click="copyToClipboard">Copy</el-button>
         <el-button>Download</el-button>
       </div>
       <div class="option">
@@ -99,12 +99,26 @@ export default {
     }
   },
   methods: {
+    copyToClipboard () {
+      this.$copyText(this.code).then(() => {
+        this.$message({
+          type: 'success',
+          message: 'Code ter-copy ke clipboard'
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'error',
+          message: 'Tidak dapat men-copy code'
+        })
+      })
+    },
     confirmDelete () {
       this.$confirm('Ini akan menghapus progress dari permainan. Lanjutkan menghapus?', 'Warning', {
         confirmButtonText: 'Iya',
         cancelButtonText: 'Batal',
         type: 'warning'
       }).then(() => {
+        this.tcs = []
         this.data = {}
         this.$message({
           type: 'success',
