@@ -26,7 +26,11 @@
         <el-button>Download</el-button>
       </div>
       <div class="option">
-        <el-button type="danger">Delete All Progress</el-button>
+        <el-button 
+          type="danger"
+          @click="confirmDelete">
+          Delete All Progress
+        </el-button>
       </div>
     </el-aside>
     <el-main>
@@ -92,6 +96,21 @@ export default {
   watch: {
     language (value) {
       this.cmOptions.mode = modeMap[value]
+    }
+  },
+  methods: {
+    confirmDelete () {
+      this.$confirm('Ini akan menghapus progress dari permainan. Lanjutkan menghapus?', 'Warning', {
+        confirmButtonText: 'Iya',
+        cancelButtonText: 'Batal',
+        type: 'warning'
+      }).then(() => {
+        this.data = {}
+        this.$message({
+          type: 'success',
+          message: 'Progress berhasil dihapus'
+        })
+      })
     }
   }
 }
