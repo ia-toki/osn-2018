@@ -27,17 +27,9 @@ export default {
   },
   localStorage: {
     data: {
-      type: Array,
-      default: []
+      type: Object,
+      default: {}
     },
-    selected_language: {
-      type: String,
-      default: 'Pascal'
-    },
-    selected_tcs: {
-      type: Array,
-      default: []
-    }
   },
   data() {
     return {

@@ -32,7 +32,7 @@
       <codemirror 
         ref="codemirror"
         class="codemirror"
-        v-model="code" 
+        :value="code" 
         :options="cmOptions">
       </codemirror>
     </el-main>
@@ -49,60 +49,74 @@ const modeMap = {
   'C++': 'text/x-c++src',
 }
 
+const templateMap = {
+  'Pascal': pascal_template,
+  'C++': cpp_template
+}
+
 export default {
   data() {
     return {
-      tcs: [],
-      tc_option: [{tc: 1, name: 'TC 1'}, {tc: 2, name: 'TC 2'}],
-      language: 'Pascal',
+      tc_option: [{tc: '1', name: 'TC 1'}, {tc: '2', name: 'TC 2'}],
       language_option: ['Pascal', 'C++'],
-      code: '',
       cmOptions: {
-        // readOnly: true,
+        readOnly: true,
         mode: 'text/x-pascal',
+      },
+      data: {
+        type: Object,
+        default: {}
       }
     }
   },
   localStorage: {
-    data: {
-      type: Array
+    language: {
+      type: String,
+      default: 'Pascal'
     },
-    selected_language: {
-      type: String
-    },
-    selected_tcs: {
+    tcs: {
       type: Array,
+      default: []
     },
-  },
-  beforeMount() {
-    this.tcs = this.$localStorage.selected_tcs
-    this.language = this.$localStorage.selected_language
   },
   mounted() {
     this.$refs.codemirror.codemirror.setSize(null, '100%')
-    this.code = pascal_template({
-      data: [
-        {
-          testcase: 1,
-          N: 4, S: 1,
-          A: [2, 4, 6, 8],
-          D: 2, Ds: [3, 4],
-          J: 2, Js: [2, 4],
-          interaction: [
-            { answer: 4, response: 2 },
-            { answer: 4, response: 2 },
-            { answer: 0 },
-          ]
-        }
-      ]
-    })
+    this.data = {
+      '1': {
+        testcase: 1,
+        N: 4, S: 1,
+        A: [2, 4, 6, 8],
+        D: 2, Ds: [3, 4],
+        J: 2, Js: [2, 4],
+        interaction: [
+          { answer: 4, response: 2 },
+          { answer: 4, response: 2 },
+          { answer: 0 },
+        ]
+      },
+      '2': {
+        testcase: 1,
+        N: 4, S: 1,
+        A: [2, 4, 6, 8],
+        D: 2, Ds: [3, 4],
+        J: 2, Js: [2, 4],
+        interaction: [
+          { answer: 4, response: 2 },
+          { answer: 4, response: 2 },
+          { answer: 0 },
+        ]
+      }
+    }
+  },
+  computed: {
+    code () {
+      return templateMap[this.language]({ 
+        data: this.tcs.map(x => this.data[x]).filter(x => x)
+      })
+    }
   },
   watch: {
-    tcs (value) {
-      this.$localStorage.selected_tcs = value
-    },
     language (value) {
-      this.$localStorage.selected_language = value
       this.cmOptions.mode = modeMap[value]
     }
   }

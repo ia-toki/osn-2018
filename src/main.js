@@ -11,7 +11,9 @@ import VueLocalStorage from 'vue-localstorage'
 
 import router from './router'
 
-Vue.use(VueLocalStorage)
+Vue.use(VueLocalStorage, {
+  bind: true
+})
 Vue.use(ElementUI)
 Vue.use(VueCodemirror, {
   options: {
