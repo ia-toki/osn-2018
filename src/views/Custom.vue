@@ -97,11 +97,8 @@ export default {
           err.push('S = 1.')
         }
         conf.A.forEach((v, i) => {
-          if (!(2 <= v && v <= 10)) {
-            err.push(`2 <= A_${i+1} <= 10.`)
-            if (!(v % 2 == 0)) {
-            err.push(`A_${i+1} harus genap.`)
-            }
+          if (!(1 <= v && v <= 10)) {
+            err.push(`1 <= A_${i+1} <= 10.`)
           }
         })
         if (!(0 <= conf.D && conf.D <= conf.N)) {
@@ -113,7 +110,7 @@ export default {
 
         conf.Didx.forEach((v, i) => {
           if (!(1 <= v && v <= conf.N)) {
-            err.push(`1 <= D_${i+1} <= N.`)
+            err.push(`1 <= Ds_${i+1} <= N.`)
           }
         })
 
@@ -125,7 +122,7 @@ export default {
 
         conf.Jidx.forEach((v, i) => {
           if (!(1 <= v && v <= conf.N)) {
-            err.push(`1 <= J_${i+1} <= N.`)
+            err.push(`1 <= Js_${i+1} <= N.`)
           }
         })
 
