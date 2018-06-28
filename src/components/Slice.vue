@@ -48,7 +48,11 @@ export default {
       const y0 = r * Math.sin(t0)
       const x1 = r * Math.cos(t1)
       const y1 = r * Math.sin(t1)
-      return `M 0 0 L ${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1} Z`
+      if (this.max == 1) {
+        return `M ${x0} ${y0} A ${r} ${r} 0 0 1 ${-x0} ${-y0} A ${r} ${r} 0 0 1 ${x0} ${y0}` // circle
+      } else {
+        return `M 0 0 L ${x0} ${y0} A ${r} ${r} 0 0 1 ${x1} ${y1} Z`
+      }
     },
     textX() {
       return this.radius / 2 * Math.cos(2 * Math.PI / this.max * (this.idx + 0.5) - Math.PI / 2)
