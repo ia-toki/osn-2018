@@ -7,7 +7,8 @@
         <el-checkbox-button 
           v-for="tc in tc_option"
           :key="tc.tc"
-          :label="tc.tc">
+          :label="tc.tc"
+          :disabled="!data[tc.tc]">
         {{tc.name}}
         </el-checkbox-button>
       </el-checkbox-group>
