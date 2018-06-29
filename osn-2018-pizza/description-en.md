@@ -39,17 +39,15 @@ with S denoting Pak Dengklek's selection strategy:
 - `1`: In each of his turns, Pak Dengklek will always take a slice of pizza with the smallest index of flavor that he loves.
 - `2`: Pak Dengklek will always take the slices of pizza optimally, in such a way that he will take the maximum possible total number of slices.
 
-Then, your program will receive two lines in the following format:
+Then, your program will receive a line in the following format:
 
-    P
-    X[1] X[2] .. X[P]
+    P X[1] X[2] .. X[P]
 
 with P denoting the number of flavors of pizza that you love, and X denoting the flavors of pizza that you love.
 
-Then, your program will receive two lines in the following format:
+Then, your program will receive a line in the following format:
 
-    Q
-    Y[1] Y[2] .. Y[Q]
+    Q Y[1] Y[2] .. Y[Q]
 
 with Q denoting the number of flavors of pizza that Pak Dengklek loves, and Y denoting the flavors of pizza that he loves.
 
@@ -163,7 +161,7 @@ Consists of only the following test case:
     2 3 4
     2 2 4
 
-Note: in this test case, it is known that K = 10.
+Note: in this test case, it is known that K = 10. The game can be played here.
 
 #### Subtask 2 (15 points):
 
@@ -175,7 +173,7 @@ Consists of only the following test case:
     6 1 2 3 4 5 6
     3 4 5 6
 
-Note: in this test case, it is known that K = 14.
+Note: in this test case, it is known that K = 14. The game can be played here.
 
 #### Subtask 3 (40 points):
 
@@ -185,3 +183,21 @@ Note: in this test case, it is known that K = 14.
 #### Subtask 4 (30 points):
 
 - No additional constraints.
+
+### Warning
+
+After each output, you have to flush by using the following command.
+
+- Pascal:
+  ```
+  flush(output);
+  ```
+- C/C++:
+  - if you use stdio.h (cstdio) library:
+    ```
+    fflush(stdout);
+    ```
+  - if you use iostream library:
+    ```
+    std::cout << std::flush;
+    ```

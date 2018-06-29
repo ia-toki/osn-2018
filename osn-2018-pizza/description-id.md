@@ -39,17 +39,15 @@ dengan S menyatakan strategi pengambilan potongan pizza Pak Dengklek, dengan:
 - `1`: Pada setiap gilirannya, Pak Dengklek akan selalu mengambil potongan pizza dengan rasa yang memiliki indeks terkecil yang ia sukai.
 - `2`: Pak Dengklek akan selalu mengambil potongan pizza secara optimal, sedemikian sehingga ia berhasil mengambil potongan pizza sebanyak mungkin.
 
-Selanjutnya, program Anda akan menerima dua buah baris berisi:
+Selanjutnya, program Anda akan menerima sebuah baris berisi:
 
-    P
-    X[1] X[2] .. X[P]
+    P X[1] X[2] .. X[P]
 
 dengan P menyatakan banyaknya rasa pizza yang Anda sukai, dan X menyatakan rasa-rasa pizza yang Anda sukai.
 
-Selanjutnya, program Anda akan menerima dua buah baris berisi:
+Selanjutnya, program Anda akan menerima sebuah baris berisi:
 
-    Q
-    Y[1] Y[2] .. Y[Q]
+    Q Y[1] Y[2] .. Y[Q]
 
 dengan Q menyatakan banyaknya rasa pizza yang Pak Dengklek sukai, dan Y menyatakan rasa-rasa pizza yang ia sukai.
 
@@ -163,7 +161,7 @@ Hanya berisi kasus uji berikut:
     2 3 4
     2 2 4
 
-Catatan: pada kasus uji ini, diketahui bahwa K = 10.
+Catatan: pada kasus uji ini, diketahui bahwa K = 10. Permainan bisa dimainkan di sini.
 
 #### Subsoal 2 (15 poin):
 
@@ -175,7 +173,7 @@ Hanya berisi kasus uji berikut:
     6 1 2 3 4 5 6
     3 4 5 6
 
-Catatan: pada kasus uji ini, diketahui bahwa K = 14.
+Catatan: pada kasus uji ini, diketahui bahwa K = 14. Permainan bisa dimainkan di sini.
 
 #### Subsoal 3 (40 poin):
 
@@ -185,3 +183,21 @@ Catatan: pada kasus uji ini, diketahui bahwa K = 14.
 #### Subsoal 4 (30 poin):
 
 - Tidak ada batasan tambahan.
+
+### Peringatan
+
+Selalu lakukan flush setiap kali setelah program Anda mengeluarkan keluaran.
+
+- Pascal:
+  ```
+  flush(output);
+  ```
+- C/C++:
+  - jika menggunakan library stdio.h (cstdio):
+    ```
+    fflush(stdout);
+    ```
+  - jika menggunakan library iostream:
+    ```
+    std::cout << std::flush;
+    ```
