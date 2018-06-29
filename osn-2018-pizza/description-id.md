@@ -53,7 +53,7 @@ dengan Q menyatakan banyaknya rasa pizza yang Pak Dengklek sukai, dan Y menyatak
 
 Kemudian, Anda dan juri (Pak Dengklek) bergantian mengambil potongan pizza, dimulai dari Anda.
 
-Pada setiap giliran Anda, program Anda harus mengeluarkan sebuah baris berisi sebuah bilangan bulat C yang menyatakan bahwa Anda akan mengambil satu potongan pizza dengan rasa C. Apabila tidak ada lagi pizza dengan rasa yang Anda sukai, maka C harus bernilai 0.
+Pada setiap giliran Anda, program Anda harus mengeluarkan sebuah baris berisi sebuah bilangan bulat C yang menyatakan bahwa Anda akan mengambil satu potongan pizza dengan rasa C. Apabila Anda memutuskan untuk tidak mengambil potongan pizza (misalnya karena tidak ada lagi pizza dengan rasa yang Anda sukai), maka C harus bernilai 0.
 
 Pada setiap giliran Pak Dengklek, program juri akan mengeluarkan  sebuah baris berisi sebuah bilangan bulat D yang menyatakan bahwa Pak Dengklek akan mengambil satu potongan pizza dengan rasa D (dengan strategi sebagaimana yang dinyatakan dengan S). Apabila tidak ada lagi pizza dengan rasa yang Pak Dengklek sukai, maka D akan bernilai 0.
 
