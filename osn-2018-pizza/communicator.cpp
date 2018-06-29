@@ -128,14 +128,16 @@ int main(int argc, char *argv[]) {
   for(int i = 1 ; i <= n ; i++) {
     printf("%d%c", pizza[i], i == n ? '\n' : ' ');
   }
-  cout << d << "\n";
+  cout << d;
   for(int i = 1 ; i <= d ; i++) {
-    printf("%d%c", real_dengklek_like[i-1], i == d ? '\n' : ' ');
+    printf(" %d", real_dengklek_like[i-1]);
   }
-  cout << j << "\n";
+  cout << "\n";
+  cout << j;
   for(int i = 1 ; i <= j ; i++) {
-    printf("%d%c", real_judge_like[i-1], i == j ? '\n' : ' ');
+    printf(" %d", real_judge_like[i-1]);
   }
+  cout << "\n";
   fflush(stdout);
 
   int last_judge = -1;
