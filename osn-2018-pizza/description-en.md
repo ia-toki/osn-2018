@@ -53,7 +53,7 @@ with Q denoting the number of flavors of pizza that Pak Dengklek loves, and Y de
 
 Then, you and the judge (Pak Dengklek) will take the slices of pizza in turns. You start the turn.
 
-In each of your turns, your program must output a line containing an integer C denoting that you will take a slice of pizza of flavor C. If you decide to not take a slice of pizza (for instance there is no more pizza of flavor that you love), then C must be 0.
+In each of your turns, your program must output a line containing an integer C denoting that you will take a slice of pizza of flavor C. If you decide to not take a slice of pizza (for instance, there is no more pizza of flavor that you love), then C must be 0.
 
 In each of Pak Dengklek's turns, the judge's program will output a line containing an integer D denoting that Pak Dengklek will take a slice of pizza of flavor D. If there is no more pizza of flavor that Pak Dengklek loves, then D will be 0.
 

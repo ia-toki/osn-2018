@@ -127,7 +127,7 @@ Anda berhasil mengambil 2 potongan pizza. Seandainya Pak Dengklek menggunakan st
 
 ### Penjelasan Contoh 3
 
-Baik Anda maupun Pak Dengklek seharusnya dapat mengambil masing-masing 2 potongan pizza, sehingga K = 2. Namun, karena Anda berhasil untuk hanya mengambil 1 saja, program Anda dinyatakan gagal.
+Baik Anda maupun Pak Dengklek seharusnya dapat mengambil masing-masing 2 potongan pizza, sehingga K = 2. Namun, karena Anda hanya mengambil 1 potong saja, program Anda dinyatakan gagal.
 
 ### Contoh Interaksi 4 (Contoh Gagal)
 
