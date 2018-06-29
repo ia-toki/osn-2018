@@ -71,10 +71,10 @@ This sample test case corresponds to the illustration in the problem description
 
 For all subtasks:
 
-- 1 ≤ |S| ≤ 100.000
+- 1 ≤ |S| ≤ 100,000
 - S consists of only characters 'A' or 'B'.
 - 1 ≤ K ≤ 10^9
-- 1 ≤ Q ≤ 100.000
+- 1 ≤ Q ≤ 100,000
 - 1 ≤ L[i] ≤ R[i] ≤ N
 
 #### Subtask 1 (6 points):
@@ -108,7 +108,7 @@ Consists of only the following test case:
 
 #### Subtask 3 (11 points):
 
-- |S| ≤ 1.000
+- |S| ≤ 1,000
 - K = 1
 
 #### Subtask 4 (9 points):
