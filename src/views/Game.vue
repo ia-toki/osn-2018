@@ -32,7 +32,7 @@
           class="pass" 
           :disabled="finished"
           @click="noChoose">
-          Pass
+          {{$t('game.pass')}}
         </el-button>
       </div>
     </el-main>

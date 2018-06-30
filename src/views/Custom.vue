@@ -11,7 +11,7 @@
             <el-input
               class="textarea"
               type="textarea"
-              placeholder="Testcase"
+              :placeholder="$t('custom.prompt')"
               :rows="10"
               v-model="form.tc">
             </el-input>
@@ -21,7 +21,7 @@
               class="submit"
               type="primary"
               native-type="submit">
-              Submit
+              {{$t('custom.submit')}}
             </el-button>
           </el-form-item>
         </el-form>
@@ -105,7 +105,7 @@ export default {
 
         const unique = (value, index, self) => self.indexOf(value) == index
 
-        let err = ['Format testcase tidak benar\n(Tips: jangan lupa newline di akhir baris)']
+        let err = [this.$t('custom.invalid')]
         interpreter.init = (conf) => {
           ret = conf
           err = []

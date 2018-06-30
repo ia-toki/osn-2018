@@ -12,7 +12,7 @@
     <el-form @submit.native.prevent="submit">
       <el-input 
         class="input"
-        placeholder="Tekan Enter untuk mengirim" 
+        :placeholder="$t('game.prompt')" 
         v-model="input"
         :disabled="disabled"
         clearable>
@@ -20,7 +20,7 @@
           class="submit" 
           slot="append"
           native-type="submit">
-          Kirim
+          {{$t('game.submit')}}
         </el-button>
       </el-input>
     </el-form>

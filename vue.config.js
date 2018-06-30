@@ -9,7 +9,11 @@ module.exports = {
         {
           test: /\.in$/,
           use: 'raw-loader'
-        }
+        },
+        {
+          test: /\.md$/,
+          use: 'raw-loader'
+        },
       ]
     }
   }

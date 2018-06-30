@@ -1,18 +1,22 @@
 <template>
   <el-container id="app">
     <el-header class="header" height="auto">
-      <h1>Berebut Pizza</h1>
+      <h1>{{$t('title')}}</h1>
+      <div class="spacer"></div>
       <el-menu 
-        class="navbar" 
         mode="horizontal"
         router
         :default-active="$route.path">
-        <el-menu-item index="/">Home</el-menu-item>
-        <el-menu-item index="/tc/1">TC 1</el-menu-item>
-        <el-menu-item index="/tc/2">TC 2</el-menu-item>
-        <el-menu-item index="/custom">Custom</el-menu-item>
-        <el-menu-item index="/generate">Generate</el-menu-item>
+        <el-menu-item index="/">{{$t('pages.home')}}</el-menu-item>
+        <el-menu-item index="/tc/1">{{$t('pages.tc1')}}</el-menu-item>
+        <el-menu-item index="/tc/2">{{$t('pages.tc2')}}</el-menu-item>
+        <el-menu-item index="/custom">{{$t('pages.custom')}}</el-menu-item>
+        <el-menu-item index="/generate">{{$t('pages.generate')}}</el-menu-item>
       </el-menu>
+      <el-radio-group class="locale" v-model="locale">
+        <el-radio-button label="id">ID</el-radio-button>
+        <el-radio-button label="en">EN</el-radio-button>
+      </el-radio-group>
     </el-header>
     <router-view></router-view>
   </el-container>
@@ -30,13 +34,23 @@ export default {
       type: Object,
       default: {}
     },
+    locale: {
+      type: String,
+      default: 'id'
+    }
   },
   data() {
     return {
       
     }
   },
+  watch: {
+    locale (value) {
+      this.$i18n.locale = value
+    }
+  },
   mounted() {
+    this.$i18n.locale = this.locale
   },
   methods: {
   }
@@ -61,10 +75,17 @@ body {
   height: 100%;
 }
 
+.spacer {
+  flex: 1;
+}
+
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.locale {
+  margin-left: 32px;
 }
 
 </style>

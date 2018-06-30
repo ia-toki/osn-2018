@@ -1,15 +1,19 @@
 <template>
   <el-main>
-    <h2>Cara Bermain</h2>
-    <p>Clickety clickety</p>
+    <vue-markdown :source="$t('home.body')"></vue-markdown>
   </el-main>
 </template>
 
 <script>
 /* eslint-disable no-console */
 
-// export default {
-// }
+import VueMarkdown from 'vue-markdown'
+
+export default {
+  components: {
+    VueMarkdown
+  }
+}
 </script>
 
 <style scoped lang="scss">
