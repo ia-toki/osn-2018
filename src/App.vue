@@ -48,7 +48,7 @@ export default {
     locale (value) {
       this.$i18n.locale = value
     },
-    '$i18n.locale' (value) {
+    '$i18n.locale' () {
       document.title = this.$t('title')
     }
   },
