@@ -150,40 +150,36 @@ export default {
     },
 
     serverAnswer(x) {
-      if (x > 0) {
-        x -= 1
-
-        if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
-          // console.log('server gives invalid response')
-          return
-        }
-
-        this.data.interaction[this.data.interaction.length-1].response = x + 1
-
+      if (x == 0 || 
+          (x-1 >= 0 && x-1 < this.pizzas.length && 
+          this.pizzas[x-1].j && this.pizzas[x-1].count > 0)) 
+      {
         this.update(true, x, -1)
-      } else if (x == 0) {
-        this.data.interaction[this.data.interaction.length-1].response = 0
+      } else {
+        // console.log('server gives invalid response')
       }
     },
 
     clientAnswer(x) {
-      if (x > 0) {
-        x -= 1
-
-        if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count == 0) {
-          // console.log('client gives invalid response')
-          return
-        }
-
-        this.data.interaction.push({ answer: x + 1 })
-
+      if (x == 0 || 
+          (x-1 >= 0 && x-1 < this.pizzas.length && 
+          this.pizzas[x-1].d && this.pizzas[x-1].count > 0)) 
+      {
         this.update(false, x, this._choosenSlice)
-      } else if (x == 0) {
-        this.data.interaction.push({ answer: 0 })
+      } else {
+        // console.log('server gives invalid response')
       }
     },
 
-    update(juri, idx, slice) {
+    update(juri, x, slice) {
+      if (!juri) {
+        this.data.interaction.push({ answer: x })
+      } else {
+        this.data.interaction[this.data.interaction.length-1].response = x
+      }
+      if (x == 0) return
+
+      const idx = x - 1
       const pizza = this.pizzas[idx]
 
       if (slice == -1) { // find the lowest index

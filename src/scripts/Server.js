@@ -57,39 +57,34 @@ export default class Server extends Duplex {
 
   serverAnswer(x) {
     this._serverResponse = x
-    if (x > 0) {
-      x -= 1
-
-      if (x >= this.pizzas.length || !this.pizzas[x].j || this.pizzas[x].count == 0) {
-        // console.log('server gives invalid response')
-        this.error('grader salah\n')
-        return
-      }
-
+    if (x == 0 || 
+        (x-1 >= 0 && x-1 < this.pizzas.length && 
+        this.pizzas[x-1].j && this.pizzas[x-1].count > 0)) 
+    {
       this.update(true, x)
+      this.checkQuit()
+    } else {
+      this.error('grader salah\n')
     }
-    this.checkQuit()
   }
 
   clientAnswer(x) {
     this._clientResponse = x
-    if (x > 0) {
-      x -= 1
-
-      if (x >= this.pizzas.length || !this.pizzas[x].d || this.pizzas[x].count === 0) {
-        // console.log('client gives invalid response')
-        this.error('masukan salah\n')
-        return
-      }
-
+    if (x == 0 || 
+        (x-1 >= 0 && x-1 < this.pizzas.length && 
+        this.pizzas[x-1].d && this.pizzas[x-1].count > 0)) 
+    {
       this.update(false, x)
+      this.checkQuit()
+      this.getAnswer()
+    } else {
+      this.error('masukan salah\n')
     }
-    this.checkQuit()
-
-    this.getAnswer()
   }
 
-  update(juri, idx) {
+  update(juri, x) {
+    if (x == 0) return
+    const idx = x - 1
     const pizza = this.pizzas[idx]
 
     if (!juri) this.dengklek++
