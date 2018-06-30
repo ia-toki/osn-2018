@@ -30,9 +30,10 @@ Sebagai contoh, apabila label sebuah kasus uji sebuah soal adalah `0..345`, maka
 - Kasus uji tersebut merupakan contoh kasus uji, dan
 - Kasus uji tesebut memenuhi batasan subsoal ke-3, ke-4, dan ke-5.
 
-Selanjutnya, program Anda akan menerima sebuah baris berisi:
+Selanjutnya, program Anda akan menerima dua buah baris berisi:
 
     N S
+    A[1] A[2] .. A[N]
 
 dengan S menyatakan strategi pengambilan potongan pizza Pak Dengklek, dengan:
 

@@ -30,9 +30,10 @@ For example, if the label of a test case is `0..345`, then
 - The test case is a sample test case.
 - The test case satisfies the constraints of the 3rd, 4th, and 5th subtasks.
 
-Then, your program will receive a line in the following format:
+Then, your program will receive two lines in the following format:
 
     N S
+    A[1] A[2] .. A[N]
 
 with S denoting Pak Dengklek's selection strategy:
 
