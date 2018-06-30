@@ -1,13 +1,23 @@
 <template>
   <div class="terminal">
-    <div class="logs" ref="logs">
-      <el-row class="log" v-for="log in logs" :key="log.id">
-        <el-col
-          :span="12"
-          :offset="log.server ? 12 : 0">
-          <span :class="{error: log.error}">{{log.msg}}</span>
+    <div class="frame">
+      <el-row class="log header">
+        <el-col :span="12">
+          <span>Client</span>
+        </el-col>
+        <el-col :span="12">
+          <span>Server</span>
         </el-col>
       </el-row>
+      <div class="logs" ref="logs">
+        <el-row class="log" v-for="log in logs" :key="log.id">
+          <el-col
+            :span="12"
+            :offset="log.server ? 12 : 0">
+            <span :class="{error: log.error}">{{log.msg}}</span>
+          </el-col>
+        </el-row>
+      </div>
     </div>
     <el-form @submit.native.prevent="submit">
       <el-input 
@@ -97,12 +107,18 @@ export default {
   flex-direction: column;
 }
 
-.logs {
+.frame {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   border: $--border-base;
   border-radius: $--border-radius-base;
   margin-bottom: 12px;
   min-height: 100px;
+}
+
+.logs {
+  flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -110,6 +126,11 @@ export default {
 .log {
   padding: 12px 15px;
   white-space: pre-wrap;
+}
+
+.log.header {
+  font-weight: bold;
+  border-bottom: $--border-base;
 }
 
 .log + .log {
