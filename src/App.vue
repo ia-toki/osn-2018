@@ -47,9 +47,13 @@ export default {
   watch: {
     locale (value) {
       this.$i18n.locale = value
+    },
+    '$i18n.locale' (value) {
+      document.title = this.$t('title')
     }
   },
   mounted() {
+    document.title = this.$t('title')
     this.$i18n.locale = this.locale
   },
   methods: {
