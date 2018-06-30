@@ -6,36 +6,45 @@
         ref="terminal" 
         :disabled="finished"></Terminal>
     </el-aside>
-    <el-main class="main">
-      <h2>{{dengklek}} / {{juri}}</h2>
-      <el-button 
-        icon="el-icon-refresh" 
-        circle
-        @click="reset">
-      </el-button>
-      <div class="pizzas">
-        <div
-          class="pizza"
-          v-for="(pizza, idx) in pizzas"
-          :key="pizza.id">
-          <Pizza
-            @choose="choose(idx, $event)"
-            :dengklek="pizza.d"
-            :juri="pizza.j"
-            :selected="pizza.selected">
-          </Pizza>
-          <span class="pizza-text">{{idx + 1}}</span>
-        </div>
-      </div>
-      <div>
+    <el-container>
+      <el-header class="header" height="auto">
         <el-button 
-          class="pass" 
-          :disabled="finished"
-          @click="noChoose">
-          {{$t('game.pass')}}
+          class="reset"
+          icon="el-icon-refresh" 
+          circle
+          @click="reset">
         </el-button>
-      </div>
-    </el-main>
+        <h2>
+          <span class="player">Anda {{dengklek}}</span>
+          <span> / </span>
+          <span class="opponent">{{juri}} Dengklek</span>
+        </h2>
+      </el-header>
+      <el-main>
+        <div class="pizzas">
+          <div
+            class="pizza"
+            v-for="(pizza, idx) in pizzas"
+            :key="pizza.id">
+            <Pizza
+              @choose="choose(idx, $event)"
+              :dengklek="pizza.d"
+              :juri="pizza.j"
+              :selected="pizza.selected">
+            </Pizza>
+            <span class="pizza-text">{{idx + 1}}</span>
+          </div>
+        </div>
+        <div>
+          <el-button 
+            class="pass" 
+            :disabled="finished"
+            @click="noChoose">
+            {{$t('game.pass')}}
+          </el-button>
+        </div>
+      </el-main>
+    </el-container>
   </el-container>
 </template>
 
@@ -231,6 +240,14 @@ export default {
   height: 100%;
 }
 
+.header {
+  display: flex;
+}
+
+.reset {
+  margin-right: 20px;
+}
+
 .pizzas {
   display: flex;
 }
@@ -243,6 +260,14 @@ export default {
   display: block;
   font-size: 2em;
   text-align: center;
+}
+
+.player {
+  color: $--color-success;
+}
+
+.opponent {
+  color: $--color-danger;
 }
 
 </style>
