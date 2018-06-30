@@ -14,15 +14,15 @@
     </Slice>
     <text class="count" :x="size/2" :y="size/2" dominant-baseline="central" text-anchor="middle" :font-size="size/2">{{count}}</text>
     <circle 
-      v-if="!juri" 
-      class="juri"
+      v-if="dengklek" 
+      class="sign"
       :cx="size/2" :cy="size/2" :r="size/2">
     </circle>
-    <path 
-      v-if="!dengklek" 
-      class="dengklek"
-      :d="crossPath">
-    </path>
+    <rect 
+      v-if="juri" 
+      class="sign"
+      :x="0" :y="0" :width="size" :height="size">
+    </rect>
   </svg>
 </template>
 
@@ -77,9 +77,11 @@ export default {
   pointer-events: none;
 }
 
-.juri, .dengklek {
+.sign {
   fill: none;
-  stroke: $--color-danger;
+  stroke: $--color-success;
   stroke-width: $--border-width-base;
+  transform-origin: center;
+  transform: scale(0.95)
 }
 </style>
