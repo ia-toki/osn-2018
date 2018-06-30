@@ -4,8 +4,9 @@
 
 At a small village in Padang, there are N houses lined up in a row. The i-th house consists of A[i] family members.
 
-To increase the village income, the mayor is organizing a program called "GCD Festival". Every day, the mayor will pick one or more houses, then split them into exactly K groups in such a way that:
+To increase the village income, the mayor is organizing a program called "GCD Festival". Every day, the mayor will pick exactly K house groups in such a way that:
 
+- Each group consists of at least one house.
 - Each house belongs to at most one group.
 - All houses in each group are consecutive, not interleaved by any house not in that group.
 
