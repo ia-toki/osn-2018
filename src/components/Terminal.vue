@@ -3,10 +3,10 @@
     <div class="frame">
       <el-row class="log header">
         <el-col :span="12">
-          <span>Client</span>
+          <span>{{$t('game.client')}}</span>
         </el-col>
         <el-col :span="12">
-          <span>Server</span>
+          <span>{{$t('game.server')}}</span>
         </el-col>
       </el-row>
       <div class="logs" ref="logs">

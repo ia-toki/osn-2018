@@ -25,6 +25,10 @@ export default new VueI18n({
         prompt: 'Tekan Enter untuk mengirim',
         submit: 'Kirim',
         pass: 'Pass',
+        player: 'Anda',
+        opponent: 'Dengklek',
+        client: 'Client',
+        server: 'Server',
       },
       custom: {
         prompt: 'Masukan testcase, jangan lupa newline di akhir baris',
@@ -72,6 +76,10 @@ export default new VueI18n({
         prompt: 'Press Enter to submit',
         submit: 'Submit',
         pass: 'Pass',
+        player: 'You',
+        opponent: 'Dengklek',
+        client: 'Client',
+        server: 'Server',
       },
       custom: {
         prompt: 'Input testcase, don\'t forget newline in the end of line',

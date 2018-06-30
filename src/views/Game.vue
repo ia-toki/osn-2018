@@ -15,9 +15,9 @@
           @click="reset">
         </el-button>
         <h2>
-          <span class="player">Anda {{dengklek}}</span>
+          <span class="player">{{$t('game.player')}} {{dengklek}}</span>
           <span> / </span>
-          <span class="opponent">{{juri}} Dengklek</span>
+          <span class="opponent">{{juri}} {{$t('game.opponent')}}</span>
         </h2>
       </el-header>
       <el-main>
