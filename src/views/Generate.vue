@@ -51,6 +51,8 @@ import FileSaver from 'file-saver'
 import cpp_template from '../templates/cpp.handlebars'
 import pascal_template from '../templates/pascal.handlebars'
 
+const languages = ['Pascal', 'C++']
+
 const modeMap = {
   'Pascal': 'text/x-pascal',
   'C++': 'text/x-c++src',
@@ -70,7 +72,7 @@ export default {
   data() {
     return {
       tc_option: [{tc: '1', name: 'TC 1'}, {tc: '2', name: 'TC 2'}],
-      language_option: ['Pascal', 'C++'],
+      language_option: languages,
       cmOptions: {
         readOnly: true,
         mode: 'text/x-pascal',
@@ -83,7 +85,7 @@ export default {
     },
     language: {
       type: String,
-      default: 'Pascal'
+      default: languages[0]
     },
     tcs: {
       type: Array,
@@ -120,19 +122,19 @@ export default {
       })
     },
     downloadFile () {
-      // try {
+      try {
         const blob = new Blob([this.code], {type: "text/plain"})
         FileSaver.saveAs(blob, `berebut-pizza.${extensionMap[this.language]}`)
         this.$message({
           type: 'success',
           message: 'Berhasil men-download file'
         })
-      // } catch (e) {
-      //   this.$message({
-      //     type: 'error',
-      //     message: 'Tidak dapat men-download file'
-      //   })
-      // }
+      } catch (e) {
+        this.$message({
+          type: 'error',
+          message: 'Tidak dapat men-download file'
+        })
+      }
     },
     confirmDelete () {
       this.$confirm('Ini akan menghapus progress dari permainan. Lanjutkan menghapus?', 'Warning', {
