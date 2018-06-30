@@ -1,5 +1,5 @@
 <template>
-  <svg class="pizza" :width="size" :height="size">
+  <svg class="pizza" :class="{'notplayer': !dengklek, 'notopponent': !juri}" :width="size" :height="size">
     <Slice 
       v-for="(slice, idx) in selected"
       :key="slice.id"
@@ -74,6 +74,10 @@ export default {
   fill: $--color-text-placeholder;
   stroke: none;
   @include utils-user-select(none);
+  pointer-events: none;
+}
+
+.notplayer {
   pointer-events: none;
 }
 
