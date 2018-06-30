@@ -4,8 +4,9 @@
 
 Di sebuah desa kecil di Padang, terdapat N rumah yang berjajar bersebelahan membentuk sebuah garis lurus. Rumah ke-i memiliki A[i] anggota keluarga.
 
-Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festival FPB". Setiap harinya, kepala desa akan memilih satu atau lebih rumah, lalu membaginya ke dalam tepat K buah kelompok sedemikian sehingga:
+Untuk menambah pendapatan daerah, sang kepala desa mencanangkan program "Festival FPB". Setiap harinya, kepala desa akan memilih tepat K buah kelompok rumah sedemikian sehingga:
 
+- Setiap kelompok terdiri dari setidaknya satu rumah.
 - Setiap rumah termasuk ke dalam paling banyak satu kelompok.
 - Semua rumah dalam setiap kelompok yang sama terletak saling bersebelahan, tidak diselingin oleh rumah lain yang bukan merupakan kelompok tersebut.
 
