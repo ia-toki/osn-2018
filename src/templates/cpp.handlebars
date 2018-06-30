@@ -1,8 +1,8 @@
 #include <cstdio>
 
-int N, S, D, J, grader;
+int N, S, P, Q, grader;
 char header[20];
-int A[11], Ds[11], Js[11];
+int A[11], X[11], Y[11];
 
 int main() {
     scanf("%s", header);
@@ -15,11 +15,11 @@ int main() {
         scanf("%d %d", &N, &S); // N = {{N}}, S = {{S}}
         for (int i = 1; i <= N; i++) scanf("%d", &A[i]); // A = {{printList A}}
 
-        scanf("%d", &D); // D = {{D}}
-        for (int i = 1; i <= D; i++) scanf("%d", &Ds[i]); // Ds = {{printList Ds}}
+        scanf("%d", &P); // P = {{D}}
+        for (int i = 1; i <= P; i++) scanf("%d", &X[i]); // X = {{printList Ds}}
 
-        scanf("%d", &J); // J = {{J}}
-        for (int i = 1; i <= J; i++) scanf("%d", &Js[i]); // Js = {{printList Js}}
+        scanf("%d", &Q); // Q = {{J}}
+        for (int i = 1; i <= Q; i++) scanf("%d", &Y[i]); // Y = {{printList Js}}
 
         {{#each interaction}}
         printf("{{answer}}\n");

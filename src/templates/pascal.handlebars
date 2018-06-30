@@ -1,7 +1,7 @@
 var
-    N, S, D, J, i, grader: integer;
+    N, S, P, Q, i, grader: integer;
     header: string;
-    A, Ds, Js: array [1..10] of integer;
+    A, X, Y: array [1..10] of integer;
 
 begin
     readln(header);
@@ -14,11 +14,11 @@ begin
         readln(N, S); // N = {{N}}, S = {{S}}
         for i := 1 to N do read(A[i]); // A = {{printList A}}
         
-        read(D); // D = {{D}}
-        for i := 1 to D do read(Ds[i]); // Ds = {{printList Ds}}
+        read(P); // P = {{D}}
+        for i := 1 to P do read(X[i]); // X = {{printList Ds}}
 
-        read(J); // J = {{J}}
-        for i := 1 to J do read(Js[i]); // Js = {{printList Js}}
+        read(Q); // Q = {{J}}
+        for i := 1 to Q do read(Y[i]); // Y = {{printList Js}}
 
         {{#each interaction}}
         writeln({{answer}});
