@@ -13,7 +13,7 @@
         <el-menu-item index="/custom">{{$t('pages.custom')}}</el-menu-item>
         <el-menu-item index="/generate">{{$t('pages.generate')}}</el-menu-item>
       </el-menu>
-      <el-radio-group class="locale" v-model="locale">
+      <el-radio-group class="locale" v-model="locale" size="mini">
         <el-radio-button label="id">ID</el-radio-button>
         <el-radio-button label="en">EN</el-radio-button>
       </el-radio-group>
@@ -89,7 +89,7 @@ body {
 }
 
 .locale {
-  margin-left: 32px;
+  margin-left: 20px;
 }
 
 </style>
