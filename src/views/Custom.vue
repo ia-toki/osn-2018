@@ -87,6 +87,8 @@ export default {
       input.write(value)
       const interpreter = new ServerInterpreter(input)
 
+      const unique = (value, index, self) => self.indexOf(value) == index
+
       let err = ['Format testcase tidak benar\n(Tips: jangan lupa newline di akhir baris)']
       interpreter.init = (conf) => {
         err = []
@@ -102,32 +104,30 @@ export default {
           }
         })
         if (!(0 <= conf.D && conf.D <= conf.N)) {
-          err.push('0 <= D <= N.')
+          err.push('0 <= P <= N.')
         }
         if (!(0 <= conf.J && conf.J <= conf.N)) {
-          err.push('0 <= J <= N.')
+          err.push('0 <= Q <= N.')
         }
 
         conf.Didx.forEach((v, i) => {
           if (!(1 <= v && v <= conf.N)) {
-            err.push(`1 <= Ds_${i+1} <= N.`)
+            err.push(`1 <= X_${i+1} <= N.`)
           }
         })
 
-        const unique = (value, index, self) => self.indexOf(value) == index
-
         if (!(conf.Didx.length == conf.Didx.filter(unique).length)) {
-          err.push('Pizza Dengklek harus unik.')
+          err.push('Pizza Anda harus unik.')
         }
 
         conf.Jidx.forEach((v, i) => {
           if (!(1 <= v && v <= conf.N)) {
-            err.push(`1 <= Js_${i+1} <= N.`)
+            err.push(`1 <= Y_${i+1} <= N.`)
           }
         })
 
         if (!(conf.Jidx.length == conf.Jidx.filter(unique).length)) {
-          err.push('Pizza Juri harus unik.')
+          err.push('Pizza Dengklek harus unik.')
         }
 
       }
