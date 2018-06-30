@@ -39,6 +39,21 @@ export default new VueI18n({
         copy: 'Copy',
         download: 'Download',
         delete: 'Hapus Semua Progress',
+        copyMessage: {
+          success: 'Berhasil men-copy ke clipboard',
+          error: 'Tidak dapat men-copy ke clipboard',
+        },
+        downloadMessage: {
+          success: 'Berhasil men-download file',
+          error: 'Tidak dapat men-download file',
+        },
+        deleteWarning: {
+          title: 'Warning',
+          body: 'Ini akan menghapus progress dari permainan. Lanjutkan menghapus?',
+          confirm: 'Iya',
+          cancel: 'Batal',
+          success: 'Progress berhasil dihapus',
+        },
       },
     },
     en: {
@@ -71,6 +86,21 @@ export default new VueI18n({
         copy: 'Copy',
         download: 'Download',
         delete: 'Delete All Progress',
+        copyMessage: {
+          success: 'Success copying to clipboard',
+          error: 'Error copying to clipboard',
+        },
+        downloadMessage: {
+          success: 'Success downloading file',
+          error: 'Error downloading file',
+        },
+        deleteWarning: {
+          title: 'Warning',
+          body: 'All progress will be deleted. Continue deleting?',
+          confirm: 'Yes',
+          cancel: 'Cancel',
+          success: 'Progress deleted',
+        },
       },
     },
   }

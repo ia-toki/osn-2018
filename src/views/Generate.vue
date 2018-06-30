@@ -115,12 +115,12 @@ export default {
       this.$copyText(this.code).then(() => {
         this.$message({
           type: 'success',
-          message: 'Berhasil men-copy ke clipboard'
+          message: this.$t('generate.copyMessage.success')
         })
       }).catch(() => {
         this.$message({
           type: 'error',
-          message: 'Tidak dapat men-copy ke clipboard'
+          message: this.$t('generate.copyMessage.error')
         })
       })
     },
@@ -130,26 +130,26 @@ export default {
         FileSaver.saveAs(blob, `berebut-pizza.${extensionMap[this.language]}`)
         this.$message({
           type: 'success',
-          message: 'Berhasil men-download file'
+          message: this.$t('generate.downloadMessage.success')
         })
       } catch (e) {
         this.$message({
           type: 'error',
-          message: 'Tidak dapat men-download file'
+          message: this.$t('generate.downloadMessage.error')
         })
       }
     },
     confirmDelete () {
-      this.$confirm('Ini akan menghapus progress dari permainan. Lanjutkan menghapus?', 'Warning', {
-        confirmButtonText: 'Iya',
-        cancelButtonText: 'Batal',
+      this.$confirm(this.$t('generate.deleteWarning.body'), this.$t('generate.deleteWarning.title'), {
+        confirmButtonText: this.$t('generate.deleteWarning.confirm'),
+        cancelButtonText: this.$t('generate.deleteWarning.cancel'),
         type: 'warning'
       }).then(() => {
         this.tcs = []
         this.data = {}
         this.$message({
           type: 'success',
-          message: 'Progress berhasil dihapus'
+          message: this.$t('generate.deleteWarning.success')
         })
       })
     }
