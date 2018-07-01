@@ -1,6 +1,11 @@
+const baseUrl = '/'
+
 const WebpackObfuscator = require('webpack-obfuscator')
 
 module.exports = {
+  baseUrl: process.env.NODE_ENV === 'production'
+    ? baseUrl
+    : '/',
   productionSourceMap: false,
   configureWebpack: {
     module: {
