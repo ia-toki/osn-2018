@@ -416,6 +416,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     CASE(HEADER=header; cheapOpang(2, 100, 1, TEN<8>, 20, 100, TEN<6>, TEN<8>));
     CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
     CASE(HEADER=header; coveredByOpang(10, 100, 1, TEN<8>, 11, 100, 11, TEN<8>));
+    CASE(HEADER=header; special5TLE(true));
+    CASE(HEADER=header; special5TLE(false));
 
     commonGraph(header, false, false, 10, 10, 100, 100, 100, 11, TEN<8>);
   }
@@ -674,6 +676,35 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
     V = {1, 2, 3, 4};
     K = {4, 13, 3, 3};
     X = {1, 0, 1, 1};
+  }
+
+  void special5TLE(bool cheapOpang) {  // otherwise cheap gojek
+    N = 100;
+    M = N * (N - 1) / 2;
+    S = 0;
+    T = N - 1;
+    if (cheapOpang) {
+      Cg = 5; Mg = 10;
+      Co = 449; Mo = 100;
+    } else {
+      Cg = 5; Mg = 10;
+      Co = 549; Mo = 100;
+    }
+    for (int i = 0; i < N; i++) {
+      for (int j = i + 1; j < N; j++) {
+        if (j == N - 1) {
+          U.push_back(i);
+          V.push_back(j);
+          K.push_back(TEN<7> + rnd.nextInt(-5, 5));
+          X.push_back(0);
+        } else {
+          U.push_back(i);
+          V.push_back(j);
+          K.push_back(TEN<5> + rnd.nextInt(-5, 5));
+          X.push_back(0);
+        }
+      }
+    }
   }
 
   void applyPermutation() {
