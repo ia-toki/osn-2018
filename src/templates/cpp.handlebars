@@ -1,0 +1,41 @@
+#include <cstdio>
+
+int N, S, P, Q, grader;
+char header[20];
+int A[11], X[11], Y[11];
+
+int main() {
+    scanf("%s", header);
+
+    {{#ifCond data.length '==' 0}}
+    // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    {{else}}
+    {{#each data}}
+    {{#ifCond data.length '>' 0}}else {{/ifCond}}if (header[{{testcase}}] = '{{testcase}}') {
+        scanf("%d %d", &N, &S); // N = {{N}}, S = {{S}}
+        for (int i = 1; i <= N; i++) scanf("%d", &A[i]); // A = {{printList A}}
+
+        scanf("%d", &P); // P = {{D}}
+        for (int i = 1; i <= P; i++) scanf("%d", &X[i]); // X = {{printList Ds}}
+
+        scanf("%d", &Q); // Q = {{J}}
+        for (int i = 1; i <= Q; i++) scanf("%d", &Y[i]); // Y = {{printList Js}}
+
+        {{#each interaction}}
+        printf("{{answer}}\n");
+        fflush(stdout);
+        {{#ifCond response '!=' null}}
+        scanf("%d", &grader); // grader = {{response}}
+        {{/ifCond}}
+
+        {{/each}}
+    }
+    {{/each}}
+    else {
+
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+
+    }
+    {{/ifCond}}
+
+}

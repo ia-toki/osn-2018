@@ -1,0 +1,39 @@
+var
+    N, S, P, Q, i, grader: integer;
+    header: string;
+    A, X, Y: array [1..10] of integer;
+
+begin
+    readln(header);
+
+    {{#ifCond data.length '==' 0}}
+    // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+    {{else}}
+    {{#each data}}
+    {{#ifCond data.length '>' 0}}else {{/ifCond}}if (header[{{math testcase '+' 1}}] = '{{testcase}}') then begin
+        readln(N, S); // N = {{N}}, S = {{S}}
+        for i := 1 to N do read(A[i]); // A = {{printList A}}
+        
+        read(P); // P = {{D}}
+        for i := 1 to P do read(X[i]); // X = {{printList Ds}}
+
+        read(Q); // Q = {{J}}
+        for i := 1 to Q do read(Y[i]); // Y = {{printList Js}}
+
+        {{#each interaction}}
+        writeln({{answer}});
+        flush(output);
+        {{#ifCond response '!=' null}}
+        readln(grader); // grader = {{response}}
+        {{/ifCond}}
+
+        {{/each}}
+    end
+    {{/each}}
+    else begin
+
+        // Tulis kode Anda di bagian ini untuk subtask-subtask lainnya.
+
+    end;
+    {{/ifCond}}
+end.
